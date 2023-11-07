@@ -1,4 +1,4 @@
-# OpenAI::CreateAssistantRequest
+# OpenAIClient::CreateAssistantRequest
 
 ## Properties
 Name | Type | Description | Notes

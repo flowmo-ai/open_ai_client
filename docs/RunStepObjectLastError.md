@@ -1,4 +1,4 @@
-# OpenAI::RunStepObjectLastError
+# OpenAIClient::RunStepObjectLastError
 
 ## Properties
 Name | Type | Description | Notes

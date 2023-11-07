@@ -1,4 +1,4 @@
-# OpenAI::FineTuningJobError
+# OpenAIClient::FineTuningJobError
 
 ## Properties
 Name | Type | Description | Notes

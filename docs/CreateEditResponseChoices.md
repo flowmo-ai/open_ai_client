@@ -1,4 +1,4 @@
-# OpenAI::CreateEditResponseChoices
+# OpenAIClient::CreateEditResponseChoices
 
 ## Properties
 Name | Type | Description | Notes

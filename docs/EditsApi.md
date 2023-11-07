@@ -1,4 +1,4 @@
-# OpenAI::EditsApi
+# OpenAIClient::EditsApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -14,20 +14,20 @@ Creates a new edit for the provided input, instruction, and parameters.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::EditsApi.new
-body = OpenAI::CreateEditRequest.new # CreateEditRequest | 
+api_instance = OpenAIClient::EditsApi.new
+body = OpenAIClient::CreateEditRequest.new # CreateEditRequest | 
 
 
 begin
   #Creates a new edit for the provided input, instruction, and parameters.
   result = api_instance.create_edit(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling EditsApi->create_edit: #{e}"
 end
 ```

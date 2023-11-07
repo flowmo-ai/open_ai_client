@@ -1,4 +1,4 @@
-# OpenAI::CreateTranscriptionRequest
+# OpenAIClient::CreateTranscriptionRequest
 
 ## Properties
 Name | Type | Description | Notes

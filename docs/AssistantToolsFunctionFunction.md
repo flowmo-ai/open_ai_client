@@ -1,4 +1,4 @@
-# OpenAI::AssistantToolsFunctionFunction
+# OpenAIClient::AssistantToolsFunctionFunction
 
 ## Properties
 Name | Type | Description | Notes

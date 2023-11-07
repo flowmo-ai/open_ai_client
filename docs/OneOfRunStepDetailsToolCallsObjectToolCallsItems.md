@@ -1,4 +1,4 @@
-# OpenAI::OneOfRunStepDetailsToolCallsObjectToolCallsItems
+# OpenAIClient::OneOfRunStepDetailsToolCallsObjectToolCallsItems
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# OpenAI::CreateImageRequest
+# OpenAIClient::CreateImageRequest
 
 ## Properties
 Name | Type | Description | Notes

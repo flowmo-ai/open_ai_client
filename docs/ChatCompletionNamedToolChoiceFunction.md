@@ -1,4 +1,4 @@
-# OpenAI::ChatCompletionNamedToolChoiceFunction
+# OpenAIClient::ChatCompletionNamedToolChoiceFunction
 
 ## Properties
 Name | Type | Description | Notes

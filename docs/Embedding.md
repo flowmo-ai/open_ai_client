@@ -1,4 +1,4 @@
-# OpenAI::Embedding
+# OpenAIClient::Embedding
 
 ## Properties
 Name | Type | Description | Notes

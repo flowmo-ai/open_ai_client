@@ -1,4 +1,4 @@
-# OpenAI::AssistantFileObject
+# OpenAIClient::AssistantFileObject
 
 ## Properties
 Name | Type | Description | Notes

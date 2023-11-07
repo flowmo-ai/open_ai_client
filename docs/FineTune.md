@@ -1,4 +1,4 @@
-# OpenAI::FineTune
+# OpenAIClient::FineTune
 
 ## Properties
 Name | Type | Description | Notes

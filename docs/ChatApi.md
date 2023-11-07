@@ -1,4 +1,4 @@
-# OpenAI::ChatApi
+# OpenAIClient::ChatApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -14,20 +14,20 @@ Creates a model response for the given chat conversation.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ChatApi.new
-body = OpenAI::CreateChatCompletionRequest.new # CreateChatCompletionRequest | 
+api_instance = OpenAIClient::ChatApi.new
+body = OpenAIClient::CreateChatCompletionRequest.new # CreateChatCompletionRequest | 
 
 
 begin
   #Creates a model response for the given chat conversation.
   result = api_instance.create_chat_completion(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ChatApi->create_chat_completion: #{e}"
 end
 ```

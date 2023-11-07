@@ -1,4 +1,4 @@
-# OpenAI::RunStepDetailsToolCallsCodeObject
+# OpenAIClient::RunStepDetailsToolCallsCodeObject
 
 ## Properties
 Name | Type | Description | Notes

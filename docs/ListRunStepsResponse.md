@@ -1,4 +1,4 @@
-# OpenAI::ListRunStepsResponse
+# OpenAIClient::ListRunStepsResponse
 
 ## Properties
 Name | Type | Description | Notes

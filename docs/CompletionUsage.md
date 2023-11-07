@@ -1,4 +1,4 @@
-# OpenAI::CompletionUsage
+# OpenAIClient::CompletionUsage
 
 ## Properties
 Name | Type | Description | Notes

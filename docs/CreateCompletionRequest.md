@@ -1,4 +1,4 @@
-# OpenAI::CreateCompletionRequest
+# OpenAIClient::CreateCompletionRequest
 
 ## Properties
 Name | Type | Description | Notes

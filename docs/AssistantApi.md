@@ -1,4 +1,4 @@
-# OpenAI::AssistantApi
+# OpenAIClient::AssistantApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -14,13 +14,13 @@ Modifies an assistant.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantApi.new
-body = OpenAI::ModifyAssistantRequest.new # ModifyAssistantRequest | 
+api_instance = OpenAIClient::AssistantApi.new
+body = OpenAIClient::ModifyAssistantRequest.new # ModifyAssistantRequest | 
 assistant_id = 'assistant_id_example' # String | The ID of the assistant to modify.
 
 
@@ -28,7 +28,7 @@ begin
   #Modifies an assistant.
   result = api_instance.modify_assistant(bodyassistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantApi->modify_assistant: #{e}"
 end
 ```

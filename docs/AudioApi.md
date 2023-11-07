@@ -1,4 +1,4 @@
-# OpenAI::AudioApi
+# OpenAIClient::AudioApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -16,20 +16,20 @@ Generates audio from the input text.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AudioApi.new
-body = OpenAI::CreateSpeechRequest.new # CreateSpeechRequest | 
+api_instance = OpenAIClient::AudioApi.new
+body = OpenAIClient::CreateSpeechRequest.new # CreateSpeechRequest | 
 
 
 begin
   #Generates audio from the input text.
   result = api_instance.create_speech(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_speech: #{e}"
 end
 ```
@@ -63,25 +63,25 @@ Transcribes audio into the input language.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AudioApi.new
+api_instance = OpenAIClient::AudioApi.new
 file = 'file_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 language = 'language_example' # String | 
 prompt = 'prompt_example' # String | 
 response_format = 'response_format_example' # String | 
-temperature = OpenAI::BigDecimal.new # BigDecimal | 
+temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
 
 
 begin
   #Transcribes audio into the input language.
   result = api_instance.create_transcription(filemodellanguagepromptresponse_formattemperature)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_transcription: #{e}"
 end
 ```
@@ -120,24 +120,24 @@ Translates audio into English.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AudioApi.new
+api_instance = OpenAIClient::AudioApi.new
 file = 'file_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 prompt = 'prompt_example' # String | 
 response_format = 'response_format_example' # String | 
-temperature = OpenAI::BigDecimal.new # BigDecimal | 
+temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
 
 
 begin
   #Translates audio into English.
   result = api_instance.create_translation(filemodelpromptresponse_formattemperature)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_translation: #{e}"
 end
 ```

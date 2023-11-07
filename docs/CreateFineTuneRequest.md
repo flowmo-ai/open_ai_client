@@ -1,4 +1,4 @@
-# OpenAI::CreateFineTuneRequest
+# OpenAIClient::CreateFineTuneRequest
 
 ## Properties
 Name | Type | Description | Notes

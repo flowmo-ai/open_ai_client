@@ -1,4 +1,4 @@
-# OpenAI::SubmitToolOutputsRunRequest
+# OpenAIClient::SubmitToolOutputsRunRequest
 
 ## Properties
 Name | Type | Description | Notes

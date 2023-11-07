@@ -1,4 +1,4 @@
-# OpenAI::MessageContentTextAnnotationsFileCitationObject
+# OpenAIClient::MessageContentTextAnnotationsFileCitationObject
 
 ## Properties
 Name | Type | Description | Notes

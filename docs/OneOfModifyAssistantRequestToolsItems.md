@@ -1,4 +1,4 @@
-# OpenAI::OneOfModifyAssistantRequestToolsItems
+# OpenAIClient::OneOfModifyAssistantRequestToolsItems
 
 ## Properties
 Name | Type | Description | Notes

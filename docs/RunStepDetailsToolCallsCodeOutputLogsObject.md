@@ -1,4 +1,4 @@
-# OpenAI::RunStepDetailsToolCallsCodeOutputLogsObject
+# OpenAIClient::RunStepDetailsToolCallsCodeOutputLogsObject
 
 ## Properties
 Name | Type | Description | Notes

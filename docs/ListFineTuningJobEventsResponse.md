@@ -1,4 +1,4 @@
-# OpenAI::ListFineTuningJobEventsResponse
+# OpenAIClient::ListFineTuningJobEventsResponse
 
 ## Properties
 Name | Type | Description | Notes

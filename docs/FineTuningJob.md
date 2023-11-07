@@ -1,4 +1,4 @@
-# OpenAI::FineTuningJob
+# OpenAIClient::FineTuningJob
 
 ## Properties
 Name | Type | Description | Notes

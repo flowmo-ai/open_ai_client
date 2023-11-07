@@ -1,4 +1,4 @@
-# OpenAI::OneOfRunStepObjectStepDetails
+# OpenAIClient::OneOfRunStepObjectStepDetails
 
 ## Properties
 Name | Type | Description | Notes

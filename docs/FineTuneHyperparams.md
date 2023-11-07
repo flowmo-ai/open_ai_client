@@ -1,4 +1,4 @@
-# OpenAI::FineTuneHyperparams
+# OpenAIClient::FineTuneHyperparams
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,6 +1,6 @@
-# open_ai
+# open_ai_client
 
-OpenAI - the Ruby gem for the OpenAI API
+OpenAIClient - the Ruby gem for the OpenAI API
 
 The OpenAI REST API. Please see https://platform.openai.com/docs/api-reference for more details.
 
@@ -18,27 +18,27 @@ For more information, please visit [https://help.openai.com/](https://help.opena
 To build the Ruby code into a gem:
 
 ```shell
-gem build open_ai.gemspec
+gem build open_ai_client.gemspec
 ```
 
 Then either install the gem locally:
 
 ```shell
-gem install ./open_ai-1.0.0.gem
+gem install ./open_ai_client-1.0.0.gem
 ```
-(for development, run `gem install --dev ./open_ai-1.0.0.gem` to install the development dependencies)
+(for development, run `gem install --dev ./open_ai_client-1.0.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'open_ai', '~> 1.0.0'
+    gem 'open_ai_client', '~> 1.0.0'
 
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
 
-    gem 'open_ai', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+    gem 'open_ai_client', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
 
 ### Include the Ruby code directly
 
@@ -53,13 +53,13 @@ ruby -Ilib script.rb
 Please follow the [installation](#installation) procedure and then run the following code:
 ```ruby
 # Load the gem
-require 'open_ai'
+require 'open_ai_client'
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantApi.new
-body = OpenAI::ModifyAssistantRequest.new # ModifyAssistantRequest | 
+api_instance = OpenAIClient::AssistantApi.new
+body = OpenAIClient::ModifyAssistantRequest.new # ModifyAssistantRequest | 
 assistant_id = 'assistant_id_example' # String | The ID of the assistant to modify.
 
 
@@ -67,14 +67,14 @@ begin
   #Modifies an assistant.
   result = api_instance.modify_assistant(body, assistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantApi->modify_assistant: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which this run belongs.
 run_id = 'run_id_example' # String | The ID of the run to cancel.
 
@@ -83,30 +83,30 @@ begin
   #Cancels a run that is `in_progress`.
   result = api_instance.cancel_run(thread_id, run_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->cancel_run: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateAssistantRequest.new # CreateAssistantRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateAssistantRequest.new # CreateAssistantRequest | 
 
 
 begin
   #Create an assistant with a model and instructions.
   result = api_instance.create_assistant(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_assistant: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateAssistantFileRequest.new # CreateAssistantFileRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateAssistantFileRequest.new # CreateAssistantFileRequest | 
 assistant_id = 'assistant_id_example' # String | The ID of the assistant for which to create a File. 
 
 
@@ -114,15 +114,15 @@ begin
   #Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
   result = api_instance.create_assistant_file(body, assistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_assistant_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateMessageRequest.new # CreateMessageRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateMessageRequest.new # CreateMessageRequest | 
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to create a message for.
 
 
@@ -130,15 +130,15 @@ begin
   #Create a message.
   result = api_instance.create_message(body, thread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_message: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateRunRequest.new # CreateRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateRunRequest.new # CreateRunRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to run.
 
 
@@ -146,44 +146,44 @@ begin
   #Create a run.
   result = api_instance.create_run(body, thread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_run: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateThreadRequest.new # CreateThreadRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
 
 
 begin
   #Create a thread.
   result = api_instance.create_thread(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateThreadAndRunRequest.new # CreateThreadAndRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateThreadAndRunRequest.new # CreateThreadAndRunRequest | 
 
 
 begin
   #Create a thread and run it in one request.
   result = api_instance.create_thread_and_run(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread_and_run: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant to delete.
 
 
@@ -191,14 +191,14 @@ begin
   #Delete an assistant.
   result = api_instance.delete_assistant(assistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->delete_assistant: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant that the file belongs to.
 file_id = 'file_id_example' # String | The ID of the file to delete.
 
@@ -207,14 +207,14 @@ begin
   #Delete an assistant file.
   result = api_instance.delete_assistant_file(assistant_id, file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->delete_assistant_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to delete.
 
 
@@ -222,14 +222,14 @@ begin
   #Delete a thread.
   result = api_instance.delete_thread(thread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->delete_thread: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant to retrieve.
 
 
@@ -237,14 +237,14 @@ begin
   #Retrieves an assistant.
   result = api_instance.get_assistant(assistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_assistant: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant who the file belongs to.
 file_id = 'file_id_example' # String | The ID of the file we're getting.
 
@@ -253,14 +253,14 @@ begin
   #Retrieves an AssistantFile.
   result = api_instance.get_assistant_file(assistant_id, file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_assistant_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to which this message belongs.
 message_id = 'message_id_example' # String | The ID of the message to retrieve.
 
@@ -269,14 +269,14 @@ begin
   #Retrieve a message.
   result = api_instance.get_message(thread_id, message_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_message: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which the message and File belong.
 message_id = 'message_id_example' # String | The ID of the message the file belongs to.
 file_id = 'file_id_example' # String | The ID of the file being retrieved.
@@ -286,14 +286,14 @@ begin
   #Retrieves a message file.
   result = api_instance.get_message_file(thread_id, message_id, file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_message_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) that was run.
 run_id = 'run_id_example' # String | The ID of the run to retrieve.
 
@@ -302,14 +302,14 @@ begin
   #Retrieves a run.
   result = api_instance.get_run(thread_id, run_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_run: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which the run and run step belongs.
 run_id = 'run_id_example' # String | The ID of the run to which the run step belongs.
 step_id = 'step_id_example' # String | The ID of the run step to retrieve.
@@ -319,14 +319,14 @@ begin
   #Retrieves a run step.
   result = api_instance.get_run_step(thread_id, run_id, step_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_run_step: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to retrieve.
 
 
@@ -334,14 +334,14 @@ begin
   #Retrieves a thread.
   result = api_instance.get_thread(thread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_thread: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant the file belongs to.
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
@@ -354,14 +354,14 @@ begin
   #Returns a list of assistant files.
   result = api_instance.list_assistant_files(assistant_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_assistant_files: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
@@ -373,14 +373,14 @@ begin
   #Returns a list of assistants.
   result = api_instance.list_assistants(opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_assistants: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread that the message and files belong to.
 message_id = 'message_id_example' # String | The ID of the message that the files belongs to.
 opts = { 
@@ -394,14 +394,14 @@ begin
   #Returns a list of message files.
   result = api_instance.list_message_files(thread_id, message_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_message_files: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) the messages belong to.
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
@@ -414,14 +414,14 @@ begin
   #Returns a list of messages for a given thread.
   result = api_instance.list_messages(thread_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_messages: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread the run and run steps belong to.
 run_id = 'run_id_example' # String | The ID of the run the run steps belong to.
 opts = { 
@@ -435,14 +435,14 @@ begin
   #Returns a list of run steps belonging to a run.
   result = api_instance.list_run_steps(thread_id, run_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_run_steps: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread the run belongs to.
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
@@ -455,15 +455,15 @@ begin
   #Returns a list of runs belonging to a thread.
   result = api_instance.list_runs(thread_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_runs: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::ModifyMessageRequest.new # ModifyMessageRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyMessageRequest.new # ModifyMessageRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to which this message belongs.
 message_id = 'message_id_example' # String | The ID of the message to modify.
 
@@ -472,15 +472,15 @@ begin
   #Modifies a message.
   result = api_instance.modify_message(body, thread_id, message_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->modify_message: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::ModifyRunRequest.new # ModifyRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyRunRequest.new # ModifyRunRequest | 
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) that was run.
 run_id = 'run_id_example' # String | The ID of the run to modify.
 
@@ -489,15 +489,15 @@ begin
   #Modifies a run.
   result = api_instance.modify_run(body, thread_id, run_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->modify_run: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::ModifyThreadRequest.new # ModifyThreadRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyThreadRequest.new # ModifyThreadRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to modify. Only the `metadata` can be modified.
 
 
@@ -505,15 +505,15 @@ begin
   #Modifies a thread.
   result = api_instance.modify_thread(body, thread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->modify_thread: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::SubmitToolOutputsRunRequest.new # SubmitToolOutputsRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::SubmitToolOutputsRunRequest.new # SubmitToolOutputsRunRequest | 
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.
 run_id = 'run_id_example' # String | The ID of the run that requires the tool output submission.
 
@@ -522,128 +522,128 @@ begin
   #When a run has the `status: \"requires_action\"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request. 
   result = api_instance.submit_tool_ouputs_to_run(body, thread_id, run_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->submit_tool_ouputs_to_run: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AudioApi.new
-body = OpenAI::CreateSpeechRequest.new # CreateSpeechRequest | 
+api_instance = OpenAIClient::AudioApi.new
+body = OpenAIClient::CreateSpeechRequest.new # CreateSpeechRequest | 
 
 
 begin
   #Generates audio from the input text.
   result = api_instance.create_speech(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_speech: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AudioApi.new
+api_instance = OpenAIClient::AudioApi.new
 file = 'file_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 language = 'language_example' # String | 
 prompt = 'prompt_example' # String | 
 response_format = 'response_format_example' # String | 
-temperature = OpenAI::BigDecimal.new # BigDecimal | 
+temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
 
 
 begin
   #Transcribes audio into the input language.
   result = api_instance.create_transcription(file, model, language, prompt, response_format, temperature)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_transcription: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AudioApi.new
+api_instance = OpenAIClient::AudioApi.new
 file = 'file_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 prompt = 'prompt_example' # String | 
 response_format = 'response_format_example' # String | 
-temperature = OpenAI::BigDecimal.new # BigDecimal | 
+temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
 
 
 begin
   #Translates audio into English.
   result = api_instance.create_translation(file, model, prompt, response_format, temperature)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_translation: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ChatApi.new
-body = OpenAI::CreateChatCompletionRequest.new # CreateChatCompletionRequest | 
+api_instance = OpenAIClient::ChatApi.new
+body = OpenAIClient::CreateChatCompletionRequest.new # CreateChatCompletionRequest | 
 
 
 begin
   #Creates a model response for the given chat conversation.
   result = api_instance.create_chat_completion(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ChatApi->create_chat_completion: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::CompletionsApi.new
-body = OpenAI::CreateCompletionRequest.new # CreateCompletionRequest | 
+api_instance = OpenAIClient::CompletionsApi.new
+body = OpenAIClient::CreateCompletionRequest.new # CreateCompletionRequest | 
 
 
 begin
   #Creates a completion for the provided prompt and parameters.
   result = api_instance.create_completion(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling CompletionsApi->create_completion: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::EditsApi.new
-body = OpenAI::CreateEditRequest.new # CreateEditRequest | 
+api_instance = OpenAIClient::EditsApi.new
+body = OpenAIClient::CreateEditRequest.new # CreateEditRequest | 
 
 
 begin
   #Creates a new edit for the provided input, instruction, and parameters.
   result = api_instance.create_edit(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling EditsApi->create_edit: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::EmbeddingsApi.new
-body = OpenAI::CreateEmbeddingRequest.new # CreateEmbeddingRequest | 
+api_instance = OpenAIClient::EmbeddingsApi.new
+body = OpenAIClient::CreateEmbeddingRequest.new # CreateEmbeddingRequest | 
 
 
 begin
   #Creates an embedding vector representing the input text.
   result = api_instance.create_embedding(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling EmbeddingsApi->create_embedding: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FilesApi.new
+api_instance = OpenAIClient::FilesApi.new
 file = 'file_example' # String | 
 purpose = 'purpose_example' # String | 
 
@@ -652,14 +652,14 @@ begin
   #Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
   result = api_instance.create_file(file, purpose)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FilesApi->create_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FilesApi.new
+api_instance = OpenAIClient::FilesApi.new
 file_id = 'file_id_example' # String | The ID of the file to use for this request.
 
 
@@ -667,14 +667,14 @@ begin
   #Delete a file.
   result = api_instance.delete_file(file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FilesApi->delete_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FilesApi.new
+api_instance = OpenAIClient::FilesApi.new
 file_id = 'file_id_example' # String | The ID of the file to use for this request.
 
 
@@ -682,14 +682,14 @@ begin
   #Returns the contents of the specified file.
   result = api_instance.download_file(file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FilesApi->download_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FilesApi.new
+api_instance = OpenAIClient::FilesApi.new
 opts = { 
   purpose: 'purpose_example' # String | Only return files with the given purpose.
 }
@@ -698,14 +698,14 @@ begin
   #Returns a list of files that belong to the user's organization.
   result = api_instance.list_files(opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FilesApi->list_files: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FilesApi.new
+api_instance = OpenAIClient::FilesApi.new
 file_id = 'file_id_example' # String | The ID of the file to use for this request.
 
 
@@ -713,14 +713,14 @@ begin
   #Returns information about a specific file.
   result = api_instance.retrieve_file(file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FilesApi->retrieve_file: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTunesApi.new
+api_instance = OpenAIClient::FineTunesApi.new
 fine_tune_id = 'fine_tune_id_example' # String | The ID of the fine-tune job to cancel 
 
 
@@ -728,29 +728,29 @@ begin
   #Immediately cancel a fine-tune job. 
   result = api_instance.cancel_fine_tune(fine_tune_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTunesApi->cancel_fine_tune: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTunesApi.new
-body = OpenAI::CreateFineTuneRequest.new # CreateFineTuneRequest | 
+api_instance = OpenAIClient::FineTunesApi.new
+body = OpenAIClient::CreateFineTuneRequest.new # CreateFineTuneRequest | 
 
 
 begin
   #Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
   result = api_instance.create_fine_tune(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTunesApi->create_fine_tune: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTunesApi.new
+api_instance = OpenAIClient::FineTunesApi.new
 fine_tune_id = 'fine_tune_id_example' # String | The ID of the fine-tune job to get events for. 
 opts = { 
   stream: false # BOOLEAN | Whether to stream events for the fine-tune job. If set to true, events will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available. The stream will terminate with a `data: [DONE]` message when the job is finished (succeeded, cancelled, or failed).  If set to false, only events generated so far will be returned. 
@@ -760,27 +760,27 @@ begin
   #Get fine-grained status updates for a fine-tune job. 
   result = api_instance.list_fine_tune_events(fine_tune_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTunesApi->list_fine_tune_events: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTunesApi.new
+api_instance = OpenAIClient::FineTunesApi.new
 
 begin
   #List your organization's fine-tuning jobs 
   result = api_instance.list_fine_tunes
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTunesApi->list_fine_tunes: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTunesApi.new
+api_instance = OpenAIClient::FineTunesApi.new
 fine_tune_id = 'fine_tune_id_example' # String | The ID of the fine-tune job 
 
 
@@ -788,14 +788,14 @@ begin
   #Gets info about the fine-tune job.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
   result = api_instance.retrieve_fine_tune(fine_tune_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTunesApi->retrieve_fine_tune: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job to cancel. 
 
 
@@ -803,29 +803,29 @@ begin
   #Immediately cancel a fine-tune job. 
   result = api_instance.cancel_fine_tuning_job(fine_tuning_job_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->cancel_fine_tuning_job: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
-body = OpenAI::CreateFineTuningJobRequest.new # CreateFineTuningJobRequest | 
+api_instance = OpenAIClient::FineTuningApi.new
+body = OpenAIClient::CreateFineTuningJobRequest.new # CreateFineTuningJobRequest | 
 
 
 begin
   #Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
   result = api_instance.create_fine_tuning_job(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->create_fine_tuning_job: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job to get events for. 
 opts = { 
   after: 'after_example', # String | Identifier for the last event from the previous pagination request.
@@ -836,14 +836,14 @@ begin
   #Get status updates for a fine-tuning job. 
   result = api_instance.list_fine_tuning_events(fine_tuning_job_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->list_fine_tuning_events: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 opts = { 
   after: 'after_example', # String | Identifier for the last job from the previous pagination request.
   limit: 20 # Integer | Number of fine-tuning jobs to retrieve.
@@ -853,14 +853,14 @@ begin
   #List your organization's fine-tuning jobs 
   result = api_instance.list_paginated_fine_tuning_jobs(opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->list_paginated_fine_tuning_jobs: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job. 
 
 
@@ -868,33 +868,33 @@ begin
   #Get info about a fine-tuning job.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
   result = api_instance.retrieve_fine_tuning_job(fine_tuning_job_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->retrieve_fine_tuning_job: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ImagesApi.new
-body = OpenAI::CreateImageRequest.new # CreateImageRequest | 
+api_instance = OpenAIClient::ImagesApi.new
+body = OpenAIClient::CreateImageRequest.new # CreateImageRequest | 
 
 
 begin
   #Creates an image given a prompt.
   result = api_instance.create_image(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ImagesApi->create_image: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ImagesApi.new
+api_instance = OpenAIClient::ImagesApi.new
 image = 'image_example' # String | 
 prompt = 'prompt_example' # String | 
 mask = 'mask_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 n = 56 # Integer | 
 size = 'size_example' # String | 
 response_format = 'response_format_example' # String | 
@@ -905,16 +905,16 @@ begin
   #Creates an edited or extended image given an original image and a prompt.
   result = api_instance.create_image_edit(image, prompt, mask, model, n, size, response_format, user)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ImagesApi->create_image_edit: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ImagesApi.new
+api_instance = OpenAIClient::ImagesApi.new
 image = 'image_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 n = 56 # Integer | 
 response_format = 'response_format_example' # String | 
 size = 'size_example' # String | 
@@ -925,14 +925,14 @@ begin
   #Creates a variation of a given image.
   result = api_instance.create_image_variation(image, model, n, response_format, size, user)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ImagesApi->create_image_variation: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModelsApi.new
+api_instance = OpenAIClient::ModelsApi.new
 model = 'model_example' # String | The model to delete
 
 
@@ -940,27 +940,27 @@ begin
   #Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
   result = api_instance.delete_model(model)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModelsApi->delete_model: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModelsApi.new
+api_instance = OpenAIClient::ModelsApi.new
 
 begin
   #Lists the currently available models, and provides basic information about each one such as the owner and availability.
   result = api_instance.list_models
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModelsApi->list_models: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModelsApi.new
+api_instance = OpenAIClient::ModelsApi.new
 model = 'model_example' # String | The ID of the model to use for this request
 
 
@@ -968,22 +968,22 @@ begin
   #Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
   result = api_instance.retrieve_model(model)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModelsApi->retrieve_model: #{e}"
 end
 # Setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModerationsApi.new
-body = OpenAI::CreateModerationRequest.new # CreateModerationRequest | 
+api_instance = OpenAIClient::ModerationsApi.new
+body = OpenAIClient::CreateModerationRequest.new # CreateModerationRequest | 
 
 
 begin
   #Classifies if text violates OpenAI's Content Policy
   result = api_instance.create_moderation(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModerationsApi->create_moderation: #{e}"
 end
 ```
@@ -994,251 +994,251 @@ All URIs are relative to *https://api.openai.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenAI::AssistantApi* | [**modify_assistant**](docs/AssistantApi.md#modify_assistant) | **POST** /assistants/{assistant_id} | Modifies an assistant.
-*OpenAI::AssistantsApi* | [**cancel_run**](docs/AssistantsApi.md#cancel_run) | **POST** /threads/{thread_id}/runs/{run_id}/cancel | Cancels a run that is `in_progress`.
-*OpenAI::AssistantsApi* | [**create_assistant**](docs/AssistantsApi.md#create_assistant) | **POST** /assistants | Create an assistant with a model and instructions.
-*OpenAI::AssistantsApi* | [**create_assistant_file**](docs/AssistantsApi.md#create_assistant_file) | **POST** /assistants/{assistant_id}/files | Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
-*OpenAI::AssistantsApi* | [**create_message**](docs/AssistantsApi.md#create_message) | **POST** /threads/{thread_id}/messages | Create a message.
-*OpenAI::AssistantsApi* | [**create_run**](docs/AssistantsApi.md#create_run) | **POST** /threads/{thread_id}/runs | Create a run.
-*OpenAI::AssistantsApi* | [**create_thread**](docs/AssistantsApi.md#create_thread) | **POST** /threads | Create a thread.
-*OpenAI::AssistantsApi* | [**create_thread_and_run**](docs/AssistantsApi.md#create_thread_and_run) | **POST** /threads/runs | Create a thread and run it in one request.
-*OpenAI::AssistantsApi* | [**delete_assistant**](docs/AssistantsApi.md#delete_assistant) | **DELETE** /assistants/{assistant_id} | Delete an assistant.
-*OpenAI::AssistantsApi* | [**delete_assistant_file**](docs/AssistantsApi.md#delete_assistant_file) | **DELETE** /assistants/{assistant_id}/files/{file_id} | Delete an assistant file.
-*OpenAI::AssistantsApi* | [**delete_thread**](docs/AssistantsApi.md#delete_thread) | **DELETE** /threads/{thread_id} | Delete a thread.
-*OpenAI::AssistantsApi* | [**get_assistant**](docs/AssistantsApi.md#get_assistant) | **GET** /assistants/{assistant_id} | Retrieves an assistant.
-*OpenAI::AssistantsApi* | [**get_assistant_file**](docs/AssistantsApi.md#get_assistant_file) | **GET** /assistants/{assistant_id}/files/{file_id} | Retrieves an AssistantFile.
-*OpenAI::AssistantsApi* | [**get_message**](docs/AssistantsApi.md#get_message) | **GET** /threads/{thread_id}/messages/{message_id} | Retrieve a message.
-*OpenAI::AssistantsApi* | [**get_message_file**](docs/AssistantsApi.md#get_message_file) | **GET** /threads/{thread_id}/messages/{message_id}/files/{file_id} | Retrieves a message file.
-*OpenAI::AssistantsApi* | [**get_run**](docs/AssistantsApi.md#get_run) | **GET** /threads/{thread_id}/runs/{run_id} | Retrieves a run.
-*OpenAI::AssistantsApi* | [**get_run_step**](docs/AssistantsApi.md#get_run_step) | **GET** /threads/{thread_id}/runs/{run_id}/steps/{step_id} | Retrieves a run step.
-*OpenAI::AssistantsApi* | [**get_thread**](docs/AssistantsApi.md#get_thread) | **GET** /threads/{thread_id} | Retrieves a thread.
-*OpenAI::AssistantsApi* | [**list_assistant_files**](docs/AssistantsApi.md#list_assistant_files) | **GET** /assistants/{assistant_id}/files | Returns a list of assistant files.
-*OpenAI::AssistantsApi* | [**list_assistants**](docs/AssistantsApi.md#list_assistants) | **GET** /assistants | Returns a list of assistants.
-*OpenAI::AssistantsApi* | [**list_message_files**](docs/AssistantsApi.md#list_message_files) | **GET** /threads/{thread_id}/messages/{message_id}/files | Returns a list of message files.
-*OpenAI::AssistantsApi* | [**list_messages**](docs/AssistantsApi.md#list_messages) | **GET** /threads/{thread_id}/messages | Returns a list of messages for a given thread.
-*OpenAI::AssistantsApi* | [**list_run_steps**](docs/AssistantsApi.md#list_run_steps) | **GET** /threads/{thread_id}/runs/{run_id}/steps | Returns a list of run steps belonging to a run.
-*OpenAI::AssistantsApi* | [**list_runs**](docs/AssistantsApi.md#list_runs) | **GET** /threads/{thread_id}/runs | Returns a list of runs belonging to a thread.
-*OpenAI::AssistantsApi* | [**modify_message**](docs/AssistantsApi.md#modify_message) | **POST** /threads/{thread_id}/messages/{message_id} | Modifies a message.
-*OpenAI::AssistantsApi* | [**modify_run**](docs/AssistantsApi.md#modify_run) | **POST** /threads/{thread_id}/runs/{run_id} | Modifies a run.
-*OpenAI::AssistantsApi* | [**modify_thread**](docs/AssistantsApi.md#modify_thread) | **POST** /threads/{thread_id} | Modifies a thread.
-*OpenAI::AssistantsApi* | [**submit_tool_ouputs_to_run**](docs/AssistantsApi.md#submit_tool_ouputs_to_run) | **POST** /threads/{thread_id}/runs/{run_id}/submit_tool_outputs | When a run has the `status: \"requires_action\"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request. 
-*OpenAI::AudioApi* | [**create_speech**](docs/AudioApi.md#create_speech) | **POST** /audio/speech | Generates audio from the input text.
-*OpenAI::AudioApi* | [**create_transcription**](docs/AudioApi.md#create_transcription) | **POST** /audio/transcriptions | Transcribes audio into the input language.
-*OpenAI::AudioApi* | [**create_translation**](docs/AudioApi.md#create_translation) | **POST** /audio/translations | Translates audio into English.
-*OpenAI::ChatApi* | [**create_chat_completion**](docs/ChatApi.md#create_chat_completion) | **POST** /chat/completions | Creates a model response for the given chat conversation.
-*OpenAI::CompletionsApi* | [**create_completion**](docs/CompletionsApi.md#create_completion) | **POST** /completions | Creates a completion for the provided prompt and parameters.
-*OpenAI::EditsApi* | [**create_edit**](docs/EditsApi.md#create_edit) | **POST** /edits | Creates a new edit for the provided input, instruction, and parameters.
-*OpenAI::EmbeddingsApi* | [**create_embedding**](docs/EmbeddingsApi.md#create_embedding) | **POST** /embeddings | Creates an embedding vector representing the input text.
-*OpenAI::FilesApi* | [**create_file**](docs/FilesApi.md#create_file) | **POST** /files | Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
-*OpenAI::FilesApi* | [**delete_file**](docs/FilesApi.md#delete_file) | **DELETE** /files/{file_id} | Delete a file.
-*OpenAI::FilesApi* | [**download_file**](docs/FilesApi.md#download_file) | **GET** /files/{file_id}/content | Returns the contents of the specified file.
-*OpenAI::FilesApi* | [**list_files**](docs/FilesApi.md#list_files) | **GET** /files | Returns a list of files that belong to the user's organization.
-*OpenAI::FilesApi* | [**retrieve_file**](docs/FilesApi.md#retrieve_file) | **GET** /files/{file_id} | Returns information about a specific file.
-*OpenAI::FineTunesApi* | [**cancel_fine_tune**](docs/FineTunesApi.md#cancel_fine_tune) | **POST** /fine-tunes/{fine_tune_id}/cancel | Immediately cancel a fine-tune job. 
-*OpenAI::FineTunesApi* | [**create_fine_tune**](docs/FineTunesApi.md#create_fine_tune) | **POST** /fine-tunes | Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
-*OpenAI::FineTunesApi* | [**list_fine_tune_events**](docs/FineTunesApi.md#list_fine_tune_events) | **GET** /fine-tunes/{fine_tune_id}/events | Get fine-grained status updates for a fine-tune job. 
-*OpenAI::FineTunesApi* | [**list_fine_tunes**](docs/FineTunesApi.md#list_fine_tunes) | **GET** /fine-tunes | List your organization's fine-tuning jobs 
-*OpenAI::FineTunesApi* | [**retrieve_fine_tune**](docs/FineTunesApi.md#retrieve_fine_tune) | **GET** /fine-tunes/{fine_tune_id} | Gets info about the fine-tune job.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
-*OpenAI::FineTuningApi* | [**cancel_fine_tuning_job**](docs/FineTuningApi.md#cancel_fine_tuning_job) | **POST** /fine_tuning/jobs/{fine_tuning_job_id}/cancel | Immediately cancel a fine-tune job. 
-*OpenAI::FineTuningApi* | [**create_fine_tuning_job**](docs/FineTuningApi.md#create_fine_tuning_job) | **POST** /fine_tuning/jobs | Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
-*OpenAI::FineTuningApi* | [**list_fine_tuning_events**](docs/FineTuningApi.md#list_fine_tuning_events) | **GET** /fine_tuning/jobs/{fine_tuning_job_id}/events | Get status updates for a fine-tuning job. 
-*OpenAI::FineTuningApi* | [**list_paginated_fine_tuning_jobs**](docs/FineTuningApi.md#list_paginated_fine_tuning_jobs) | **GET** /fine_tuning/jobs | List your organization's fine-tuning jobs 
-*OpenAI::FineTuningApi* | [**retrieve_fine_tuning_job**](docs/FineTuningApi.md#retrieve_fine_tuning_job) | **GET** /fine_tuning/jobs/{fine_tuning_job_id} | Get info about a fine-tuning job.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
-*OpenAI::ImagesApi* | [**create_image**](docs/ImagesApi.md#create_image) | **POST** /images/generations | Creates an image given a prompt.
-*OpenAI::ImagesApi* | [**create_image_edit**](docs/ImagesApi.md#create_image_edit) | **POST** /images/edits | Creates an edited or extended image given an original image and a prompt.
-*OpenAI::ImagesApi* | [**create_image_variation**](docs/ImagesApi.md#create_image_variation) | **POST** /images/variations | Creates a variation of a given image.
-*OpenAI::ModelsApi* | [**delete_model**](docs/ModelsApi.md#delete_model) | **DELETE** /models/{model} | Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
-*OpenAI::ModelsApi* | [**list_models**](docs/ModelsApi.md#list_models) | **GET** /models | Lists the currently available models, and provides basic information about each one such as the owner and availability.
-*OpenAI::ModelsApi* | [**retrieve_model**](docs/ModelsApi.md#retrieve_model) | **GET** /models/{model} | Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
-*OpenAI::ModerationsApi* | [**create_moderation**](docs/ModerationsApi.md#create_moderation) | **POST** /moderations | Classifies if text violates OpenAI's Content Policy
+*OpenAIClient::AssistantApi* | [**modify_assistant**](docs/AssistantApi.md#modify_assistant) | **POST** /assistants/{assistant_id} | Modifies an assistant.
+*OpenAIClient::AssistantsApi* | [**cancel_run**](docs/AssistantsApi.md#cancel_run) | **POST** /threads/{thread_id}/runs/{run_id}/cancel | Cancels a run that is `in_progress`.
+*OpenAIClient::AssistantsApi* | [**create_assistant**](docs/AssistantsApi.md#create_assistant) | **POST** /assistants | Create an assistant with a model and instructions.
+*OpenAIClient::AssistantsApi* | [**create_assistant_file**](docs/AssistantsApi.md#create_assistant_file) | **POST** /assistants/{assistant_id}/files | Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
+*OpenAIClient::AssistantsApi* | [**create_message**](docs/AssistantsApi.md#create_message) | **POST** /threads/{thread_id}/messages | Create a message.
+*OpenAIClient::AssistantsApi* | [**create_run**](docs/AssistantsApi.md#create_run) | **POST** /threads/{thread_id}/runs | Create a run.
+*OpenAIClient::AssistantsApi* | [**create_thread**](docs/AssistantsApi.md#create_thread) | **POST** /threads | Create a thread.
+*OpenAIClient::AssistantsApi* | [**create_thread_and_run**](docs/AssistantsApi.md#create_thread_and_run) | **POST** /threads/runs | Create a thread and run it in one request.
+*OpenAIClient::AssistantsApi* | [**delete_assistant**](docs/AssistantsApi.md#delete_assistant) | **DELETE** /assistants/{assistant_id} | Delete an assistant.
+*OpenAIClient::AssistantsApi* | [**delete_assistant_file**](docs/AssistantsApi.md#delete_assistant_file) | **DELETE** /assistants/{assistant_id}/files/{file_id} | Delete an assistant file.
+*OpenAIClient::AssistantsApi* | [**delete_thread**](docs/AssistantsApi.md#delete_thread) | **DELETE** /threads/{thread_id} | Delete a thread.
+*OpenAIClient::AssistantsApi* | [**get_assistant**](docs/AssistantsApi.md#get_assistant) | **GET** /assistants/{assistant_id} | Retrieves an assistant.
+*OpenAIClient::AssistantsApi* | [**get_assistant_file**](docs/AssistantsApi.md#get_assistant_file) | **GET** /assistants/{assistant_id}/files/{file_id} | Retrieves an AssistantFile.
+*OpenAIClient::AssistantsApi* | [**get_message**](docs/AssistantsApi.md#get_message) | **GET** /threads/{thread_id}/messages/{message_id} | Retrieve a message.
+*OpenAIClient::AssistantsApi* | [**get_message_file**](docs/AssistantsApi.md#get_message_file) | **GET** /threads/{thread_id}/messages/{message_id}/files/{file_id} | Retrieves a message file.
+*OpenAIClient::AssistantsApi* | [**get_run**](docs/AssistantsApi.md#get_run) | **GET** /threads/{thread_id}/runs/{run_id} | Retrieves a run.
+*OpenAIClient::AssistantsApi* | [**get_run_step**](docs/AssistantsApi.md#get_run_step) | **GET** /threads/{thread_id}/runs/{run_id}/steps/{step_id} | Retrieves a run step.
+*OpenAIClient::AssistantsApi* | [**get_thread**](docs/AssistantsApi.md#get_thread) | **GET** /threads/{thread_id} | Retrieves a thread.
+*OpenAIClient::AssistantsApi* | [**list_assistant_files**](docs/AssistantsApi.md#list_assistant_files) | **GET** /assistants/{assistant_id}/files | Returns a list of assistant files.
+*OpenAIClient::AssistantsApi* | [**list_assistants**](docs/AssistantsApi.md#list_assistants) | **GET** /assistants | Returns a list of assistants.
+*OpenAIClient::AssistantsApi* | [**list_message_files**](docs/AssistantsApi.md#list_message_files) | **GET** /threads/{thread_id}/messages/{message_id}/files | Returns a list of message files.
+*OpenAIClient::AssistantsApi* | [**list_messages**](docs/AssistantsApi.md#list_messages) | **GET** /threads/{thread_id}/messages | Returns a list of messages for a given thread.
+*OpenAIClient::AssistantsApi* | [**list_run_steps**](docs/AssistantsApi.md#list_run_steps) | **GET** /threads/{thread_id}/runs/{run_id}/steps | Returns a list of run steps belonging to a run.
+*OpenAIClient::AssistantsApi* | [**list_runs**](docs/AssistantsApi.md#list_runs) | **GET** /threads/{thread_id}/runs | Returns a list of runs belonging to a thread.
+*OpenAIClient::AssistantsApi* | [**modify_message**](docs/AssistantsApi.md#modify_message) | **POST** /threads/{thread_id}/messages/{message_id} | Modifies a message.
+*OpenAIClient::AssistantsApi* | [**modify_run**](docs/AssistantsApi.md#modify_run) | **POST** /threads/{thread_id}/runs/{run_id} | Modifies a run.
+*OpenAIClient::AssistantsApi* | [**modify_thread**](docs/AssistantsApi.md#modify_thread) | **POST** /threads/{thread_id} | Modifies a thread.
+*OpenAIClient::AssistantsApi* | [**submit_tool_ouputs_to_run**](docs/AssistantsApi.md#submit_tool_ouputs_to_run) | **POST** /threads/{thread_id}/runs/{run_id}/submit_tool_outputs | When a run has the `status: \"requires_action\"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request. 
+*OpenAIClient::AudioApi* | [**create_speech**](docs/AudioApi.md#create_speech) | **POST** /audio/speech | Generates audio from the input text.
+*OpenAIClient::AudioApi* | [**create_transcription**](docs/AudioApi.md#create_transcription) | **POST** /audio/transcriptions | Transcribes audio into the input language.
+*OpenAIClient::AudioApi* | [**create_translation**](docs/AudioApi.md#create_translation) | **POST** /audio/translations | Translates audio into English.
+*OpenAIClient::ChatApi* | [**create_chat_completion**](docs/ChatApi.md#create_chat_completion) | **POST** /chat/completions | Creates a model response for the given chat conversation.
+*OpenAIClient::CompletionsApi* | [**create_completion**](docs/CompletionsApi.md#create_completion) | **POST** /completions | Creates a completion for the provided prompt and parameters.
+*OpenAIClient::EditsApi* | [**create_edit**](docs/EditsApi.md#create_edit) | **POST** /edits | Creates a new edit for the provided input, instruction, and parameters.
+*OpenAIClient::EmbeddingsApi* | [**create_embedding**](docs/EmbeddingsApi.md#create_embedding) | **POST** /embeddings | Creates an embedding vector representing the input text.
+*OpenAIClient::FilesApi* | [**create_file**](docs/FilesApi.md#create_file) | **POST** /files | Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
+*OpenAIClient::FilesApi* | [**delete_file**](docs/FilesApi.md#delete_file) | **DELETE** /files/{file_id} | Delete a file.
+*OpenAIClient::FilesApi* | [**download_file**](docs/FilesApi.md#download_file) | **GET** /files/{file_id}/content | Returns the contents of the specified file.
+*OpenAIClient::FilesApi* | [**list_files**](docs/FilesApi.md#list_files) | **GET** /files | Returns a list of files that belong to the user's organization.
+*OpenAIClient::FilesApi* | [**retrieve_file**](docs/FilesApi.md#retrieve_file) | **GET** /files/{file_id} | Returns information about a specific file.
+*OpenAIClient::FineTunesApi* | [**cancel_fine_tune**](docs/FineTunesApi.md#cancel_fine_tune) | **POST** /fine-tunes/{fine_tune_id}/cancel | Immediately cancel a fine-tune job. 
+*OpenAIClient::FineTunesApi* | [**create_fine_tune**](docs/FineTunesApi.md#create_fine_tune) | **POST** /fine-tunes | Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
+*OpenAIClient::FineTunesApi* | [**list_fine_tune_events**](docs/FineTunesApi.md#list_fine_tune_events) | **GET** /fine-tunes/{fine_tune_id}/events | Get fine-grained status updates for a fine-tune job. 
+*OpenAIClient::FineTunesApi* | [**list_fine_tunes**](docs/FineTunesApi.md#list_fine_tunes) | **GET** /fine-tunes | List your organization's fine-tuning jobs 
+*OpenAIClient::FineTunesApi* | [**retrieve_fine_tune**](docs/FineTunesApi.md#retrieve_fine_tune) | **GET** /fine-tunes/{fine_tune_id} | Gets info about the fine-tune job.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
+*OpenAIClient::FineTuningApi* | [**cancel_fine_tuning_job**](docs/FineTuningApi.md#cancel_fine_tuning_job) | **POST** /fine_tuning/jobs/{fine_tuning_job_id}/cancel | Immediately cancel a fine-tune job. 
+*OpenAIClient::FineTuningApi* | [**create_fine_tuning_job**](docs/FineTuningApi.md#create_fine_tuning_job) | **POST** /fine_tuning/jobs | Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
+*OpenAIClient::FineTuningApi* | [**list_fine_tuning_events**](docs/FineTuningApi.md#list_fine_tuning_events) | **GET** /fine_tuning/jobs/{fine_tuning_job_id}/events | Get status updates for a fine-tuning job. 
+*OpenAIClient::FineTuningApi* | [**list_paginated_fine_tuning_jobs**](docs/FineTuningApi.md#list_paginated_fine_tuning_jobs) | **GET** /fine_tuning/jobs | List your organization's fine-tuning jobs 
+*OpenAIClient::FineTuningApi* | [**retrieve_fine_tuning_job**](docs/FineTuningApi.md#retrieve_fine_tuning_job) | **GET** /fine_tuning/jobs/{fine_tuning_job_id} | Get info about a fine-tuning job.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
+*OpenAIClient::ImagesApi* | [**create_image**](docs/ImagesApi.md#create_image) | **POST** /images/generations | Creates an image given a prompt.
+*OpenAIClient::ImagesApi* | [**create_image_edit**](docs/ImagesApi.md#create_image_edit) | **POST** /images/edits | Creates an edited or extended image given an original image and a prompt.
+*OpenAIClient::ImagesApi* | [**create_image_variation**](docs/ImagesApi.md#create_image_variation) | **POST** /images/variations | Creates a variation of a given image.
+*OpenAIClient::ModelsApi* | [**delete_model**](docs/ModelsApi.md#delete_model) | **DELETE** /models/{model} | Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
+*OpenAIClient::ModelsApi* | [**list_models**](docs/ModelsApi.md#list_models) | **GET** /models | Lists the currently available models, and provides basic information about each one such as the owner and availability.
+*OpenAIClient::ModelsApi* | [**retrieve_model**](docs/ModelsApi.md#retrieve_model) | **GET** /models/{model} | Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
+*OpenAIClient::ModerationsApi* | [**create_moderation**](docs/ModerationsApi.md#create_moderation) | **POST** /moderations | Classifies if text violates OpenAI's Content Policy
 
 ## Documentation for Models
 
- - [OpenAI::AnyOfCreateAssistantRequestModel](docs/AnyOfCreateAssistantRequestModel.md)
- - [OpenAI::AnyOfCreateChatCompletionRequestModel](docs/AnyOfCreateChatCompletionRequestModel.md)
- - [OpenAI::AnyOfCreateCompletionRequestModel](docs/AnyOfCreateCompletionRequestModel.md)
- - [OpenAI::AnyOfCreateEditRequestModel](docs/AnyOfCreateEditRequestModel.md)
- - [OpenAI::AnyOfCreateEmbeddingRequestModel](docs/AnyOfCreateEmbeddingRequestModel.md)
- - [OpenAI::AnyOfCreateFineTuneRequestModel](docs/AnyOfCreateFineTuneRequestModel.md)
- - [OpenAI::AnyOfCreateFineTuningJobRequestModel](docs/AnyOfCreateFineTuningJobRequestModel.md)
- - [OpenAI::AnyOfCreateImageEditRequestModel](docs/AnyOfCreateImageEditRequestModel.md)
- - [OpenAI::AnyOfCreateImageRequestModel](docs/AnyOfCreateImageRequestModel.md)
- - [OpenAI::AnyOfCreateImageVariationRequestModel](docs/AnyOfCreateImageVariationRequestModel.md)
- - [OpenAI::AnyOfCreateModerationRequestModel](docs/AnyOfCreateModerationRequestModel.md)
- - [OpenAI::AnyOfCreateSpeechRequestModel](docs/AnyOfCreateSpeechRequestModel.md)
- - [OpenAI::AnyOfCreateTranscriptionRequestModel](docs/AnyOfCreateTranscriptionRequestModel.md)
- - [OpenAI::AnyOfCreateTranslationRequestModel](docs/AnyOfCreateTranslationRequestModel.md)
- - [OpenAI::AnyOfModifyAssistantRequestModel](docs/AnyOfModifyAssistantRequestModel.md)
- - [OpenAI::AssistantFileObject](docs/AssistantFileObject.md)
- - [OpenAI::AssistantObject](docs/AssistantObject.md)
- - [OpenAI::AssistantToolsCode](docs/AssistantToolsCode.md)
- - [OpenAI::AssistantToolsFunction](docs/AssistantToolsFunction.md)
- - [OpenAI::AssistantToolsFunctionFunction](docs/AssistantToolsFunctionFunction.md)
- - [OpenAI::AssistantToolsRetrieval](docs/AssistantToolsRetrieval.md)
- - [OpenAI::ChatCompletionFunctionCallOption](docs/ChatCompletionFunctionCallOption.md)
- - [OpenAI::ChatCompletionFunctionParameters](docs/ChatCompletionFunctionParameters.md)
- - [OpenAI::ChatCompletionFunctions](docs/ChatCompletionFunctions.md)
- - [OpenAI::ChatCompletionMessageToolCall](docs/ChatCompletionMessageToolCall.md)
- - [OpenAI::ChatCompletionMessageToolCallChunk](docs/ChatCompletionMessageToolCallChunk.md)
- - [OpenAI::ChatCompletionMessageToolCallChunkFunction](docs/ChatCompletionMessageToolCallChunkFunction.md)
- - [OpenAI::ChatCompletionMessageToolCallFunction](docs/ChatCompletionMessageToolCallFunction.md)
- - [OpenAI::ChatCompletionMessageToolCalls](docs/ChatCompletionMessageToolCalls.md)
- - [OpenAI::ChatCompletionNamedToolChoice](docs/ChatCompletionNamedToolChoice.md)
- - [OpenAI::ChatCompletionNamedToolChoiceFunction](docs/ChatCompletionNamedToolChoiceFunction.md)
- - [OpenAI::ChatCompletionRequestAssistantMessage](docs/ChatCompletionRequestAssistantMessage.md)
- - [OpenAI::ChatCompletionRequestAssistantMessageFunctionCall](docs/ChatCompletionRequestAssistantMessageFunctionCall.md)
- - [OpenAI::ChatCompletionRequestFunctionMessage](docs/ChatCompletionRequestFunctionMessage.md)
- - [OpenAI::ChatCompletionRequestMessage](docs/ChatCompletionRequestMessage.md)
- - [OpenAI::ChatCompletionRequestMessageContentPart](docs/ChatCompletionRequestMessageContentPart.md)
- - [OpenAI::ChatCompletionRequestMessageContentPartImage](docs/ChatCompletionRequestMessageContentPartImage.md)
- - [OpenAI::ChatCompletionRequestMessageContentPartImageImageUrl](docs/ChatCompletionRequestMessageContentPartImageImageUrl.md)
- - [OpenAI::ChatCompletionRequestMessageContentPartText](docs/ChatCompletionRequestMessageContentPartText.md)
- - [OpenAI::ChatCompletionRequestSystemMessage](docs/ChatCompletionRequestSystemMessage.md)
- - [OpenAI::ChatCompletionRequestToolMessage](docs/ChatCompletionRequestToolMessage.md)
- - [OpenAI::ChatCompletionRequestUserMessage](docs/ChatCompletionRequestUserMessage.md)
- - [OpenAI::ChatCompletionResponseMessage](docs/ChatCompletionResponseMessage.md)
- - [OpenAI::ChatCompletionRole](docs/ChatCompletionRole.md)
- - [OpenAI::ChatCompletionStreamResponseDelta](docs/ChatCompletionStreamResponseDelta.md)
- - [OpenAI::ChatCompletionStreamResponseDeltaFunctionCall](docs/ChatCompletionStreamResponseDeltaFunctionCall.md)
- - [OpenAI::ChatCompletionTool](docs/ChatCompletionTool.md)
- - [OpenAI::ChatCompletionToolChoiceOption](docs/ChatCompletionToolChoiceOption.md)
- - [OpenAI::ChatCompletionToolFunction](docs/ChatCompletionToolFunction.md)
- - [OpenAI::CompletionUsage](docs/CompletionUsage.md)
- - [OpenAI::CreateAssistantFileRequest](docs/CreateAssistantFileRequest.md)
- - [OpenAI::CreateAssistantRequest](docs/CreateAssistantRequest.md)
- - [OpenAI::CreateChatCompletionFunctionResponse](docs/CreateChatCompletionFunctionResponse.md)
- - [OpenAI::CreateChatCompletionFunctionResponseChoices](docs/CreateChatCompletionFunctionResponseChoices.md)
- - [OpenAI::CreateChatCompletionImageResponse](docs/CreateChatCompletionImageResponse.md)
- - [OpenAI::CreateChatCompletionRequest](docs/CreateChatCompletionRequest.md)
- - [OpenAI::CreateChatCompletionRequestResponseFormat](docs/CreateChatCompletionRequestResponseFormat.md)
- - [OpenAI::CreateChatCompletionResponse](docs/CreateChatCompletionResponse.md)
- - [OpenAI::CreateChatCompletionResponseChoices](docs/CreateChatCompletionResponseChoices.md)
- - [OpenAI::CreateChatCompletionStreamResponse](docs/CreateChatCompletionStreamResponse.md)
- - [OpenAI::CreateChatCompletionStreamResponseChoices](docs/CreateChatCompletionStreamResponseChoices.md)
- - [OpenAI::CreateCompletionRequest](docs/CreateCompletionRequest.md)
- - [OpenAI::CreateCompletionResponse](docs/CreateCompletionResponse.md)
- - [OpenAI::CreateCompletionResponseChoices](docs/CreateCompletionResponseChoices.md)
- - [OpenAI::CreateCompletionResponseLogprobs](docs/CreateCompletionResponseLogprobs.md)
- - [OpenAI::CreateEditRequest](docs/CreateEditRequest.md)
- - [OpenAI::CreateEditResponse](docs/CreateEditResponse.md)
- - [OpenAI::CreateEditResponseChoices](docs/CreateEditResponseChoices.md)
- - [OpenAI::CreateEmbeddingRequest](docs/CreateEmbeddingRequest.md)
- - [OpenAI::CreateEmbeddingResponse](docs/CreateEmbeddingResponse.md)
- - [OpenAI::CreateEmbeddingResponseUsage](docs/CreateEmbeddingResponseUsage.md)
- - [OpenAI::CreateFileRequest](docs/CreateFileRequest.md)
- - [OpenAI::CreateFineTuneRequest](docs/CreateFineTuneRequest.md)
- - [OpenAI::CreateFineTuneRequestHyperparameters](docs/CreateFineTuneRequestHyperparameters.md)
- - [OpenAI::CreateFineTuningJobRequest](docs/CreateFineTuningJobRequest.md)
- - [OpenAI::CreateFineTuningJobRequestHyperparameters](docs/CreateFineTuningJobRequestHyperparameters.md)
- - [OpenAI::CreateImageEditRequest](docs/CreateImageEditRequest.md)
- - [OpenAI::CreateImageRequest](docs/CreateImageRequest.md)
- - [OpenAI::CreateImageVariationRequest](docs/CreateImageVariationRequest.md)
- - [OpenAI::CreateMessageRequest](docs/CreateMessageRequest.md)
- - [OpenAI::CreateModerationRequest](docs/CreateModerationRequest.md)
- - [OpenAI::CreateModerationResponse](docs/CreateModerationResponse.md)
- - [OpenAI::CreateModerationResponseCategories](docs/CreateModerationResponseCategories.md)
- - [OpenAI::CreateModerationResponseCategoryScores](docs/CreateModerationResponseCategoryScores.md)
- - [OpenAI::CreateModerationResponseResults](docs/CreateModerationResponseResults.md)
- - [OpenAI::CreateRunRequest](docs/CreateRunRequest.md)
- - [OpenAI::CreateSpeechRequest](docs/CreateSpeechRequest.md)
- - [OpenAI::CreateThreadAndRunRequest](docs/CreateThreadAndRunRequest.md)
- - [OpenAI::CreateThreadRequest](docs/CreateThreadRequest.md)
- - [OpenAI::CreateTranscriptionRequest](docs/CreateTranscriptionRequest.md)
- - [OpenAI::CreateTranscriptionResponse](docs/CreateTranscriptionResponse.md)
- - [OpenAI::CreateTranslationRequest](docs/CreateTranslationRequest.md)
- - [OpenAI::CreateTranslationResponse](docs/CreateTranslationResponse.md)
- - [OpenAI::DeleteAssistantFileResponse](docs/DeleteAssistantFileResponse.md)
- - [OpenAI::DeleteAssistantResponse](docs/DeleteAssistantResponse.md)
- - [OpenAI::DeleteFileResponse](docs/DeleteFileResponse.md)
- - [OpenAI::DeleteMessageResponse](docs/DeleteMessageResponse.md)
- - [OpenAI::DeleteModelResponse](docs/DeleteModelResponse.md)
- - [OpenAI::DeleteThreadResponse](docs/DeleteThreadResponse.md)
- - [OpenAI::Embedding](docs/Embedding.md)
- - [OpenAI::Error](docs/Error.md)
- - [OpenAI::ErrorResponse](docs/ErrorResponse.md)
- - [OpenAI::FineTune](docs/FineTune.md)
- - [OpenAI::FineTuneEvent](docs/FineTuneEvent.md)
- - [OpenAI::FineTuneHyperparams](docs/FineTuneHyperparams.md)
- - [OpenAI::FineTuningJob](docs/FineTuningJob.md)
- - [OpenAI::FineTuningJobError](docs/FineTuningJobError.md)
- - [OpenAI::FineTuningJobEvent](docs/FineTuningJobEvent.md)
- - [OpenAI::FineTuningJobHyperparameters](docs/FineTuningJobHyperparameters.md)
- - [OpenAI::Image](docs/Image.md)
- - [OpenAI::ImagesResponse](docs/ImagesResponse.md)
- - [OpenAI::ListAssistantFilesResponse](docs/ListAssistantFilesResponse.md)
- - [OpenAI::ListAssistantsResponse](docs/ListAssistantsResponse.md)
- - [OpenAI::ListFilesResponse](docs/ListFilesResponse.md)
- - [OpenAI::ListFineTuneEventsResponse](docs/ListFineTuneEventsResponse.md)
- - [OpenAI::ListFineTunesResponse](docs/ListFineTunesResponse.md)
- - [OpenAI::ListFineTuningJobEventsResponse](docs/ListFineTuningJobEventsResponse.md)
- - [OpenAI::ListMessageFilesResponse](docs/ListMessageFilesResponse.md)
- - [OpenAI::ListMessagesResponse](docs/ListMessagesResponse.md)
- - [OpenAI::ListModelsResponse](docs/ListModelsResponse.md)
- - [OpenAI::ListPaginatedFineTuningJobsResponse](docs/ListPaginatedFineTuningJobsResponse.md)
- - [OpenAI::ListRunStepsResponse](docs/ListRunStepsResponse.md)
- - [OpenAI::ListRunsResponse](docs/ListRunsResponse.md)
- - [OpenAI::ListThreadsResponse](docs/ListThreadsResponse.md)
- - [OpenAI::MessageContentImageFileObject](docs/MessageContentImageFileObject.md)
- - [OpenAI::MessageContentImageFileObjectImageFile](docs/MessageContentImageFileObjectImageFile.md)
- - [OpenAI::MessageContentTextAnnotationsFileCitationObject](docs/MessageContentTextAnnotationsFileCitationObject.md)
- - [OpenAI::MessageContentTextAnnotationsFileCitationObjectFileCitation](docs/MessageContentTextAnnotationsFileCitationObjectFileCitation.md)
- - [OpenAI::MessageContentTextAnnotationsFilePathObject](docs/MessageContentTextAnnotationsFilePathObject.md)
- - [OpenAI::MessageContentTextAnnotationsFilePathObjectFilePath](docs/MessageContentTextAnnotationsFilePathObjectFilePath.md)
- - [OpenAI::MessageContentTextObject](docs/MessageContentTextObject.md)
- - [OpenAI::MessageContentTextObjectText](docs/MessageContentTextObjectText.md)
- - [OpenAI::MessageFileObject](docs/MessageFileObject.md)
- - [OpenAI::MessageObject](docs/MessageObject.md)
- - [OpenAI::Model](docs/Model.md)
- - [OpenAI::ModifyAssistantRequest](docs/ModifyAssistantRequest.md)
- - [OpenAI::ModifyMessageRequest](docs/ModifyMessageRequest.md)
- - [OpenAI::ModifyRunRequest](docs/ModifyRunRequest.md)
- - [OpenAI::ModifyThreadRequest](docs/ModifyThreadRequest.md)
- - [OpenAI::OneOfAssistantObjectToolsItems](docs/OneOfAssistantObjectToolsItems.md)
- - [OpenAI::OneOfChatCompletionRequestUserMessageContent](docs/OneOfChatCompletionRequestUserMessageContent.md)
- - [OpenAI::OneOfCreateAssistantRequestToolsItems](docs/OneOfCreateAssistantRequestToolsItems.md)
- - [OpenAI::OneOfCreateChatCompletionRequestFunctionCall](docs/OneOfCreateChatCompletionRequestFunctionCall.md)
- - [OpenAI::OneOfCreateChatCompletionRequestStop](docs/OneOfCreateChatCompletionRequestStop.md)
- - [OpenAI::OneOfCreateCompletionRequestPrompt](docs/OneOfCreateCompletionRequestPrompt.md)
- - [OpenAI::OneOfCreateCompletionRequestStop](docs/OneOfCreateCompletionRequestStop.md)
- - [OpenAI::OneOfCreateEmbeddingRequestInput](docs/OneOfCreateEmbeddingRequestInput.md)
- - [OpenAI::OneOfCreateFineTuneRequestHyperparametersNEpochs](docs/OneOfCreateFineTuneRequestHyperparametersNEpochs.md)
- - [OpenAI::OneOfCreateFineTuningJobRequestHyperparametersBatchSize](docs/OneOfCreateFineTuningJobRequestHyperparametersBatchSize.md)
- - [OpenAI::OneOfCreateFineTuningJobRequestHyperparametersLearningRateMultiplier](docs/OneOfCreateFineTuningJobRequestHyperparametersLearningRateMultiplier.md)
- - [OpenAI::OneOfCreateFineTuningJobRequestHyperparametersNEpochs](docs/OneOfCreateFineTuningJobRequestHyperparametersNEpochs.md)
- - [OpenAI::OneOfCreateModerationRequestInput](docs/OneOfCreateModerationRequestInput.md)
- - [OpenAI::OneOfCreateRunRequestToolsItems](docs/OneOfCreateRunRequestToolsItems.md)
- - [OpenAI::OneOfCreateThreadAndRunRequestToolsItems](docs/OneOfCreateThreadAndRunRequestToolsItems.md)
- - [OpenAI::OneOfFineTuningJobHyperparametersNEpochs](docs/OneOfFineTuningJobHyperparametersNEpochs.md)
- - [OpenAI::OneOfMessageContentTextObjectTextAnnotationsItems](docs/OneOfMessageContentTextObjectTextAnnotationsItems.md)
- - [OpenAI::OneOfMessageObjectContentItems](docs/OneOfMessageObjectContentItems.md)
- - [OpenAI::OneOfModifyAssistantRequestToolsItems](docs/OneOfModifyAssistantRequestToolsItems.md)
- - [OpenAI::OneOfRunObjectToolsItems](docs/OneOfRunObjectToolsItems.md)
- - [OpenAI::OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems](docs/OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems.md)
- - [OpenAI::OneOfRunStepDetailsToolCallsObjectToolCallsItems](docs/OneOfRunStepDetailsToolCallsObjectToolCallsItems.md)
- - [OpenAI::OneOfRunStepObjectStepDetails](docs/OneOfRunStepObjectStepDetails.md)
- - [OpenAI::OpenAIFile](docs/OpenAIFile.md)
- - [OpenAI::RunObject](docs/RunObject.md)
- - [OpenAI::RunObjectLastError](docs/RunObjectLastError.md)
- - [OpenAI::RunObjectRequiredAction](docs/RunObjectRequiredAction.md)
- - [OpenAI::RunObjectRequiredActionSubmitToolOutputs](docs/RunObjectRequiredActionSubmitToolOutputs.md)
- - [OpenAI::RunStepDetailsMessageCreationObject](docs/RunStepDetailsMessageCreationObject.md)
- - [OpenAI::RunStepDetailsMessageCreationObjectMessageCreation](docs/RunStepDetailsMessageCreationObjectMessageCreation.md)
- - [OpenAI::RunStepDetailsToolCallsCodeObject](docs/RunStepDetailsToolCallsCodeObject.md)
- - [OpenAI::RunStepDetailsToolCallsCodeObjectCodeInterpreter](docs/RunStepDetailsToolCallsCodeObjectCodeInterpreter.md)
- - [OpenAI::RunStepDetailsToolCallsCodeOutputImageObject](docs/RunStepDetailsToolCallsCodeOutputImageObject.md)
- - [OpenAI::RunStepDetailsToolCallsCodeOutputImageObjectImage](docs/RunStepDetailsToolCallsCodeOutputImageObjectImage.md)
- - [OpenAI::RunStepDetailsToolCallsCodeOutputLogsObject](docs/RunStepDetailsToolCallsCodeOutputLogsObject.md)
- - [OpenAI::RunStepDetailsToolCallsFunctionObject](docs/RunStepDetailsToolCallsFunctionObject.md)
- - [OpenAI::RunStepDetailsToolCallsFunctionObjectFunction](docs/RunStepDetailsToolCallsFunctionObjectFunction.md)
- - [OpenAI::RunStepDetailsToolCallsObject](docs/RunStepDetailsToolCallsObject.md)
- - [OpenAI::RunStepDetailsToolCallsRetrievalObject](docs/RunStepDetailsToolCallsRetrievalObject.md)
- - [OpenAI::RunStepObject](docs/RunStepObject.md)
- - [OpenAI::RunStepObjectLastError](docs/RunStepObjectLastError.md)
- - [OpenAI::RunToolCallObject](docs/RunToolCallObject.md)
- - [OpenAI::RunToolCallObjectFunction](docs/RunToolCallObjectFunction.md)
- - [OpenAI::SubmitToolOutputsRunRequest](docs/SubmitToolOutputsRunRequest.md)
- - [OpenAI::SubmitToolOutputsRunRequestToolOutputs](docs/SubmitToolOutputsRunRequestToolOutputs.md)
- - [OpenAI::ThreadObject](docs/ThreadObject.md)
+ - [OpenAIClient::AnyOfCreateAssistantRequestModel](docs/AnyOfCreateAssistantRequestModel.md)
+ - [OpenAIClient::AnyOfCreateChatCompletionRequestModel](docs/AnyOfCreateChatCompletionRequestModel.md)
+ - [OpenAIClient::AnyOfCreateCompletionRequestModel](docs/AnyOfCreateCompletionRequestModel.md)
+ - [OpenAIClient::AnyOfCreateEditRequestModel](docs/AnyOfCreateEditRequestModel.md)
+ - [OpenAIClient::AnyOfCreateEmbeddingRequestModel](docs/AnyOfCreateEmbeddingRequestModel.md)
+ - [OpenAIClient::AnyOfCreateFineTuneRequestModel](docs/AnyOfCreateFineTuneRequestModel.md)
+ - [OpenAIClient::AnyOfCreateFineTuningJobRequestModel](docs/AnyOfCreateFineTuningJobRequestModel.md)
+ - [OpenAIClient::AnyOfCreateImageEditRequestModel](docs/AnyOfCreateImageEditRequestModel.md)
+ - [OpenAIClient::AnyOfCreateImageRequestModel](docs/AnyOfCreateImageRequestModel.md)
+ - [OpenAIClient::AnyOfCreateImageVariationRequestModel](docs/AnyOfCreateImageVariationRequestModel.md)
+ - [OpenAIClient::AnyOfCreateModerationRequestModel](docs/AnyOfCreateModerationRequestModel.md)
+ - [OpenAIClient::AnyOfCreateSpeechRequestModel](docs/AnyOfCreateSpeechRequestModel.md)
+ - [OpenAIClient::AnyOfCreateTranscriptionRequestModel](docs/AnyOfCreateTranscriptionRequestModel.md)
+ - [OpenAIClient::AnyOfCreateTranslationRequestModel](docs/AnyOfCreateTranslationRequestModel.md)
+ - [OpenAIClient::AnyOfModifyAssistantRequestModel](docs/AnyOfModifyAssistantRequestModel.md)
+ - [OpenAIClient::AssistantFileObject](docs/AssistantFileObject.md)
+ - [OpenAIClient::AssistantObject](docs/AssistantObject.md)
+ - [OpenAIClient::AssistantToolsCode](docs/AssistantToolsCode.md)
+ - [OpenAIClient::AssistantToolsFunction](docs/AssistantToolsFunction.md)
+ - [OpenAIClient::AssistantToolsFunctionFunction](docs/AssistantToolsFunctionFunction.md)
+ - [OpenAIClient::AssistantToolsRetrieval](docs/AssistantToolsRetrieval.md)
+ - [OpenAIClient::ChatCompletionFunctionCallOption](docs/ChatCompletionFunctionCallOption.md)
+ - [OpenAIClient::ChatCompletionFunctionParameters](docs/ChatCompletionFunctionParameters.md)
+ - [OpenAIClient::ChatCompletionFunctions](docs/ChatCompletionFunctions.md)
+ - [OpenAIClient::ChatCompletionMessageToolCall](docs/ChatCompletionMessageToolCall.md)
+ - [OpenAIClient::ChatCompletionMessageToolCallChunk](docs/ChatCompletionMessageToolCallChunk.md)
+ - [OpenAIClient::ChatCompletionMessageToolCallChunkFunction](docs/ChatCompletionMessageToolCallChunkFunction.md)
+ - [OpenAIClient::ChatCompletionMessageToolCallFunction](docs/ChatCompletionMessageToolCallFunction.md)
+ - [OpenAIClient::ChatCompletionMessageToolCalls](docs/ChatCompletionMessageToolCalls.md)
+ - [OpenAIClient::ChatCompletionNamedToolChoice](docs/ChatCompletionNamedToolChoice.md)
+ - [OpenAIClient::ChatCompletionNamedToolChoiceFunction](docs/ChatCompletionNamedToolChoiceFunction.md)
+ - [OpenAIClient::ChatCompletionRequestAssistantMessage](docs/ChatCompletionRequestAssistantMessage.md)
+ - [OpenAIClient::ChatCompletionRequestAssistantMessageFunctionCall](docs/ChatCompletionRequestAssistantMessageFunctionCall.md)
+ - [OpenAIClient::ChatCompletionRequestFunctionMessage](docs/ChatCompletionRequestFunctionMessage.md)
+ - [OpenAIClient::ChatCompletionRequestMessage](docs/ChatCompletionRequestMessage.md)
+ - [OpenAIClient::ChatCompletionRequestMessageContentPart](docs/ChatCompletionRequestMessageContentPart.md)
+ - [OpenAIClient::ChatCompletionRequestMessageContentPartImage](docs/ChatCompletionRequestMessageContentPartImage.md)
+ - [OpenAIClient::ChatCompletionRequestMessageContentPartImageImageUrl](docs/ChatCompletionRequestMessageContentPartImageImageUrl.md)
+ - [OpenAIClient::ChatCompletionRequestMessageContentPartText](docs/ChatCompletionRequestMessageContentPartText.md)
+ - [OpenAIClient::ChatCompletionRequestSystemMessage](docs/ChatCompletionRequestSystemMessage.md)
+ - [OpenAIClient::ChatCompletionRequestToolMessage](docs/ChatCompletionRequestToolMessage.md)
+ - [OpenAIClient::ChatCompletionRequestUserMessage](docs/ChatCompletionRequestUserMessage.md)
+ - [OpenAIClient::ChatCompletionResponseMessage](docs/ChatCompletionResponseMessage.md)
+ - [OpenAIClient::ChatCompletionRole](docs/ChatCompletionRole.md)
+ - [OpenAIClient::ChatCompletionStreamResponseDelta](docs/ChatCompletionStreamResponseDelta.md)
+ - [OpenAIClient::ChatCompletionStreamResponseDeltaFunctionCall](docs/ChatCompletionStreamResponseDeltaFunctionCall.md)
+ - [OpenAIClient::ChatCompletionTool](docs/ChatCompletionTool.md)
+ - [OpenAIClient::ChatCompletionToolChoiceOption](docs/ChatCompletionToolChoiceOption.md)
+ - [OpenAIClient::ChatCompletionToolFunction](docs/ChatCompletionToolFunction.md)
+ - [OpenAIClient::CompletionUsage](docs/CompletionUsage.md)
+ - [OpenAIClient::CreateAssistantFileRequest](docs/CreateAssistantFileRequest.md)
+ - [OpenAIClient::CreateAssistantRequest](docs/CreateAssistantRequest.md)
+ - [OpenAIClient::CreateChatCompletionFunctionResponse](docs/CreateChatCompletionFunctionResponse.md)
+ - [OpenAIClient::CreateChatCompletionFunctionResponseChoices](docs/CreateChatCompletionFunctionResponseChoices.md)
+ - [OpenAIClient::CreateChatCompletionImageResponse](docs/CreateChatCompletionImageResponse.md)
+ - [OpenAIClient::CreateChatCompletionRequest](docs/CreateChatCompletionRequest.md)
+ - [OpenAIClient::CreateChatCompletionRequestResponseFormat](docs/CreateChatCompletionRequestResponseFormat.md)
+ - [OpenAIClient::CreateChatCompletionResponse](docs/CreateChatCompletionResponse.md)
+ - [OpenAIClient::CreateChatCompletionResponseChoices](docs/CreateChatCompletionResponseChoices.md)
+ - [OpenAIClient::CreateChatCompletionStreamResponse](docs/CreateChatCompletionStreamResponse.md)
+ - [OpenAIClient::CreateChatCompletionStreamResponseChoices](docs/CreateChatCompletionStreamResponseChoices.md)
+ - [OpenAIClient::CreateCompletionRequest](docs/CreateCompletionRequest.md)
+ - [OpenAIClient::CreateCompletionResponse](docs/CreateCompletionResponse.md)
+ - [OpenAIClient::CreateCompletionResponseChoices](docs/CreateCompletionResponseChoices.md)
+ - [OpenAIClient::CreateCompletionResponseLogprobs](docs/CreateCompletionResponseLogprobs.md)
+ - [OpenAIClient::CreateEditRequest](docs/CreateEditRequest.md)
+ - [OpenAIClient::CreateEditResponse](docs/CreateEditResponse.md)
+ - [OpenAIClient::CreateEditResponseChoices](docs/CreateEditResponseChoices.md)
+ - [OpenAIClient::CreateEmbeddingRequest](docs/CreateEmbeddingRequest.md)
+ - [OpenAIClient::CreateEmbeddingResponse](docs/CreateEmbeddingResponse.md)
+ - [OpenAIClient::CreateEmbeddingResponseUsage](docs/CreateEmbeddingResponseUsage.md)
+ - [OpenAIClient::CreateFileRequest](docs/CreateFileRequest.md)
+ - [OpenAIClient::CreateFineTuneRequest](docs/CreateFineTuneRequest.md)
+ - [OpenAIClient::CreateFineTuneRequestHyperparameters](docs/CreateFineTuneRequestHyperparameters.md)
+ - [OpenAIClient::CreateFineTuningJobRequest](docs/CreateFineTuningJobRequest.md)
+ - [OpenAIClient::CreateFineTuningJobRequestHyperparameters](docs/CreateFineTuningJobRequestHyperparameters.md)
+ - [OpenAIClient::CreateImageEditRequest](docs/CreateImageEditRequest.md)
+ - [OpenAIClient::CreateImageRequest](docs/CreateImageRequest.md)
+ - [OpenAIClient::CreateImageVariationRequest](docs/CreateImageVariationRequest.md)
+ - [OpenAIClient::CreateMessageRequest](docs/CreateMessageRequest.md)
+ - [OpenAIClient::CreateModerationRequest](docs/CreateModerationRequest.md)
+ - [OpenAIClient::CreateModerationResponse](docs/CreateModerationResponse.md)
+ - [OpenAIClient::CreateModerationResponseCategories](docs/CreateModerationResponseCategories.md)
+ - [OpenAIClient::CreateModerationResponseCategoryScores](docs/CreateModerationResponseCategoryScores.md)
+ - [OpenAIClient::CreateModerationResponseResults](docs/CreateModerationResponseResults.md)
+ - [OpenAIClient::CreateRunRequest](docs/CreateRunRequest.md)
+ - [OpenAIClient::CreateSpeechRequest](docs/CreateSpeechRequest.md)
+ - [OpenAIClient::CreateThreadAndRunRequest](docs/CreateThreadAndRunRequest.md)
+ - [OpenAIClient::CreateThreadRequest](docs/CreateThreadRequest.md)
+ - [OpenAIClient::CreateTranscriptionRequest](docs/CreateTranscriptionRequest.md)
+ - [OpenAIClient::CreateTranscriptionResponse](docs/CreateTranscriptionResponse.md)
+ - [OpenAIClient::CreateTranslationRequest](docs/CreateTranslationRequest.md)
+ - [OpenAIClient::CreateTranslationResponse](docs/CreateTranslationResponse.md)
+ - [OpenAIClient::DeleteAssistantFileResponse](docs/DeleteAssistantFileResponse.md)
+ - [OpenAIClient::DeleteAssistantResponse](docs/DeleteAssistantResponse.md)
+ - [OpenAIClient::DeleteFileResponse](docs/DeleteFileResponse.md)
+ - [OpenAIClient::DeleteMessageResponse](docs/DeleteMessageResponse.md)
+ - [OpenAIClient::DeleteModelResponse](docs/DeleteModelResponse.md)
+ - [OpenAIClient::DeleteThreadResponse](docs/DeleteThreadResponse.md)
+ - [OpenAIClient::Embedding](docs/Embedding.md)
+ - [OpenAIClient::Error](docs/Error.md)
+ - [OpenAIClient::ErrorResponse](docs/ErrorResponse.md)
+ - [OpenAIClient::FineTune](docs/FineTune.md)
+ - [OpenAIClient::FineTuneEvent](docs/FineTuneEvent.md)
+ - [OpenAIClient::FineTuneHyperparams](docs/FineTuneHyperparams.md)
+ - [OpenAIClient::FineTuningJob](docs/FineTuningJob.md)
+ - [OpenAIClient::FineTuningJobError](docs/FineTuningJobError.md)
+ - [OpenAIClient::FineTuningJobEvent](docs/FineTuningJobEvent.md)
+ - [OpenAIClient::FineTuningJobHyperparameters](docs/FineTuningJobHyperparameters.md)
+ - [OpenAIClient::Image](docs/Image.md)
+ - [OpenAIClient::ImagesResponse](docs/ImagesResponse.md)
+ - [OpenAIClient::ListAssistantFilesResponse](docs/ListAssistantFilesResponse.md)
+ - [OpenAIClient::ListAssistantsResponse](docs/ListAssistantsResponse.md)
+ - [OpenAIClient::ListFilesResponse](docs/ListFilesResponse.md)
+ - [OpenAIClient::ListFineTuneEventsResponse](docs/ListFineTuneEventsResponse.md)
+ - [OpenAIClient::ListFineTunesResponse](docs/ListFineTunesResponse.md)
+ - [OpenAIClient::ListFineTuningJobEventsResponse](docs/ListFineTuningJobEventsResponse.md)
+ - [OpenAIClient::ListMessageFilesResponse](docs/ListMessageFilesResponse.md)
+ - [OpenAIClient::ListMessagesResponse](docs/ListMessagesResponse.md)
+ - [OpenAIClient::ListModelsResponse](docs/ListModelsResponse.md)
+ - [OpenAIClient::ListPaginatedFineTuningJobsResponse](docs/ListPaginatedFineTuningJobsResponse.md)
+ - [OpenAIClient::ListRunStepsResponse](docs/ListRunStepsResponse.md)
+ - [OpenAIClient::ListRunsResponse](docs/ListRunsResponse.md)
+ - [OpenAIClient::ListThreadsResponse](docs/ListThreadsResponse.md)
+ - [OpenAIClient::MessageContentImageFileObject](docs/MessageContentImageFileObject.md)
+ - [OpenAIClient::MessageContentImageFileObjectImageFile](docs/MessageContentImageFileObjectImageFile.md)
+ - [OpenAIClient::MessageContentTextAnnotationsFileCitationObject](docs/MessageContentTextAnnotationsFileCitationObject.md)
+ - [OpenAIClient::MessageContentTextAnnotationsFileCitationObjectFileCitation](docs/MessageContentTextAnnotationsFileCitationObjectFileCitation.md)
+ - [OpenAIClient::MessageContentTextAnnotationsFilePathObject](docs/MessageContentTextAnnotationsFilePathObject.md)
+ - [OpenAIClient::MessageContentTextAnnotationsFilePathObjectFilePath](docs/MessageContentTextAnnotationsFilePathObjectFilePath.md)
+ - [OpenAIClient::MessageContentTextObject](docs/MessageContentTextObject.md)
+ - [OpenAIClient::MessageContentTextObjectText](docs/MessageContentTextObjectText.md)
+ - [OpenAIClient::MessageFileObject](docs/MessageFileObject.md)
+ - [OpenAIClient::MessageObject](docs/MessageObject.md)
+ - [OpenAIClient::Model](docs/Model.md)
+ - [OpenAIClient::ModifyAssistantRequest](docs/ModifyAssistantRequest.md)
+ - [OpenAIClient::ModifyMessageRequest](docs/ModifyMessageRequest.md)
+ - [OpenAIClient::ModifyRunRequest](docs/ModifyRunRequest.md)
+ - [OpenAIClient::ModifyThreadRequest](docs/ModifyThreadRequest.md)
+ - [OpenAIClient::OneOfAssistantObjectToolsItems](docs/OneOfAssistantObjectToolsItems.md)
+ - [OpenAIClient::OneOfChatCompletionRequestUserMessageContent](docs/OneOfChatCompletionRequestUserMessageContent.md)
+ - [OpenAIClient::OneOfCreateAssistantRequestToolsItems](docs/OneOfCreateAssistantRequestToolsItems.md)
+ - [OpenAIClient::OneOfCreateChatCompletionRequestFunctionCall](docs/OneOfCreateChatCompletionRequestFunctionCall.md)
+ - [OpenAIClient::OneOfCreateChatCompletionRequestStop](docs/OneOfCreateChatCompletionRequestStop.md)
+ - [OpenAIClient::OneOfCreateCompletionRequestPrompt](docs/OneOfCreateCompletionRequestPrompt.md)
+ - [OpenAIClient::OneOfCreateCompletionRequestStop](docs/OneOfCreateCompletionRequestStop.md)
+ - [OpenAIClient::OneOfCreateEmbeddingRequestInput](docs/OneOfCreateEmbeddingRequestInput.md)
+ - [OpenAIClient::OneOfCreateFineTuneRequestHyperparametersNEpochs](docs/OneOfCreateFineTuneRequestHyperparametersNEpochs.md)
+ - [OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersBatchSize](docs/OneOfCreateFineTuningJobRequestHyperparametersBatchSize.md)
+ - [OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersLearningRateMultiplier](docs/OneOfCreateFineTuningJobRequestHyperparametersLearningRateMultiplier.md)
+ - [OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersNEpochs](docs/OneOfCreateFineTuningJobRequestHyperparametersNEpochs.md)
+ - [OpenAIClient::OneOfCreateModerationRequestInput](docs/OneOfCreateModerationRequestInput.md)
+ - [OpenAIClient::OneOfCreateRunRequestToolsItems](docs/OneOfCreateRunRequestToolsItems.md)
+ - [OpenAIClient::OneOfCreateThreadAndRunRequestToolsItems](docs/OneOfCreateThreadAndRunRequestToolsItems.md)
+ - [OpenAIClient::OneOfFineTuningJobHyperparametersNEpochs](docs/OneOfFineTuningJobHyperparametersNEpochs.md)
+ - [OpenAIClient::OneOfMessageContentTextObjectTextAnnotationsItems](docs/OneOfMessageContentTextObjectTextAnnotationsItems.md)
+ - [OpenAIClient::OneOfMessageObjectContentItems](docs/OneOfMessageObjectContentItems.md)
+ - [OpenAIClient::OneOfModifyAssistantRequestToolsItems](docs/OneOfModifyAssistantRequestToolsItems.md)
+ - [OpenAIClient::OneOfRunObjectToolsItems](docs/OneOfRunObjectToolsItems.md)
+ - [OpenAIClient::OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems](docs/OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems.md)
+ - [OpenAIClient::OneOfRunStepDetailsToolCallsObjectToolCallsItems](docs/OneOfRunStepDetailsToolCallsObjectToolCallsItems.md)
+ - [OpenAIClient::OneOfRunStepObjectStepDetails](docs/OneOfRunStepObjectStepDetails.md)
+ - [OpenAIClient::OpenAIFile](docs/OpenAIFile.md)
+ - [OpenAIClient::RunObject](docs/RunObject.md)
+ - [OpenAIClient::RunObjectLastError](docs/RunObjectLastError.md)
+ - [OpenAIClient::RunObjectRequiredAction](docs/RunObjectRequiredAction.md)
+ - [OpenAIClient::RunObjectRequiredActionSubmitToolOutputs](docs/RunObjectRequiredActionSubmitToolOutputs.md)
+ - [OpenAIClient::RunStepDetailsMessageCreationObject](docs/RunStepDetailsMessageCreationObject.md)
+ - [OpenAIClient::RunStepDetailsMessageCreationObjectMessageCreation](docs/RunStepDetailsMessageCreationObjectMessageCreation.md)
+ - [OpenAIClient::RunStepDetailsToolCallsCodeObject](docs/RunStepDetailsToolCallsCodeObject.md)
+ - [OpenAIClient::RunStepDetailsToolCallsCodeObjectCodeInterpreter](docs/RunStepDetailsToolCallsCodeObjectCodeInterpreter.md)
+ - [OpenAIClient::RunStepDetailsToolCallsCodeOutputImageObject](docs/RunStepDetailsToolCallsCodeOutputImageObject.md)
+ - [OpenAIClient::RunStepDetailsToolCallsCodeOutputImageObjectImage](docs/RunStepDetailsToolCallsCodeOutputImageObjectImage.md)
+ - [OpenAIClient::RunStepDetailsToolCallsCodeOutputLogsObject](docs/RunStepDetailsToolCallsCodeOutputLogsObject.md)
+ - [OpenAIClient::RunStepDetailsToolCallsFunctionObject](docs/RunStepDetailsToolCallsFunctionObject.md)
+ - [OpenAIClient::RunStepDetailsToolCallsFunctionObjectFunction](docs/RunStepDetailsToolCallsFunctionObjectFunction.md)
+ - [OpenAIClient::RunStepDetailsToolCallsObject](docs/RunStepDetailsToolCallsObject.md)
+ - [OpenAIClient::RunStepDetailsToolCallsRetrievalObject](docs/RunStepDetailsToolCallsRetrievalObject.md)
+ - [OpenAIClient::RunStepObject](docs/RunStepObject.md)
+ - [OpenAIClient::RunStepObjectLastError](docs/RunStepObjectLastError.md)
+ - [OpenAIClient::RunToolCallObject](docs/RunToolCallObject.md)
+ - [OpenAIClient::RunToolCallObjectFunction](docs/RunToolCallObjectFunction.md)
+ - [OpenAIClient::SubmitToolOutputsRunRequest](docs/SubmitToolOutputsRunRequest.md)
+ - [OpenAIClient::SubmitToolOutputsRunRequestToolOutputs](docs/SubmitToolOutputsRunRequestToolOutputs.md)
+ - [OpenAIClient::ThreadObject](docs/ThreadObject.md)
 
 ## Documentation for Authorization
 

@@ -1,4 +1,4 @@
-# OpenAI::ListMessagesResponse
+# OpenAIClient::ListMessagesResponse
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# OpenAI::CreateModerationResponseResults
+# OpenAIClient::CreateModerationResponseResults
 
 ## Properties
 Name | Type | Description | Notes

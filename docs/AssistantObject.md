@@ -1,4 +1,4 @@
-# OpenAI::AssistantObject
+# OpenAIClient::AssistantObject
 
 ## Properties
 Name | Type | Description | Notes

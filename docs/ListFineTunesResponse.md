@@ -1,4 +1,4 @@
-# OpenAI::ListFineTunesResponse
+# OpenAIClient::ListFineTunesResponse
 
 ## Properties
 Name | Type | Description | Notes

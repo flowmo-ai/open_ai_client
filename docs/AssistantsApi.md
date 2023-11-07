@@ -1,4 +1,4 @@
-# OpenAI::AssistantsApi
+# OpenAIClient::AssistantsApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -40,12 +40,12 @@ Cancels a run that is `in_progress`.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which this run belongs.
 run_id = 'run_id_example' # String | The ID of the run to cancel.
 
@@ -54,7 +54,7 @@ begin
   #Cancels a run that is `in_progress`.
   result = api_instance.cancel_run(thread_id, run_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->cancel_run: #{e}"
 end
 ```
@@ -89,20 +89,20 @@ Create an assistant with a model and instructions.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateAssistantRequest.new # CreateAssistantRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateAssistantRequest.new # CreateAssistantRequest | 
 
 
 begin
   #Create an assistant with a model and instructions.
   result = api_instance.create_assistant(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_assistant: #{e}"
 end
 ```
@@ -136,13 +136,13 @@ Create an assistant file by attaching a [File](/docs/api-reference/files) to an 
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateAssistantFileRequest.new # CreateAssistantFileRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateAssistantFileRequest.new # CreateAssistantFileRequest | 
 assistant_id = 'assistant_id_example' # String | The ID of the assistant for which to create a File. 
 
 
@@ -150,7 +150,7 @@ begin
   #Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
   result = api_instance.create_assistant_file(bodyassistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_assistant_file: #{e}"
 end
 ```
@@ -185,13 +185,13 @@ Create a message.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateMessageRequest.new # CreateMessageRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateMessageRequest.new # CreateMessageRequest | 
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to create a message for.
 
 
@@ -199,7 +199,7 @@ begin
   #Create a message.
   result = api_instance.create_message(bodythread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_message: #{e}"
 end
 ```
@@ -234,13 +234,13 @@ Create a run.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateRunRequest.new # CreateRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateRunRequest.new # CreateRunRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to run.
 
 
@@ -248,7 +248,7 @@ begin
   #Create a run.
   result = api_instance.create_run(bodythread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_run: #{e}"
 end
 ```
@@ -283,20 +283,20 @@ Create a thread.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateThreadRequest.new # CreateThreadRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
 
 
 begin
   #Create a thread.
   result = api_instance.create_thread(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
 end
 ```
@@ -330,20 +330,20 @@ Create a thread and run it in one request.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::CreateThreadAndRunRequest.new # CreateThreadAndRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::CreateThreadAndRunRequest.new # CreateThreadAndRunRequest | 
 
 
 begin
   #Create a thread and run it in one request.
   result = api_instance.create_thread_and_run(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread_and_run: #{e}"
 end
 ```
@@ -377,12 +377,12 @@ Delete an assistant.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant to delete.
 
 
@@ -390,7 +390,7 @@ begin
   #Delete an assistant.
   result = api_instance.delete_assistant(assistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->delete_assistant: #{e}"
 end
 ```
@@ -424,12 +424,12 @@ Delete an assistant file.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant that the file belongs to.
 file_id = 'file_id_example' # String | The ID of the file to delete.
 
@@ -438,7 +438,7 @@ begin
   #Delete an assistant file.
   result = api_instance.delete_assistant_file(assistant_id, file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->delete_assistant_file: #{e}"
 end
 ```
@@ -473,12 +473,12 @@ Delete a thread.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to delete.
 
 
@@ -486,7 +486,7 @@ begin
   #Delete a thread.
   result = api_instance.delete_thread(thread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->delete_thread: #{e}"
 end
 ```
@@ -520,12 +520,12 @@ Retrieves an assistant.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant to retrieve.
 
 
@@ -533,7 +533,7 @@ begin
   #Retrieves an assistant.
   result = api_instance.get_assistant(assistant_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_assistant: #{e}"
 end
 ```
@@ -567,12 +567,12 @@ Retrieves an AssistantFile.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant who the file belongs to.
 file_id = 'file_id_example' # String | The ID of the file we're getting.
 
@@ -581,7 +581,7 @@ begin
   #Retrieves an AssistantFile.
   result = api_instance.get_assistant_file(assistant_id, file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_assistant_file: #{e}"
 end
 ```
@@ -616,12 +616,12 @@ Retrieve a message.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to which this message belongs.
 message_id = 'message_id_example' # String | The ID of the message to retrieve.
 
@@ -630,7 +630,7 @@ begin
   #Retrieve a message.
   result = api_instance.get_message(thread_id, message_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_message: #{e}"
 end
 ```
@@ -665,12 +665,12 @@ Retrieves a message file.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which the message and File belong.
 message_id = 'message_id_example' # String | The ID of the message the file belongs to.
 file_id = 'file_id_example' # String | The ID of the file being retrieved.
@@ -680,7 +680,7 @@ begin
   #Retrieves a message file.
   result = api_instance.get_message_file(thread_id, message_id, file_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_message_file: #{e}"
 end
 ```
@@ -716,12 +716,12 @@ Retrieves a run.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) that was run.
 run_id = 'run_id_example' # String | The ID of the run to retrieve.
 
@@ -730,7 +730,7 @@ begin
   #Retrieves a run.
   result = api_instance.get_run(thread_id, run_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_run: #{e}"
 end
 ```
@@ -765,12 +765,12 @@ Retrieves a run step.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which the run and run step belongs.
 run_id = 'run_id_example' # String | The ID of the run to which the run step belongs.
 step_id = 'step_id_example' # String | The ID of the run step to retrieve.
@@ -780,7 +780,7 @@ begin
   #Retrieves a run step.
   result = api_instance.get_run_step(thread_id, run_id, step_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_run_step: #{e}"
 end
 ```
@@ -816,12 +816,12 @@ Retrieves a thread.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to retrieve.
 
 
@@ -829,7 +829,7 @@ begin
   #Retrieves a thread.
   result = api_instance.get_thread(thread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_thread: #{e}"
 end
 ```
@@ -863,12 +863,12 @@ Returns a list of assistant files.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 assistant_id = 'assistant_id_example' # String | The ID of the assistant the file belongs to.
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
@@ -881,7 +881,7 @@ begin
   #Returns a list of assistant files.
   result = api_instance.list_assistant_files(assistant_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_assistant_files: #{e}"
 end
 ```
@@ -919,12 +919,12 @@ Returns a list of assistants.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
@@ -936,7 +936,7 @@ begin
   #Returns a list of assistants.
   result = api_instance.list_assistants(opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_assistants: #{e}"
 end
 ```
@@ -973,12 +973,12 @@ Returns a list of message files.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread that the message and files belong to.
 message_id = 'message_id_example' # String | The ID of the message that the files belongs to.
 opts = { 
@@ -992,7 +992,7 @@ begin
   #Returns a list of message files.
   result = api_instance.list_message_files(thread_id, message_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_message_files: #{e}"
 end
 ```
@@ -1031,12 +1031,12 @@ Returns a list of messages for a given thread.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) the messages belong to.
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
@@ -1049,7 +1049,7 @@ begin
   #Returns a list of messages for a given thread.
   result = api_instance.list_messages(thread_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_messages: #{e}"
 end
 ```
@@ -1087,12 +1087,12 @@ Returns a list of run steps belonging to a run.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread the run and run steps belong to.
 run_id = 'run_id_example' # String | The ID of the run the run steps belong to.
 opts = { 
@@ -1106,7 +1106,7 @@ begin
   #Returns a list of run steps belonging to a run.
   result = api_instance.list_run_steps(thread_id, run_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_run_steps: #{e}"
 end
 ```
@@ -1145,12 +1145,12 @@ Returns a list of runs belonging to a thread.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
+api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread the run belongs to.
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
@@ -1163,7 +1163,7 @@ begin
   #Returns a list of runs belonging to a thread.
   result = api_instance.list_runs(thread_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->list_runs: #{e}"
 end
 ```
@@ -1201,13 +1201,13 @@ Modifies a message.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::ModifyMessageRequest.new # ModifyMessageRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyMessageRequest.new # ModifyMessageRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to which this message belongs.
 message_id = 'message_id_example' # String | The ID of the message to modify.
 
@@ -1216,7 +1216,7 @@ begin
   #Modifies a message.
   result = api_instance.modify_message(bodythread_idmessage_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->modify_message: #{e}"
 end
 ```
@@ -1252,13 +1252,13 @@ Modifies a run.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::ModifyRunRequest.new # ModifyRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyRunRequest.new # ModifyRunRequest | 
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) that was run.
 run_id = 'run_id_example' # String | The ID of the run to modify.
 
@@ -1267,7 +1267,7 @@ begin
   #Modifies a run.
   result = api_instance.modify_run(bodythread_idrun_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->modify_run: #{e}"
 end
 ```
@@ -1303,13 +1303,13 @@ Modifies a thread.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::ModifyThreadRequest.new # ModifyThreadRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyThreadRequest.new # ModifyThreadRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to modify. Only the `metadata` can be modified.
 
 
@@ -1317,7 +1317,7 @@ begin
   #Modifies a thread.
   result = api_instance.modify_thread(bodythread_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->modify_thread: #{e}"
 end
 ```
@@ -1352,13 +1352,13 @@ When a run has the `status: \"requires_action\"` and `required_action.type` is `
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::AssistantsApi.new
-body = OpenAI::SubmitToolOutputsRunRequest.new # SubmitToolOutputsRunRequest | 
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::SubmitToolOutputsRunRequest.new # SubmitToolOutputsRunRequest | 
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.
 run_id = 'run_id_example' # String | The ID of the run that requires the tool output submission.
 
@@ -1367,7 +1367,7 @@ begin
   #When a run has the `status: \"requires_action\"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request. 
   result = api_instance.submit_tool_ouputs_to_run(bodythread_idrun_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->submit_tool_ouputs_to_run: #{e}"
 end
 ```

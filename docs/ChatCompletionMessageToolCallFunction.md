@@ -1,4 +1,4 @@
-# OpenAI::ChatCompletionMessageToolCallFunction
+# OpenAIClient::ChatCompletionMessageToolCallFunction
 
 ## Properties
 Name | Type | Description | Notes

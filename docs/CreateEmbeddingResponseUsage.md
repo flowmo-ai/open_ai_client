@@ -1,4 +1,4 @@
-# OpenAI::CreateEmbeddingResponseUsage
+# OpenAIClient::CreateEmbeddingResponseUsage
 
 ## Properties
 Name | Type | Description | Notes

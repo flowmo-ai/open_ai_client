@@ -1,4 +1,4 @@
-# OpenAI::DeleteThreadResponse
+# OpenAIClient::DeleteThreadResponse
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# OpenAI::DeleteAssistantResponse
+# OpenAIClient::DeleteAssistantResponse
 
 ## Properties
 Name | Type | Description | Notes

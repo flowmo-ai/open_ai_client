@@ -1,4 +1,4 @@
-# OpenAI::RunObject
+# OpenAIClient::RunObject
 
 ## Properties
 Name | Type | Description | Notes

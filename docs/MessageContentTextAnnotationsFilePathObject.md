@@ -1,4 +1,4 @@
-# OpenAI::MessageContentTextAnnotationsFilePathObject
+# OpenAIClient::MessageContentTextAnnotationsFilePathObject
 
 ## Properties
 Name | Type | Description | Notes

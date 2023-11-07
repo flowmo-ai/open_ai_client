@@ -1,4 +1,4 @@
-# OpenAI::ChatCompletionTool
+# OpenAIClient::ChatCompletionTool
 
 ## Properties
 Name | Type | Description | Notes

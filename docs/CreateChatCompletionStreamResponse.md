@@ -1,4 +1,4 @@
-# OpenAI::CreateChatCompletionStreamResponse
+# OpenAIClient::CreateChatCompletionStreamResponse
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# OpenAI::OpenAIFile
+# OpenAIClient::OpenAIFile
 
 ## Properties
 Name | Type | Description | Notes

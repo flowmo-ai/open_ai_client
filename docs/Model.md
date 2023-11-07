@@ -1,4 +1,4 @@
-# OpenAI::Model
+# OpenAIClient::Model
 
 ## Properties
 Name | Type | Description | Notes

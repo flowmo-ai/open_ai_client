@@ -1,7 +1,7 @@
-# OpenAI::AssistantToolsRetrieval
+# OpenAIClient::AssistantToolsRetrieval
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | The type of tool being defined: &#x60;retreival&#x60; | 
+**type** | **String** | The type of tool being defined: &#x60;retrieval&#x60; | 
 

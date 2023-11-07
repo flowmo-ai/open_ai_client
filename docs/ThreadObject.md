@@ -1,4 +1,4 @@
-# OpenAI::ThreadObject
+# OpenAIClient::ThreadObject
 
 ## Properties
 Name | Type | Description | Notes

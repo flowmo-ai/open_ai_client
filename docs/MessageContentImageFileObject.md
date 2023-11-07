@@ -1,4 +1,4 @@
-# OpenAI::MessageContentImageFileObject
+# OpenAIClient::MessageContentImageFileObject
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# OpenAI::EmbeddingsApi
+# OpenAIClient::EmbeddingsApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -14,20 +14,20 @@ Creates an embedding vector representing the input text.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::EmbeddingsApi.new
-body = OpenAI::CreateEmbeddingRequest.new # CreateEmbeddingRequest | 
+api_instance = OpenAIClient::EmbeddingsApi.new
+body = OpenAIClient::CreateEmbeddingRequest.new # CreateEmbeddingRequest | 
 
 
 begin
   #Creates an embedding vector representing the input text.
   result = api_instance.create_embedding(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling EmbeddingsApi->create_embedding: #{e}"
 end
 ```

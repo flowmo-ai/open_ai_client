@@ -1,4 +1,4 @@
-# OpenAI::ModerationsApi
+# OpenAIClient::ModerationsApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -14,20 +14,20 @@ Classifies if text violates OpenAI's Content Policy
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModerationsApi.new
-body = OpenAI::CreateModerationRequest.new # CreateModerationRequest | 
+api_instance = OpenAIClient::ModerationsApi.new
+body = OpenAIClient::CreateModerationRequest.new # CreateModerationRequest | 
 
 
 begin
   #Classifies if text violates OpenAI's Content Policy
   result = api_instance.create_moderation(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModerationsApi->create_moderation: #{e}"
 end
 ```

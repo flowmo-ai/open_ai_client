@@ -1,4 +1,4 @@
-# OpenAI::OneOfCreateChatCompletionRequestFunctionCall
+# OpenAIClient::OneOfCreateChatCompletionRequestFunctionCall
 
 ## Properties
 Name | Type | Description | Notes

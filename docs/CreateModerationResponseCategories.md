@@ -1,4 +1,4 @@
-# OpenAI::CreateModerationResponseCategories
+# OpenAIClient::CreateModerationResponseCategories
 
 ## Properties
 Name | Type | Description | Notes

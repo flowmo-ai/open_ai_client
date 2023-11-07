@@ -1,4 +1,4 @@
-# OpenAI::CreateFineTuningJobRequestHyperparameters
+# OpenAIClient::CreateFineTuningJobRequestHyperparameters
 
 ## Properties
 Name | Type | Description | Notes

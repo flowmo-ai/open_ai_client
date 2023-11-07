@@ -1,4 +1,4 @@
-# OpenAI::OneOfCreateFineTuneRequestHyperparametersNEpochs
+# OpenAIClient::OneOfCreateFineTuneRequestHyperparametersNEpochs
 
 ## Properties
 Name | Type | Description | Notes

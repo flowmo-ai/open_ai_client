@@ -1,4 +1,4 @@
-# OpenAI::CreateRunRequest
+# OpenAIClient::CreateRunRequest
 
 ## Properties
 Name | Type | Description | Notes

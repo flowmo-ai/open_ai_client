@@ -1,4 +1,4 @@
-# OpenAI::ListRunsResponse
+# OpenAIClient::ListRunsResponse
 
 ## Properties
 Name | Type | Description | Notes

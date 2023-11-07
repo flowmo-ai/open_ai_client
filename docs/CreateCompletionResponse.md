@@ -1,4 +1,4 @@
-# OpenAI::CreateCompletionResponse
+# OpenAIClient::CreateCompletionResponse
 
 ## Properties
 Name | Type | Description | Notes

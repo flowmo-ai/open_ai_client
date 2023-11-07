@@ -1,4 +1,4 @@
-# OpenAI::ChatCompletionRequestUserMessage
+# OpenAIClient::ChatCompletionRequestUserMessage
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# OpenAI::OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems
+# OpenAIClient::OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems
 
 ## Properties
 Name | Type | Description | Notes

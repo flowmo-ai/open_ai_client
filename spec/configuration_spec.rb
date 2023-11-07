@@ -11,14 +11,14 @@ Swagger Codegen version: 3.0.50
 
 require 'spec_helper'
 
-describe OpenAI::Configuration do
-  let(:config) { OpenAI::Configuration.default }
+describe OpenAIClient::Configuration do
+  let(:config) { OpenAIClient::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path
     # require 'URI'
     # uri = URI.parse("https://api.openai.com/v1")
-    # OpenAI.configure do |c|
+    # OpenAIClient.configure do |c|
     #   c.host = uri.host
     #   c.base_path = uri.path
     # end

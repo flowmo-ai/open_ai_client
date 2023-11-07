@@ -1,4 +1,4 @@
-# OpenAI::OneOfCreateCompletionRequestStop
+# OpenAIClient::OneOfCreateCompletionRequestStop
 
 ## Properties
 Name | Type | Description | Notes

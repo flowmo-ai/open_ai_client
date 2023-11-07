@@ -1,4 +1,4 @@
-# OpenAI::CreateModerationResponseCategoryScores
+# OpenAIClient::CreateModerationResponseCategoryScores
 
 ## Properties
 Name | Type | Description | Notes

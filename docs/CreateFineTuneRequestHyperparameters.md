@@ -1,4 +1,4 @@
-# OpenAI::CreateFineTuneRequestHyperparameters
+# OpenAIClient::CreateFineTuneRequestHyperparameters
 
 ## Properties
 Name | Type | Description | Notes

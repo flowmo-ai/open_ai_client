@@ -1,4 +1,4 @@
-# OpenAI::RunStepDetailsToolCallsRetrievalObject
+# OpenAIClient::RunStepDetailsToolCallsRetrievalObject
 
 ## Properties
 Name | Type | Description | Notes

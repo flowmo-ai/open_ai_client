@@ -1,4 +1,4 @@
-# OpenAI::ChatCompletionStreamResponseDeltaFunctionCall
+# OpenAIClient::ChatCompletionStreamResponseDeltaFunctionCall
 
 ## Properties
 Name | Type | Description | Notes

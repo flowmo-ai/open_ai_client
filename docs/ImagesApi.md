@@ -1,4 +1,4 @@
-# OpenAI::ImagesApi
+# OpenAIClient::ImagesApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -16,20 +16,20 @@ Creates an image given a prompt.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ImagesApi.new
-body = OpenAI::CreateImageRequest.new # CreateImageRequest | 
+api_instance = OpenAIClient::ImagesApi.new
+body = OpenAIClient::CreateImageRequest.new # CreateImageRequest | 
 
 
 begin
   #Creates an image given a prompt.
   result = api_instance.create_image(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ImagesApi->create_image: #{e}"
 end
 ```
@@ -63,16 +63,16 @@ Creates an edited or extended image given an original image and a prompt.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ImagesApi.new
+api_instance = OpenAIClient::ImagesApi.new
 image = 'image_example' # String | 
 prompt = 'prompt_example' # String | 
 mask = 'mask_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 n = 56 # Integer | 
 size = 'size_example' # String | 
 response_format = 'response_format_example' # String | 
@@ -83,7 +83,7 @@ begin
   #Creates an edited or extended image given an original image and a prompt.
   result = api_instance.create_image_edit(imagepromptmaskmodelnsizeresponse_formatuser)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ImagesApi->create_image_edit: #{e}"
 end
 ```
@@ -124,14 +124,14 @@ Creates a variation of a given image.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ImagesApi.new
+api_instance = OpenAIClient::ImagesApi.new
 image = 'image_example' # String | 
-model = OpenAI::null.new #  | 
+model = OpenAIClient::null.new #  | 
 n = 56 # Integer | 
 response_format = 'response_format_example' # String | 
 size = 'size_example' # String | 
@@ -142,7 +142,7 @@ begin
   #Creates a variation of a given image.
   result = api_instance.create_image_variation(imagemodelnresponse_formatsizeuser)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ImagesApi->create_image_variation: #{e}"
 end
 ```

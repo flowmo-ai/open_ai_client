@@ -1,4 +1,4 @@
-# OpenAI::OneOfCreateFineTuningJobRequestHyperparametersBatchSize
+# OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersBatchSize
 
 ## Properties
 Name | Type | Description | Notes

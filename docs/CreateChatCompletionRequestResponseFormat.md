@@ -1,4 +1,4 @@
-# OpenAI::CreateChatCompletionRequestResponseFormat
+# OpenAIClient::CreateChatCompletionRequestResponseFormat
 
 ## Properties
 Name | Type | Description | Notes

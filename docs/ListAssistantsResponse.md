@@ -1,4 +1,4 @@
-# OpenAI::ListAssistantsResponse
+# OpenAIClient::ListAssistantsResponse
 
 ## Properties
 Name | Type | Description | Notes

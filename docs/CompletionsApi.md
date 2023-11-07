@@ -1,4 +1,4 @@
-# OpenAI::CompletionsApi
+# OpenAIClient::CompletionsApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -14,20 +14,20 @@ Creates a completion for the provided prompt and parameters.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::CompletionsApi.new
-body = OpenAI::CreateCompletionRequest.new # CreateCompletionRequest | 
+api_instance = OpenAIClient::CompletionsApi.new
+body = OpenAIClient::CreateCompletionRequest.new # CreateCompletionRequest | 
 
 
 begin
   #Creates a completion for the provided prompt and parameters.
   result = api_instance.create_completion(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling CompletionsApi->create_completion: #{e}"
 end
 ```

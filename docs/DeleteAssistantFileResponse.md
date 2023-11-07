@@ -1,4 +1,4 @@
-# OpenAI::DeleteAssistantFileResponse
+# OpenAIClient::DeleteAssistantFileResponse
 
 ## Properties
 Name | Type | Description | Notes

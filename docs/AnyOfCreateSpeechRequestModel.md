@@ -1,4 +1,4 @@
-# OpenAI::AnyOfCreateSpeechRequestModel
+# OpenAIClient::AnyOfCreateSpeechRequestModel
 
 ## Properties
 Name | Type | Description | Notes

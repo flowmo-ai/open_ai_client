@@ -1,4 +1,4 @@
-# OpenAI::FineTuneEvent
+# OpenAIClient::FineTuneEvent
 
 ## Properties
 Name | Type | Description | Notes

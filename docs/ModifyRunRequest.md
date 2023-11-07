@@ -1,4 +1,4 @@
-# OpenAI::ModifyRunRequest
+# OpenAIClient::ModifyRunRequest
 
 ## Properties
 Name | Type | Description | Notes

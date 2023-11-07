@@ -1,4 +1,4 @@
-# OpenAI::AnyOfCreateImageEditRequestModel
+# OpenAIClient::AnyOfCreateImageEditRequestModel
 
 ## Properties
 Name | Type | Description | Notes

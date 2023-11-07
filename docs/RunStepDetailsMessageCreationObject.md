@@ -1,4 +1,4 @@
-# OpenAI::RunStepDetailsMessageCreationObject
+# OpenAIClient::RunStepDetailsMessageCreationObject
 
 ## Properties
 Name | Type | Description | Notes

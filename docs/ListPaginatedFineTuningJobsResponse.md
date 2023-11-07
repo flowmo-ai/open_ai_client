@@ -1,4 +1,4 @@
-# OpenAI::ListPaginatedFineTuningJobsResponse
+# OpenAIClient::ListPaginatedFineTuningJobsResponse
 
 ## Properties
 Name | Type | Description | Notes

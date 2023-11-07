@@ -1,4 +1,4 @@
-# OpenAI::RunObjectRequiredAction
+# OpenAIClient::RunObjectRequiredAction
 
 ## Properties
 Name | Type | Description | Notes

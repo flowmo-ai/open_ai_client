@@ -1,4 +1,4 @@
-# OpenAI::ListThreadsResponse
+# OpenAIClient::ListThreadsResponse
 
 ## Properties
 Name | Type | Description | Notes

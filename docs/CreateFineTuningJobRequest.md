@@ -1,4 +1,4 @@
-# OpenAI::CreateFineTuningJobRequest
+# OpenAIClient::CreateFineTuningJobRequest
 
 ## Properties
 Name | Type | Description | Notes

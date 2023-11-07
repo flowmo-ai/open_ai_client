@@ -1,4 +1,4 @@
-# OpenAI::CreateEmbeddingRequest
+# OpenAIClient::CreateEmbeddingRequest
 
 ## Properties
 Name | Type | Description | Notes

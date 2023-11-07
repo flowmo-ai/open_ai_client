@@ -1,4 +1,4 @@
-# OpenAI::CreateCompletionResponseChoices
+# OpenAIClient::CreateCompletionResponseChoices
 
 ## Properties
 Name | Type | Description | Notes

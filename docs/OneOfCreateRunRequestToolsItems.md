@@ -1,4 +1,4 @@
-# OpenAI::OneOfCreateRunRequestToolsItems
+# OpenAIClient::OneOfCreateRunRequestToolsItems
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# OpenAI::CreateImageVariationRequest
+# OpenAIClient::CreateImageVariationRequest
 
 ## Properties
 Name | Type | Description | Notes

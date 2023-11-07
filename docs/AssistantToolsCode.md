@@ -1,4 +1,4 @@
-# OpenAI::AssistantToolsCode
+# OpenAIClient::AssistantToolsCode
 
 ## Properties
 Name | Type | Description | Notes

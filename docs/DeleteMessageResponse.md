@@ -1,4 +1,4 @@
-# OpenAI::DeleteMessageResponse
+# OpenAIClient::DeleteMessageResponse
 
 ## Properties
 Name | Type | Description | Notes

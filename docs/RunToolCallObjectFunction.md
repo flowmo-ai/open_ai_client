@@ -1,4 +1,4 @@
-# OpenAI::RunToolCallObjectFunction
+# OpenAIClient::RunToolCallObjectFunction
 
 ## Properties
 Name | Type | Description | Notes

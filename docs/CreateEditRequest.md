@@ -1,4 +1,4 @@
-# OpenAI::CreateEditRequest
+# OpenAIClient::CreateEditRequest
 
 ## Properties
 Name | Type | Description | Notes

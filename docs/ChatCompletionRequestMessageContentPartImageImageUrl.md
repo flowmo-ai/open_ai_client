@@ -1,4 +1,4 @@
-# OpenAI::ChatCompletionRequestMessageContentPartImageImageUrl
+# OpenAIClient::ChatCompletionRequestMessageContentPartImageImageUrl
 
 ## Properties
 Name | Type | Description | Notes

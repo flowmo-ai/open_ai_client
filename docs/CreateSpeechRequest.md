@@ -1,4 +1,4 @@
-# OpenAI::CreateSpeechRequest
+# OpenAIClient::CreateSpeechRequest
 
 ## Properties
 Name | Type | Description | Notes

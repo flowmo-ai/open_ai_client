@@ -1,4 +1,4 @@
-# OpenAI::ModelsApi
+# OpenAIClient::ModelsApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -16,12 +16,12 @@ Delete a fine-tuned model. You must have the Owner role in your organization to 
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModelsApi.new
+api_instance = OpenAIClient::ModelsApi.new
 model = 'model_example' # String | The model to delete
 
 
@@ -29,7 +29,7 @@ begin
   #Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
   result = api_instance.delete_model(model)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModelsApi->delete_model: #{e}"
 end
 ```
@@ -63,18 +63,18 @@ Lists the currently available models, and provides basic information about each 
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModelsApi.new
+api_instance = OpenAIClient::ModelsApi.new
 
 begin
   #Lists the currently available models, and provides basic information about each one such as the owner and availability.
   result = api_instance.list_models
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModelsApi->list_models: #{e}"
 end
 ```
@@ -105,12 +105,12 @@ Retrieves a model instance, providing basic information about the model such as 
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::ModelsApi.new
+api_instance = OpenAIClient::ModelsApi.new
 model = 'model_example' # String | The ID of the model to use for this request
 
 
@@ -118,7 +118,7 @@ begin
   #Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
   result = api_instance.retrieve_model(model)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModelsApi->retrieve_model: #{e}"
 end
 ```

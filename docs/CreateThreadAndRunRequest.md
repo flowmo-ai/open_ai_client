@@ -1,4 +1,4 @@
-# OpenAI::CreateThreadAndRunRequest
+# OpenAIClient::CreateThreadAndRunRequest
 
 ## Properties
 Name | Type | Description | Notes

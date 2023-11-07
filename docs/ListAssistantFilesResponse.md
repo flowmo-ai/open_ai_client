@@ -1,4 +1,4 @@
-# OpenAI::ListAssistantFilesResponse
+# OpenAIClient::ListAssistantFilesResponse
 
 ## Properties
 Name | Type | Description | Notes

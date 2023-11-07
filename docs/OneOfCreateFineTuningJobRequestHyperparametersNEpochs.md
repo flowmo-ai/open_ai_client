@@ -1,4 +1,4 @@
-# OpenAI::OneOfCreateFineTuningJobRequestHyperparametersNEpochs
+# OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersNEpochs
 
 ## Properties
 Name | Type | Description | Notes

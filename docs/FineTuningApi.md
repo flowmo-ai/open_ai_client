@@ -1,4 +1,4 @@
-# OpenAI::FineTuningApi
+# OpenAIClient::FineTuningApi
 
 All URIs are relative to *https://api.openai.com/v1*
 
@@ -18,12 +18,12 @@ Immediately cancel a fine-tune job.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job to cancel. 
 
 
@@ -31,7 +31,7 @@ begin
   #Immediately cancel a fine-tune job. 
   result = api_instance.cancel_fine_tuning_job(fine_tuning_job_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->cancel_fine_tuning_job: #{e}"
 end
 ```
@@ -65,20 +65,20 @@ Creates a job that fine-tunes a specified model from a given dataset.  Response 
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
-body = OpenAI::CreateFineTuningJobRequest.new # CreateFineTuningJobRequest | 
+api_instance = OpenAIClient::FineTuningApi.new
+body = OpenAIClient::CreateFineTuningJobRequest.new # CreateFineTuningJobRequest | 
 
 
 begin
   #Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
   result = api_instance.create_fine_tuning_job(body)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->create_fine_tuning_job: #{e}"
 end
 ```
@@ -112,12 +112,12 @@ Get status updates for a fine-tuning job.
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job to get events for. 
 opts = { 
   after: 'after_example', # String | Identifier for the last event from the previous pagination request.
@@ -128,7 +128,7 @@ begin
   #Get status updates for a fine-tuning job. 
   result = api_instance.list_fine_tuning_events(fine_tuning_job_id, opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->list_fine_tuning_events: #{e}"
 end
 ```
@@ -164,12 +164,12 @@ List your organization's fine-tuning jobs
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 opts = { 
   after: 'after_example', # String | Identifier for the last job from the previous pagination request.
   limit: 20 # Integer | Number of fine-tuning jobs to retrieve.
@@ -179,7 +179,7 @@ begin
   #List your organization's fine-tuning jobs 
   result = api_instance.list_paginated_fine_tuning_jobs(opts)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->list_paginated_fine_tuning_jobs: #{e}"
 end
 ```
@@ -214,12 +214,12 @@ Get info about a fine-tuning job.  [Learn more about fine-tuning](/docs/guides/f
 ### Example
 ```ruby
 # load the gem
-require 'open_ai'
+require 'open_ai_client'
 # setup authorization
-OpenAI.configure do |config|
+OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAI::FineTuningApi.new
+api_instance = OpenAIClient::FineTuningApi.new
 fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job. 
 
 
@@ -227,7 +227,7 @@ begin
   #Get info about a fine-tuning job.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
   result = api_instance.retrieve_fine_tuning_job(fine_tuning_job_id)
   p result
-rescue OpenAI::ApiError => e
+rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->retrieve_fine_tuning_job: #{e}"
 end
 ```

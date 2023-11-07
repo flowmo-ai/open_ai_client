@@ -1,4 +1,4 @@
-# OpenAI::RunObjectRequiredActionSubmitToolOutputs
+# OpenAIClient::RunObjectRequiredActionSubmitToolOutputs
 
 ## Properties
 Name | Type | Description | Notes

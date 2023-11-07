@@ -1,4 +1,4 @@
-# OpenAI::OneOfAssistantObjectToolsItems
+# OpenAIClient::OneOfAssistantObjectToolsItems
 
 ## Properties
 Name | Type | Description | Notes

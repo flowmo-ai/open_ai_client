@@ -1,4 +1,4 @@
-# OpenAI::AnyOfModifyAssistantRequestModel
+# OpenAIClient::AnyOfModifyAssistantRequestModel
 
 ## Properties
 Name | Type | Description | Notes

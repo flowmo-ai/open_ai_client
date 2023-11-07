@@ -1,4 +1,4 @@
-# OpenAI::ImagesResponse
+# OpenAIClient::ImagesResponse
 
 ## Properties
 Name | Type | Description | Notes

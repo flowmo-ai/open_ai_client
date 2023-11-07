@@ -1,4 +1,4 @@
-# OpenAI::Image
+# OpenAIClient::Image
 
 ## Properties
 Name | Type | Description | Notes

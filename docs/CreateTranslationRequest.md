@@ -1,4 +1,4 @@
-# OpenAI::CreateTranslationRequest
+# OpenAIClient::CreateTranslationRequest
 
 ## Properties
 Name | Type | Description | Notes

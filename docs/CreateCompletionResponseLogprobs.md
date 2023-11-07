@@ -1,4 +1,4 @@
-# OpenAI::CreateCompletionResponseLogprobs
+# OpenAIClient::CreateCompletionResponseLogprobs
 
 ## Properties
 Name | Type | Description | Notes

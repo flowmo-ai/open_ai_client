@@ -1,4 +1,4 @@
-# OpenAI::CreateAssistantFileRequest
+# OpenAIClient::CreateAssistantFileRequest
 
 ## Properties
 Name | Type | Description | Notes

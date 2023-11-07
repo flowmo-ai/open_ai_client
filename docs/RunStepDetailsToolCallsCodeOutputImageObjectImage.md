@@ -1,4 +1,4 @@
-# OpenAI::RunStepDetailsToolCallsCodeOutputImageObjectImage
+# OpenAIClient::RunStepDetailsToolCallsCodeOutputImageObjectImage
 
 ## Properties
 Name | Type | Description | Notes

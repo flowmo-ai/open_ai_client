@@ -1,4 +1,4 @@
-# OpenAI::ListModelsResponse
+# OpenAIClient::ListModelsResponse
 
 ## Properties
 Name | Type | Description | Notes

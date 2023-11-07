@@ -1,4 +1,4 @@
-# OpenAI::ModifyMessageRequest
+# OpenAIClient::ModifyMessageRequest
 
 ## Properties
 Name | Type | Description | Notes
