@@ -17,7 +17,7 @@ module OpenAIClient
     # The identifier of the run step, which can be referenced in API endpoints.
     attr_accessor :id
 
-    # The object type, which is always `assistant.run.step``.
+    # The object type, which is always `thread.run.step``.
     attr_accessor :object
 
     # The Unix timestamp (in seconds) for when the run step was created.
@@ -35,7 +35,7 @@ module OpenAIClient
     # The type of run step, which can be either `message_creation` or `tool_calls`.
     attr_accessor :type
 
-    # The status of the run, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
+    # The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
     attr_accessor :status
 
     # The details of the run step.
@@ -281,7 +281,7 @@ module OpenAIClient
     def valid?
       return false if @id.nil?
       return false if @object.nil?
-      object_validator = EnumAttributeValidator.new('Object', ['assistant.run.step'])
+      object_validator = EnumAttributeValidator.new('Object', ['thread.run.step'])
       return false unless object_validator.valid?(@object)
       return false if @created_at.nil?
       return false if @assistant_id.nil?
@@ -306,7 +306,7 @@ module OpenAIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] object Object to be assigned
     def object=(object)
-      validator = EnumAttributeValidator.new('Object', ['assistant.run.step'])
+      validator = EnumAttributeValidator.new('Object', ['thread.run.step'])
       unless validator.valid?(object)
         fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
       end

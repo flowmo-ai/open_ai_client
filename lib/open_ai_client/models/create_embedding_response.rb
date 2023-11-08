@@ -19,7 +19,7 @@ module OpenAIClient
     # The name of the model used to generate the embedding.
     attr_accessor :model
 
-    # The object type, which is always \"embedding\".
+    # The object type, which is always \"list\".
     attr_accessor :object
 
     attr_accessor :usage
@@ -135,7 +135,7 @@ module OpenAIClient
       return false if @data.nil?
       return false if @model.nil?
       return false if @object.nil?
-      object_validator = EnumAttributeValidator.new('Object', ['embedding'])
+      object_validator = EnumAttributeValidator.new('Object', ['list'])
       return false unless object_validator.valid?(@object)
       return false if @usage.nil?
       true
@@ -144,7 +144,7 @@ module OpenAIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] object Object to be assigned
     def object=(object)
-      validator = EnumAttributeValidator.new('Object', ['embedding'])
+      validator = EnumAttributeValidator.new('Object', ['list'])
       unless validator.valid?(object)
         fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
       end

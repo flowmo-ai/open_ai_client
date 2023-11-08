@@ -1,4 +1,4 @@
-# OpenAIClient::ChatCompletionFunctionParameters
+# OpenAIClient::FunctionParameters
 
 ## Properties
 Name | Type | Description | Notes

@@ -26,6 +26,9 @@ module OpenAIClient
     # The model to generate the completion.
     attr_accessor :model
 
+    # This fingerprint represents the backend configuration that the model runs with. Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism. 
+    attr_accessor :system_fingerprint
+
     # The object type, which is always `chat.completion.chunk`.
     attr_accessor :object
 
@@ -58,6 +61,7 @@ module OpenAIClient
         :'choices' => :'choices',
         :'created' => :'created',
         :'model' => :'model',
+        :'system_fingerprint' => :'system_fingerprint',
         :'object' => :'object'
       }
     end
@@ -69,6 +73,7 @@ module OpenAIClient
         :'choices' => :'Object',
         :'created' => :'Object',
         :'model' => :'Object',
+        :'system_fingerprint' => :'Object',
         :'object' => :'Object'
       }
     end
@@ -110,6 +115,10 @@ module OpenAIClient
 
       if attributes.key?(:'model')
         self.model = attributes[:'model']
+      end
+
+      if attributes.key?(:'system_fingerprint')
+        self.system_fingerprint = attributes[:'system_fingerprint']
       end
 
       if attributes.key?(:'object')
@@ -176,6 +185,7 @@ module OpenAIClient
           choices == o.choices &&
           created == o.created &&
           model == o.model &&
+          system_fingerprint == o.system_fingerprint &&
           object == o.object
     end
 
@@ -188,7 +198,7 @@ module OpenAIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, choices, created, model, object].hash
+      [id, choices, created, model, system_fingerprint, object].hash
     end
 
     # Builds the object from hash

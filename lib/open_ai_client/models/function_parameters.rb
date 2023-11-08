@@ -12,31 +12,17 @@ Swagger Codegen version: 3.0.50
 require 'date'
 
 module OpenAIClient
-  # The function definition.
-  class AssistantToolsFunctionFunction
-    # A description of what the function does, used by the model to choose when and how to call the function.
-    attr_accessor :description
-
-    # The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.
-    attr_accessor :name
-
-    attr_accessor :parameters
-
+  # The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format.  To describe a function that accepts no parameters, provide the value `{\"type\": \"object\", \"properties\": {}}`.
+  class FunctionParameters
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'description' => :'description',
-        :'name' => :'name',
-        :'parameters' => :'parameters'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'Object',
-        :'name' => :'Object',
-        :'parameters' => :'Object'
       }
     end
 
@@ -50,55 +36,31 @@ module OpenAIClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenAIClient::AssistantToolsFunctionFunction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenAIClient::FunctionParameters` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenAIClient::AssistantToolsFunctionFunction`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenAIClient::FunctionParameters`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'parameters')
-        self.parameters = attributes[:'parameters']
-      end
+      # call parent's initialize
+      super(attributes)
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
-      invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @parameters.nil?
-        invalid_properties.push('invalid value for "parameters", parameters cannot be nil.')
-      end
-
+      invalid_properties = super
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
-      return false if @name.nil?
-      return false if @parameters.nil?
       true
     end
 
@@ -106,10 +68,7 @@ module OpenAIClient
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class &&
-          description == o.description &&
-          name == o.name &&
-          parameters == o.parameters
+      self.class == o.class && super(o)
     end
 
     # @see the `==` method
@@ -121,7 +80,7 @@ module OpenAIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, name, parameters].hash
+      [].hash
     end
 
     # Builds the object from hash
@@ -136,6 +95,7 @@ module OpenAIClient
     # @return [Object] Returns the model itself
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
+      super(attributes)
       self.class.openapi_types.each_pair do |key, type|
         if type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
@@ -209,7 +169,7 @@ module OpenAIClient
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
     def to_hash
-      hash = {}
+      hash = super
       self.class.attribute_map.each_pair do |attr, param|
         value = self.send(attr)
         if value.nil?

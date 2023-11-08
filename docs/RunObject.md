@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | The identifier, which can be referenced in API endpoints. | 
-**object** | **String** | The object type, which is always &#x60;assistant.run&#x60;. | 
+**object** | **String** | The object type, which is always &#x60;thread.run&#x60;. | 
 **created_at** | **Integer** | The Unix timestamp (in seconds) for when the run was created. | 
 **thread_id** | **String** | The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run. | 
 **assistant_id** | **String** | The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run. | 

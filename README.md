@@ -154,12 +154,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-
+opts = { 
+  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+}
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(body)
+  result = api_instance.create_thread(opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
@@ -1073,10 +1074,8 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::AssistantObject](docs/AssistantObject.md)
  - [OpenAIClient::AssistantToolsCode](docs/AssistantToolsCode.md)
  - [OpenAIClient::AssistantToolsFunction](docs/AssistantToolsFunction.md)
- - [OpenAIClient::AssistantToolsFunctionFunction](docs/AssistantToolsFunctionFunction.md)
  - [OpenAIClient::AssistantToolsRetrieval](docs/AssistantToolsRetrieval.md)
  - [OpenAIClient::ChatCompletionFunctionCallOption](docs/ChatCompletionFunctionCallOption.md)
- - [OpenAIClient::ChatCompletionFunctionParameters](docs/ChatCompletionFunctionParameters.md)
  - [OpenAIClient::ChatCompletionFunctions](docs/ChatCompletionFunctions.md)
  - [OpenAIClient::ChatCompletionMessageToolCall](docs/ChatCompletionMessageToolCall.md)
  - [OpenAIClient::ChatCompletionMessageToolCallChunk](docs/ChatCompletionMessageToolCallChunk.md)
@@ -1102,7 +1101,6 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::ChatCompletionStreamResponseDeltaFunctionCall](docs/ChatCompletionStreamResponseDeltaFunctionCall.md)
  - [OpenAIClient::ChatCompletionTool](docs/ChatCompletionTool.md)
  - [OpenAIClient::ChatCompletionToolChoiceOption](docs/ChatCompletionToolChoiceOption.md)
- - [OpenAIClient::ChatCompletionToolFunction](docs/ChatCompletionToolFunction.md)
  - [OpenAIClient::CompletionUsage](docs/CompletionUsage.md)
  - [OpenAIClient::CreateAssistantFileRequest](docs/CreateAssistantFileRequest.md)
  - [OpenAIClient::CreateAssistantRequest](docs/CreateAssistantRequest.md)
@@ -1163,6 +1161,8 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::FineTuningJobError](docs/FineTuningJobError.md)
  - [OpenAIClient::FineTuningJobEvent](docs/FineTuningJobEvent.md)
  - [OpenAIClient::FineTuningJobHyperparameters](docs/FineTuningJobHyperparameters.md)
+ - [OpenAIClient::FunctionObject](docs/FunctionObject.md)
+ - [OpenAIClient::FunctionParameters](docs/FunctionParameters.md)
  - [OpenAIClient::Image](docs/Image.md)
  - [OpenAIClient::ImagesResponse](docs/ImagesResponse.md)
  - [OpenAIClient::ListAssistantFilesResponse](docs/ListAssistantFilesResponse.md)

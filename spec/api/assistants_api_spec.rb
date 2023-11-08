@@ -92,8 +92,8 @@ describe 'AssistantsApi' do
 
   # unit tests for create_thread
   # Create a thread.
-  # @param body 
   # @param [Hash] opts the optional parameters
+  # @option opts [CreateThreadRequest] :body 
   # @return [ThreadObject]
   describe 'create_thread test' do
     it 'should work' do

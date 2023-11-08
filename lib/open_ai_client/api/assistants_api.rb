@@ -319,25 +319,21 @@ module OpenAIClient
       return data, status_code, headers
     end
     # Create a thread.
-    # @param body 
     # @param [Hash] opts the optional parameters
+    # @option opts [CreateThreadRequest] :body 
     # @return [ThreadObject]
-    def create_thread(body, opts = {})
-      data, _status_code, _headers = create_thread_with_http_info(body, opts)
+    def create_thread(opts = {})
+      data, _status_code, _headers = create_thread_with_http_info(opts)
       data
     end
 
     # Create a thread.
-    # @param body 
     # @param [Hash] opts the optional parameters
+    # @option opts [CreateThreadRequest] :body 
     # @return [Array<(ThreadObject, Integer, Hash)>] ThreadObject data, response status code and response headers
-    def create_thread_with_http_info(body, opts = {})
+    def create_thread_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssistantsApi.create_thread ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling AssistantsApi.create_thread"
       end
       # resource path
       local_var_path = '/threads'
@@ -356,7 +352,7 @@ module OpenAIClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(body) 
+      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'body']) 
 
       return_type = opts[:return_type] || 'ThreadObject' 
 

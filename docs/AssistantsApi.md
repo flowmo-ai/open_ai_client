@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 
 # **create_thread**
-> ThreadObject create_thread(body)
+> ThreadObject create_thread(opts)
 
 Create a thread.
 
@@ -289,12 +289,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-
+opts = { 
+  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+}
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(body)
+  result = api_instance.create_thread(opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
@@ -305,7 +306,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | 
+ **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | [optional] 
 
 ### Return type
 

@@ -17,7 +17,7 @@ module OpenAIClient
     # The identifier, which can be referenced in API endpoints.
     attr_accessor :id
 
-    # The object type, which is always `assistant.run`.
+    # The object type, which is always `thread.run`.
     attr_accessor :object
 
     # The Unix timestamp (in seconds) for when the run was created.
@@ -63,7 +63,7 @@ module OpenAIClient
     # The list of [File](/docs/api-reference/files) IDs the [assistant](/docs/api-reference/assistants) used for this run.
     attr_accessor :file_ids
 
-    # Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.
+    # Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long. 
     attr_accessor :metadata
 
     class EnumAttributeValidator
@@ -146,7 +146,7 @@ module OpenAIClient
         :'metadata'
       ])
     end
-
+  
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -323,7 +323,7 @@ module OpenAIClient
     def valid?
       return false if @id.nil?
       return false if @object.nil?
-      object_validator = EnumAttributeValidator.new('Object', ['assistant.run', 'thread.run'])
+      object_validator = EnumAttributeValidator.new('Object', ['thread.run'])
       return false unless object_validator.valid?(@object)
       return false if @created_at.nil?
       return false if @thread_id.nil?
@@ -349,7 +349,7 @@ module OpenAIClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] object Object to be assigned
     def object=(object)
-      validator = EnumAttributeValidator.new('Object', ['assistant.run', 'thread.run'])
+      validator = EnumAttributeValidator.new('Object', ['thread.run'])
       unless validator.valid?(object)
         fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
       end

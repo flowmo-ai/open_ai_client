@@ -46,7 +46,7 @@ describe 'CreateEmbeddingResponse' do
   describe 'test attribute "object"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["embedding"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["list"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.object = value }.not_to raise_error
       # end
