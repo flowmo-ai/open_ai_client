@@ -154,13 +154,12 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-opts = { 
-  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-}
+body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(opts)
+  result = api_instance.create_thread(body)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
