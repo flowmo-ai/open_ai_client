@@ -58,22 +58,6 @@ require 'open_ai_client'
 OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAIClient::AssistantApi.new
-body = OpenAIClient::ModifyAssistantRequest.new # ModifyAssistantRequest | 
-assistant_id = 'assistant_id_example' # String | The ID of the assistant to modify.
-
-
-begin
-  #Modifies an assistant.
-  result = api_instance.modify_assistant(body, assistant_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantApi->modify_assistant: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
 api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which this run belongs.
 run_id = 'run_id_example' # String | The ID of the run to cancel.
@@ -154,12 +138,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-
+opts = { 
+  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+}
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(body)
+  result = api_instance.create_thread(opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
@@ -463,6 +448,22 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyAssistantRequest.new # ModifyAssistantRequest | 
+assistant_id = 'assistant_id_example' # String | The ID of the assistant to modify.
+
+
+begin
+  #Modifies an assistant.
+  result = api_instance.modify_assistant(body, assistant_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling AssistantsApi->modify_assistant: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::AssistantsApi.new
 body = OpenAIClient::ModifyMessageRequest.new # ModifyMessageRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to which this message belongs.
 message_id = 'message_id_example' # String | The ID of the message to modify.
@@ -649,7 +650,7 @@ purpose = 'purpose_example' # String |
 
 
 begin
-  #Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
+  #Upload a file that can be used across various endpoints. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files can be a maximum of 512 MB or 2 million tokens for Assistants. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
   result = api_instance.create_file(file, purpose)
   p result
 rescue OpenAIClient::ApiError => e
@@ -994,7 +995,6 @@ All URIs are relative to *https://api.openai.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenAIClient::AssistantApi* | [**modify_assistant**](docs/AssistantApi.md#modify_assistant) | **POST** /assistants/{assistant_id} | Modifies an assistant.
 *OpenAIClient::AssistantsApi* | [**cancel_run**](docs/AssistantsApi.md#cancel_run) | **POST** /threads/{thread_id}/runs/{run_id}/cancel | Cancels a run that is `in_progress`.
 *OpenAIClient::AssistantsApi* | [**create_assistant**](docs/AssistantsApi.md#create_assistant) | **POST** /assistants | Create an assistant with a model and instructions.
 *OpenAIClient::AssistantsApi* | [**create_assistant_file**](docs/AssistantsApi.md#create_assistant_file) | **POST** /assistants/{assistant_id}/files | Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
@@ -1018,6 +1018,7 @@ Class | Method | HTTP request | Description
 *OpenAIClient::AssistantsApi* | [**list_messages**](docs/AssistantsApi.md#list_messages) | **GET** /threads/{thread_id}/messages | Returns a list of messages for a given thread.
 *OpenAIClient::AssistantsApi* | [**list_run_steps**](docs/AssistantsApi.md#list_run_steps) | **GET** /threads/{thread_id}/runs/{run_id}/steps | Returns a list of run steps belonging to a run.
 *OpenAIClient::AssistantsApi* | [**list_runs**](docs/AssistantsApi.md#list_runs) | **GET** /threads/{thread_id}/runs | Returns a list of runs belonging to a thread.
+*OpenAIClient::AssistantsApi* | [**modify_assistant**](docs/AssistantsApi.md#modify_assistant) | **POST** /assistants/{assistant_id} | Modifies an assistant.
 *OpenAIClient::AssistantsApi* | [**modify_message**](docs/AssistantsApi.md#modify_message) | **POST** /threads/{thread_id}/messages/{message_id} | Modifies a message.
 *OpenAIClient::AssistantsApi* | [**modify_run**](docs/AssistantsApi.md#modify_run) | **POST** /threads/{thread_id}/runs/{run_id} | Modifies a run.
 *OpenAIClient::AssistantsApi* | [**modify_thread**](docs/AssistantsApi.md#modify_thread) | **POST** /threads/{thread_id} | Modifies a thread.
@@ -1029,7 +1030,7 @@ Class | Method | HTTP request | Description
 *OpenAIClient::CompletionsApi* | [**create_completion**](docs/CompletionsApi.md#create_completion) | **POST** /completions | Creates a completion for the provided prompt and parameters.
 *OpenAIClient::EditsApi* | [**create_edit**](docs/EditsApi.md#create_edit) | **POST** /edits | Creates a new edit for the provided input, instruction, and parameters.
 *OpenAIClient::EmbeddingsApi* | [**create_embedding**](docs/EmbeddingsApi.md#create_embedding) | **POST** /embeddings | Creates an embedding vector representing the input text.
-*OpenAIClient::FilesApi* | [**create_file**](docs/FilesApi.md#create_file) | **POST** /files | Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
+*OpenAIClient::FilesApi* | [**create_file**](docs/FilesApi.md#create_file) | **POST** /files | Upload a file that can be used across various endpoints. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files can be a maximum of 512 MB or 2 million tokens for Assistants. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
 *OpenAIClient::FilesApi* | [**delete_file**](docs/FilesApi.md#delete_file) | **DELETE** /files/{file_id} | Delete a file.
 *OpenAIClient::FilesApi* | [**download_file**](docs/FilesApi.md#download_file) | **GET** /files/{file_id}/content | Returns the contents of the specified file.
 *OpenAIClient::FilesApi* | [**list_files**](docs/FilesApi.md#list_files) | **GET** /files | Returns a list of files that belong to the user's organization.
@@ -1098,6 +1099,8 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::ChatCompletionRole](docs/ChatCompletionRole.md)
  - [OpenAIClient::ChatCompletionStreamResponseDelta](docs/ChatCompletionStreamResponseDelta.md)
  - [OpenAIClient::ChatCompletionStreamResponseDeltaFunctionCall](docs/ChatCompletionStreamResponseDeltaFunctionCall.md)
+ - [OpenAIClient::ChatCompletionTokenLogprob](docs/ChatCompletionTokenLogprob.md)
+ - [OpenAIClient::ChatCompletionTokenLogprobTopLogprobs](docs/ChatCompletionTokenLogprobTopLogprobs.md)
  - [OpenAIClient::ChatCompletionTool](docs/ChatCompletionTool.md)
  - [OpenAIClient::ChatCompletionToolChoiceOption](docs/ChatCompletionToolChoiceOption.md)
  - [OpenAIClient::CompletionUsage](docs/CompletionUsage.md)
@@ -1110,6 +1113,7 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::CreateChatCompletionRequestResponseFormat](docs/CreateChatCompletionRequestResponseFormat.md)
  - [OpenAIClient::CreateChatCompletionResponse](docs/CreateChatCompletionResponse.md)
  - [OpenAIClient::CreateChatCompletionResponseChoices](docs/CreateChatCompletionResponseChoices.md)
+ - [OpenAIClient::CreateChatCompletionResponseLogprobs](docs/CreateChatCompletionResponseLogprobs.md)
  - [OpenAIClient::CreateChatCompletionStreamResponse](docs/CreateChatCompletionStreamResponse.md)
  - [OpenAIClient::CreateChatCompletionStreamResponseChoices](docs/CreateChatCompletionStreamResponseChoices.md)
  - [OpenAIClient::CreateCompletionRequest](docs/CreateCompletionRequest.md)

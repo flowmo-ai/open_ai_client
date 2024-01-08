@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hate** | **BOOLEAN** | Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harrassment. | 
+**hate** | **BOOLEAN** | Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harassment. | 
 **hatethreatening** | **BOOLEAN** | Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. | 
 **harassment** | **BOOLEAN** | Content that expresses, incites, or promotes harassing language towards any target. | 
 **harassmentthreatening** | **BOOLEAN** | Harassment content that also includes violence or serious harm towards any target. | 

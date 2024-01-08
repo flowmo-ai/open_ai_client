@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**list_messages**](AssistantsApi.md#list_messages) | **GET** /threads/{thread_id}/messages | Returns a list of messages for a given thread.
 [**list_run_steps**](AssistantsApi.md#list_run_steps) | **GET** /threads/{thread_id}/runs/{run_id}/steps | Returns a list of run steps belonging to a run.
 [**list_runs**](AssistantsApi.md#list_runs) | **GET** /threads/{thread_id}/runs | Returns a list of runs belonging to a thread.
+[**modify_assistant**](AssistantsApi.md#modify_assistant) | **POST** /assistants/{assistant_id} | Modifies an assistant.
 [**modify_message**](AssistantsApi.md#modify_message) | **POST** /threads/{thread_id}/messages/{message_id} | Modifies a message.
 [**modify_run**](AssistantsApi.md#modify_run) | **POST** /threads/{thread_id}/runs/{run_id} | Modifies a run.
 [**modify_thread**](AssistantsApi.md#modify_thread) | **POST** /threads/{thread_id} | Modifies a thread.
@@ -276,7 +277,7 @@ Name | Type | Description  | Notes
 
 
 # **create_thread**
-> ThreadObject create_thread(body)
+> ThreadObject create_thread(opts)
 
 Create a thread.
 
@@ -289,12 +290,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-
+opts = { 
+  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+}
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(body)
+  result = api_instance.create_thread(opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
@@ -305,7 +307,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | 
+ **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1189,6 +1191,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **modify_assistant**
+> AssistantObject modify_assistant(bodyassistant_id)
+
+Modifies an assistant.
+
+### Example
+```ruby
+# load the gem
+require 'open_ai_client'
+# setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::AssistantsApi.new
+body = OpenAIClient::ModifyAssistantRequest.new # ModifyAssistantRequest | 
+assistant_id = 'assistant_id_example' # String | The ID of the assistant to modify.
+
+
+begin
+  #Modifies an assistant.
+  result = api_instance.modify_assistant(bodyassistant_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling AssistantsApi->modify_assistant: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ModifyAssistantRequest**](ModifyAssistantRequest.md)|  | 
+ **assistant_id** | **String**| The ID of the assistant to modify. | 
+
+### Return type
+
+[**AssistantObject**](AssistantObject.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
