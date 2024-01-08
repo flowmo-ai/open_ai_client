@@ -10,5 +10,5 @@ Swagger Codegen version: 3.0.51
 =end
 
 module OpenAIClient
-  VERSION = '2.0.4'
+  VERSION = '2.0.6'
 end

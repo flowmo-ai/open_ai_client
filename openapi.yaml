@@ -3144,6 +3144,7 @@ paths:
         - Assistants
       summary: Create a thread.
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -8538,6 +8539,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/CreateMessageRequest"
+          nullable: true
         metadata:
           description: *metadata_description
           type: object
