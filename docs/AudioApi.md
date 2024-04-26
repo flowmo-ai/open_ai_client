@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 
 # **create_transcription**
-> CreateTranscriptionResponse create_transcription(filemodellanguagepromptresponse_formattemperature)
+> InlineResponse200 create_transcription(filemodellanguagepromptresponse_formattemperaturetimestamp_granularities)
 
 Transcribes audio into the input language.
 
@@ -75,11 +75,12 @@ language = 'language_example' # String |
 prompt = 'prompt_example' # String | 
 response_format = 'response_format_example' # String | 
 temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
+timestamp_granularities = ['timestamp_granularities_example'] # Array<String> | 
 
 
 begin
   #Transcribes audio into the input language.
-  result = api_instance.create_transcription(filemodellanguagepromptresponse_formattemperature)
+  result = api_instance.create_transcription(filemodellanguagepromptresponse_formattemperaturetimestamp_granularities)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_transcription: #{e}"
@@ -96,10 +97,11 @@ Name | Type | Description  | Notes
  **prompt** | **String**|  | 
  **response_format** | **String**|  | 
  **temperature** | **BigDecimal**|  | 
+ **timestamp_granularities** | [**Array&lt;String&gt;**](String.md)|  | 
 
 ### Return type
 
-[**CreateTranscriptionResponse**](CreateTranscriptionResponse.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -113,7 +115,7 @@ Name | Type | Description  | Notes
 
 
 # **create_translation**
-> CreateTranslationResponse create_translation(filemodelpromptresponse_formattemperature)
+> InlineResponse2001 create_translation(filemodelpromptresponse_formattemperature)
 
 Translates audio into English.
 
@@ -154,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTranslationResponse**](CreateTranslationResponse.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

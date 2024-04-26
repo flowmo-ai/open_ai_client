@@ -16,9 +16,17 @@ Name | Type | Description | Notes
 **cancelled_at** | **Integer** | The Unix timestamp (in seconds) for when the run was cancelled. | 
 **failed_at** | **Integer** | The Unix timestamp (in seconds) for when the run failed. | 
 **completed_at** | **Integer** | The Unix timestamp (in seconds) for when the run was completed. | 
+**incomplete_details** | [**RunObjectIncompleteDetails**](RunObjectIncompleteDetails.md) |  | 
 **model** | **String** | The model that the [assistant](/docs/api-reference/assistants) used for this run. | 
 **instructions** | **String** | The instructions that the [assistant](/docs/api-reference/assistants) used for this run. | 
 **tools** | [**Array&lt;OneOfRunObjectToolsItems&gt;**](.md) | The list of tools that the [assistant](/docs/api-reference/assistants) used for this run. | 
-**file_ids** | **Array&lt;String&gt;** | The list of [File](/docs/api-reference/files) IDs the [assistant](/docs/api-reference/assistants) used for this run. | 
 **metadata** | **Object** | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.  | 
+**usage** | [**RunCompletionUsage**](RunCompletionUsage.md) |  | 
+**temperature** | [**BigDecimal**](BigDecimal.md) | The sampling temperature used for this run. If not set, defaults to 1. | [optional] 
+**top_p** | [**BigDecimal**](BigDecimal.md) | The nucleus sampling value used for this run. If not set, defaults to 1. | [optional] 
+**max_prompt_tokens** | **Integer** | The maximum number of prompt tokens specified to have been used over the course of the run.  | 
+**max_completion_tokens** | **Integer** | The maximum number of completion tokens specified to have been used over the course of the run.  | 
+**truncation_strategy** | [**TruncationObject**](TruncationObject.md) |  | 
+**tool_choice** | [**AssistantsApiToolChoiceOption**](AssistantsApiToolChoiceOption.md) |  | 
+**response_format** | [**AssistantsApiResponseFormatOption**](AssistantsApiResponseFormatOption.md) |  | 
 

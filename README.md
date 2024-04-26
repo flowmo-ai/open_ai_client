@@ -90,22 +90,6 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateAssistantFileRequest.new # CreateAssistantFileRequest | 
-assistant_id = 'assistant_id_example' # String | The ID of the assistant for which to create a File. 
-
-
-begin
-  #Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
-  result = api_instance.create_assistant_file(body, assistant_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->create_assistant_file: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
 body = OpenAIClient::CreateMessageRequest.new # CreateMessageRequest | 
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to create a message for.
 
@@ -138,12 +122,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-
+opts = { 
+  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+}
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(body)
+  result = api_instance.create_thread(opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
@@ -183,22 +168,6 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-assistant_id = 'assistant_id_example' # String | The ID of the assistant that the file belongs to.
-file_id = 'file_id_example' # String | The ID of the file to delete.
-
-
-begin
-  #Delete an assistant file.
-  result = api_instance.delete_assistant_file(assistant_id, file_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->delete_assistant_file: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to delete.
 
 
@@ -229,22 +198,6 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-assistant_id = 'assistant_id_example' # String | The ID of the assistant who the file belongs to.
-file_id = 'file_id_example' # String | The ID of the file we're getting.
-
-
-begin
-  #Retrieves an AssistantFile.
-  result = api_instance.get_assistant_file(assistant_id, file_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->get_assistant_file: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) to which this message belongs.
 message_id = 'message_id_example' # String | The ID of the message to retrieve.
 
@@ -255,23 +208,6 @@ begin
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_message: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
-thread_id = 'thread_id_example' # String | The ID of the thread to which the message and File belong.
-message_id = 'message_id_example' # String | The ID of the message the file belongs to.
-file_id = 'file_id_example' # String | The ID of the file being retrieved.
-
-
-begin
-  #Retrieves a message file.
-  result = api_instance.get_message_file(thread_id, message_id, file_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->get_message_file: #{e}"
 end
 # Setup authorization
 OpenAIClient.configure do |config|
@@ -326,26 +262,6 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-assistant_id = 'assistant_id_example' # String | The ID of the assistant the file belongs to.
-opts = { 
-  limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
-  order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
-  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
-}
-
-begin
-  #Returns a list of assistant files.
-  result = api_instance.list_assistant_files(assistant_id, opts)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->list_assistant_files: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
@@ -365,33 +281,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-thread_id = 'thread_id_example' # String | The ID of the thread that the message and files belong to.
-message_id = 'message_id_example' # String | The ID of the message that the files belongs to.
-opts = { 
-  limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
-  order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
-  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
-}
-
-begin
-  #Returns a list of message files.
-  result = api_instance.list_message_files(thread_id, message_id, opts)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->list_message_files: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the [thread](/docs/api-reference/threads) the messages belong to.
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
   after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  before: 'before_example', # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  run_id: 'run_id_example' # String | Filter messages by the run ID that generated them. 
 }
 
 begin
@@ -551,11 +447,12 @@ language = 'language_example' # String |
 prompt = 'prompt_example' # String | 
 response_format = 'response_format_example' # String | 
 temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
+timestamp_granularities = ['timestamp_granularities_example'] # Array<String> | 
 
 
 begin
   #Transcribes audio into the input language.
-  result = api_instance.create_transcription(file, model, language, prompt, response_format, temperature)
+  result = api_instance.create_transcription(file, model, language, prompt, response_format, temperature, timestamp_granularities)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_transcription: #{e}"
@@ -578,6 +475,68 @@ begin
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AudioApi->create_translation: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::BatchApi.new
+batch_id = 'batch_id_example' # String | The ID of the batch to cancel.
+
+
+begin
+  #Cancels an in-progress batch.
+  result = api_instance.cancel_batch(batch_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling BatchApi->cancel_batch: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::BatchApi.new
+body = OpenAIClient::BatchesBody.new # BatchesBody | 
+
+
+begin
+  #Creates and executes a batch from an uploaded file of requests
+  result = api_instance.create_batch(body)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling BatchApi->create_batch: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::BatchApi.new
+opts = { 
+  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
+  limit: 20 # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
+}
+
+begin
+  #List your organization's batches.
+  result = api_instance.list_batches(opts)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling BatchApi->list_batches: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::BatchApi.new
+batch_id = 'batch_id_example' # String | The ID of the batch to retrieve.
+
+
+begin
+  #Retrieves a batch.
+  result = api_instance.retrieve_batch(batch_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling BatchApi->retrieve_batch: #{e}"
 end
 # Setup authorization
 OpenAIClient.configure do |config|
@@ -608,21 +567,6 @@ begin
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling CompletionsApi->create_completion: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::EditsApi.new
-body = OpenAIClient::CreateEditRequest.new # CreateEditRequest | 
-
-
-begin
-  #Creates a new edit for the provided input, instruction, and parameters.
-  result = api_instance.create_edit(body)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling EditsApi->create_edit: #{e}"
 end
 # Setup authorization
 OpenAIClient.configure do |config|
@@ -720,81 +664,6 @@ end
 OpenAIClient.configure do |config|
 end
 
-api_instance = OpenAIClient::FineTunesApi.new
-fine_tune_id = 'fine_tune_id_example' # String | The ID of the fine-tune job to cancel 
-
-
-begin
-  #Immediately cancel a fine-tune job. 
-  result = api_instance.cancel_fine_tune(fine_tune_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling FineTunesApi->cancel_fine_tune: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::FineTunesApi.new
-body = OpenAIClient::CreateFineTuneRequest.new # CreateFineTuneRequest | 
-
-
-begin
-  #Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
-  result = api_instance.create_fine_tune(body)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling FineTunesApi->create_fine_tune: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::FineTunesApi.new
-fine_tune_id = 'fine_tune_id_example' # String | The ID of the fine-tune job to get events for. 
-opts = { 
-  stream: false # BOOLEAN | Whether to stream events for the fine-tune job. If set to true, events will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available. The stream will terminate with a `data: [DONE]` message when the job is finished (succeeded, cancelled, or failed).  If set to false, only events generated so far will be returned. 
-}
-
-begin
-  #Get fine-grained status updates for a fine-tune job. 
-  result = api_instance.list_fine_tune_events(fine_tune_id, opts)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling FineTunesApi->list_fine_tune_events: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::FineTunesApi.new
-
-begin
-  #List your organization's fine-tuning jobs 
-  result = api_instance.list_fine_tunes
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling FineTunesApi->list_fine_tunes: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::FineTunesApi.new
-fine_tune_id = 'fine_tune_id_example' # String | The ID of the fine-tune job 
-
-
-begin
-  #Gets info about the fine-tune job.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
-  result = api_instance.retrieve_fine_tune(fine_tune_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling FineTunesApi->retrieve_fine_tune: #{e}"
-end
-# Setup authorization
-OpenAIClient.configure do |config|
-end
-
 api_instance = OpenAIClient::FineTuningApi.new
 fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job to cancel. 
 
@@ -815,7 +684,7 @@ body = OpenAIClient::CreateFineTuningJobRequest.new # CreateFineTuningJobRequest
 
 
 begin
-  #Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
+  #Creates a fine-tuning job which begins the process of creating a new model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
   result = api_instance.create_fine_tuning_job(body)
   p result
 rescue OpenAIClient::ApiError => e
@@ -838,6 +707,24 @@ begin
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling FineTuningApi->list_fine_tuning_events: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::FineTuningApi.new
+fine_tuning_job_id = 'fine_tuning_job_id_example' # String | The ID of the fine-tuning job to get checkpoints for. 
+opts = { 
+  after: 'after_example', # String | Identifier for the last checkpoint ID from the previous pagination request.
+  limit: 10 # Integer | Number of checkpoints to retrieve.
+}
+
+begin
+  #List checkpoints for a fine-tuning job. 
+  result = api_instance.list_fine_tuning_job_checkpoints(fine_tuning_job_id, opts)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling FineTuningApi->list_fine_tuning_job_checkpoints: #{e}"
 end
 # Setup authorization
 OpenAIClient.configure do |config|
@@ -980,11 +867,230 @@ body = OpenAIClient::CreateModerationRequest.new # CreateModerationRequest |
 
 
 begin
-  #Classifies if text violates OpenAI's Content Policy
+  #Classifies if text is potentially harmful.
   result = api_instance.create_moderation(body)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling ModerationsApi->create_moderation: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store that the file batch belongs to.
+batch_id = 'batch_id_example' # String | The ID of the file batch to cancel.
+
+
+begin
+  #Cancel a vector store file batch. This attempts to cancel the processing of files in this batch as soon as possible.
+  result = api_instance.cancel_vector_store_file_batch(vector_store_id, batch_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->cancel_vector_store_file_batch: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+body = OpenAIClient::CreateVectorStoreRequest.new # CreateVectorStoreRequest | 
+
+
+begin
+  #Create a vector store.
+  result = api_instance.create_vector_store(body)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->create_vector_store: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+body = OpenAIClient::CreateVectorStoreFileRequest.new # CreateVectorStoreFileRequest | 
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store for which to create a File. 
+
+
+begin
+  #Create a vector store file by attaching a [File](/docs/api-reference/files) to a [vector store](/docs/api-reference/vector-stores/object).
+  result = api_instance.create_vector_store_file(body, vector_store_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->create_vector_store_file: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+body = OpenAIClient::CreateVectorStoreFileBatchRequest.new # CreateVectorStoreFileBatchRequest | 
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store for which to create a File Batch. 
+
+
+begin
+  #Create a vector store file batch.
+  result = api_instance.create_vector_store_file_batch(body, vector_store_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->create_vector_store_file_batch: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store to delete.
+
+
+begin
+  #Delete a vector store.
+  result = api_instance.delete_vector_store(vector_store_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->delete_vector_store: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store that the file belongs to.
+file_id = 'file_id_example' # String | The ID of the file to delete.
+
+
+begin
+  #Delete a vector store file. This will remove the file from the vector store but the file itself will not be deleted. To delete the file, use the [delete file](/docs/api-reference/files/delete) endpoint.
+  result = api_instance.delete_vector_store_file(vector_store_id, file_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->delete_vector_store_file: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store to retrieve.
+
+
+begin
+  #Retrieves a vector store.
+  result = api_instance.get_vector_store(vector_store_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->get_vector_store: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store that the file belongs to.
+file_id = 'file_id_example' # String | The ID of the file being retrieved.
+
+
+begin
+  #Retrieves a vector store file.
+  result = api_instance.get_vector_store_file(vector_store_id, file_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->get_vector_store_file: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store that the file batch belongs to.
+batch_id = 'batch_id_example' # String | The ID of the file batch being retrieved.
+
+
+begin
+  #Retrieves a vector store file batch.
+  result = api_instance.get_vector_store_file_batch(vector_store_id, batch_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->get_vector_store_file_batch: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store that the files belong to.
+batch_id = 'batch_id_example' # String | The ID of the file batch that the files belong to.
+opts = { 
+  limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
+  order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
+  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
+  before: 'before_example', # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  filter: 'filter_example' # String | Filter by file status. One of `in_progress`, `completed`, `failed`, `cancelled`.
+}
+
+begin
+  #Returns a list of vector store files in a batch.
+  result = api_instance.list_files_in_vector_store_batch(vector_store_id, batch_id, opts)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->list_files_in_vector_store_batch: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store that the files belong to.
+opts = { 
+  limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
+  order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
+  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
+  before: 'before_example', # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  filter: 'filter_example' # String | Filter by file status. One of `in_progress`, `completed`, `failed`, `cancelled`.
+}
+
+begin
+  #Returns a list of vector store files.
+  result = api_instance.list_vector_store_files(vector_store_id, opts)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->list_vector_store_files: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+opts = { 
+  limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
+  order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
+  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
+  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+}
+
+begin
+  #Returns a list of vector stores.
+  result = api_instance.list_vector_stores(opts)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->list_vector_stores: #{e}"
+end
+# Setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::VectorStoresApi.new
+body = OpenAIClient::UpdateVectorStoreRequest.new # UpdateVectorStoreRequest | 
+vector_store_id = 'vector_store_id_example' # String | The ID of the vector store to modify.
+
+
+begin
+  #Modifies a vector store.
+  result = api_instance.modify_vector_store(body, vector_store_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling VectorStoresApi->modify_vector_store: #{e}"
 end
 ```
 
@@ -996,24 +1102,18 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OpenAIClient::AssistantsApi* | [**cancel_run**](docs/AssistantsApi.md#cancel_run) | **POST** /threads/{thread_id}/runs/{run_id}/cancel | Cancels a run that is `in_progress`.
 *OpenAIClient::AssistantsApi* | [**create_assistant**](docs/AssistantsApi.md#create_assistant) | **POST** /assistants | Create an assistant with a model and instructions.
-*OpenAIClient::AssistantsApi* | [**create_assistant_file**](docs/AssistantsApi.md#create_assistant_file) | **POST** /assistants/{assistant_id}/files | Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
 *OpenAIClient::AssistantsApi* | [**create_message**](docs/AssistantsApi.md#create_message) | **POST** /threads/{thread_id}/messages | Create a message.
 *OpenAIClient::AssistantsApi* | [**create_run**](docs/AssistantsApi.md#create_run) | **POST** /threads/{thread_id}/runs | Create a run.
 *OpenAIClient::AssistantsApi* | [**create_thread**](docs/AssistantsApi.md#create_thread) | **POST** /threads | Create a thread.
 *OpenAIClient::AssistantsApi* | [**create_thread_and_run**](docs/AssistantsApi.md#create_thread_and_run) | **POST** /threads/runs | Create a thread and run it in one request.
 *OpenAIClient::AssistantsApi* | [**delete_assistant**](docs/AssistantsApi.md#delete_assistant) | **DELETE** /assistants/{assistant_id} | Delete an assistant.
-*OpenAIClient::AssistantsApi* | [**delete_assistant_file**](docs/AssistantsApi.md#delete_assistant_file) | **DELETE** /assistants/{assistant_id}/files/{file_id} | Delete an assistant file.
 *OpenAIClient::AssistantsApi* | [**delete_thread**](docs/AssistantsApi.md#delete_thread) | **DELETE** /threads/{thread_id} | Delete a thread.
 *OpenAIClient::AssistantsApi* | [**get_assistant**](docs/AssistantsApi.md#get_assistant) | **GET** /assistants/{assistant_id} | Retrieves an assistant.
-*OpenAIClient::AssistantsApi* | [**get_assistant_file**](docs/AssistantsApi.md#get_assistant_file) | **GET** /assistants/{assistant_id}/files/{file_id} | Retrieves an AssistantFile.
 *OpenAIClient::AssistantsApi* | [**get_message**](docs/AssistantsApi.md#get_message) | **GET** /threads/{thread_id}/messages/{message_id} | Retrieve a message.
-*OpenAIClient::AssistantsApi* | [**get_message_file**](docs/AssistantsApi.md#get_message_file) | **GET** /threads/{thread_id}/messages/{message_id}/files/{file_id} | Retrieves a message file.
 *OpenAIClient::AssistantsApi* | [**get_run**](docs/AssistantsApi.md#get_run) | **GET** /threads/{thread_id}/runs/{run_id} | Retrieves a run.
 *OpenAIClient::AssistantsApi* | [**get_run_step**](docs/AssistantsApi.md#get_run_step) | **GET** /threads/{thread_id}/runs/{run_id}/steps/{step_id} | Retrieves a run step.
 *OpenAIClient::AssistantsApi* | [**get_thread**](docs/AssistantsApi.md#get_thread) | **GET** /threads/{thread_id} | Retrieves a thread.
-*OpenAIClient::AssistantsApi* | [**list_assistant_files**](docs/AssistantsApi.md#list_assistant_files) | **GET** /assistants/{assistant_id}/files | Returns a list of assistant files.
 *OpenAIClient::AssistantsApi* | [**list_assistants**](docs/AssistantsApi.md#list_assistants) | **GET** /assistants | Returns a list of assistants.
-*OpenAIClient::AssistantsApi* | [**list_message_files**](docs/AssistantsApi.md#list_message_files) | **GET** /threads/{thread_id}/messages/{message_id}/files | Returns a list of message files.
 *OpenAIClient::AssistantsApi* | [**list_messages**](docs/AssistantsApi.md#list_messages) | **GET** /threads/{thread_id}/messages | Returns a list of messages for a given thread.
 *OpenAIClient::AssistantsApi* | [**list_run_steps**](docs/AssistantsApi.md#list_run_steps) | **GET** /threads/{thread_id}/runs/{run_id}/steps | Returns a list of run steps belonging to a run.
 *OpenAIClient::AssistantsApi* | [**list_runs**](docs/AssistantsApi.md#list_runs) | **GET** /threads/{thread_id}/runs | Returns a list of runs belonging to a thread.
@@ -1025,23 +1125,22 @@ Class | Method | HTTP request | Description
 *OpenAIClient::AudioApi* | [**create_speech**](docs/AudioApi.md#create_speech) | **POST** /audio/speech | Generates audio from the input text.
 *OpenAIClient::AudioApi* | [**create_transcription**](docs/AudioApi.md#create_transcription) | **POST** /audio/transcriptions | Transcribes audio into the input language.
 *OpenAIClient::AudioApi* | [**create_translation**](docs/AudioApi.md#create_translation) | **POST** /audio/translations | Translates audio into English.
+*OpenAIClient::BatchApi* | [**cancel_batch**](docs/BatchApi.md#cancel_batch) | **POST** /batches/{batch_id}/cancel | Cancels an in-progress batch.
+*OpenAIClient::BatchApi* | [**create_batch**](docs/BatchApi.md#create_batch) | **POST** /batches | Creates and executes a batch from an uploaded file of requests
+*OpenAIClient::BatchApi* | [**list_batches**](docs/BatchApi.md#list_batches) | **GET** /batches | List your organization's batches.
+*OpenAIClient::BatchApi* | [**retrieve_batch**](docs/BatchApi.md#retrieve_batch) | **GET** /batches/{batch_id} | Retrieves a batch.
 *OpenAIClient::ChatApi* | [**create_chat_completion**](docs/ChatApi.md#create_chat_completion) | **POST** /chat/completions | Creates a model response for the given chat conversation.
 *OpenAIClient::CompletionsApi* | [**create_completion**](docs/CompletionsApi.md#create_completion) | **POST** /completions | Creates a completion for the provided prompt and parameters.
-*OpenAIClient::EditsApi* | [**create_edit**](docs/EditsApi.md#create_edit) | **POST** /edits | Creates a new edit for the provided input, instruction, and parameters.
 *OpenAIClient::EmbeddingsApi* | [**create_embedding**](docs/EmbeddingsApi.md#create_embedding) | **POST** /embeddings | Creates an embedding vector representing the input text.
 *OpenAIClient::FilesApi* | [**create_file**](docs/FilesApi.md#create_file) | **POST** /files | Upload a file that can be used across various endpoints. The size of all the files uploaded by one organization can be up to 100 GB.  The size of individual files can be a maximum of 512 MB or 2 million tokens for Assistants. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.  Please [contact us](https://help.openai.com/) if you need to increase these storage limits. 
 *OpenAIClient::FilesApi* | [**delete_file**](docs/FilesApi.md#delete_file) | **DELETE** /files/{file_id} | Delete a file.
 *OpenAIClient::FilesApi* | [**download_file**](docs/FilesApi.md#download_file) | **GET** /files/{file_id}/content | Returns the contents of the specified file.
 *OpenAIClient::FilesApi* | [**list_files**](docs/FilesApi.md#list_files) | **GET** /files | Returns a list of files that belong to the user's organization.
 *OpenAIClient::FilesApi* | [**retrieve_file**](docs/FilesApi.md#retrieve_file) | **GET** /files/{file_id} | Returns information about a specific file.
-*OpenAIClient::FineTunesApi* | [**cancel_fine_tune**](docs/FineTunesApi.md#cancel_fine_tune) | **POST** /fine-tunes/{fine_tune_id}/cancel | Immediately cancel a fine-tune job. 
-*OpenAIClient::FineTunesApi* | [**create_fine_tune**](docs/FineTunesApi.md#create_fine_tune) | **POST** /fine-tunes | Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
-*OpenAIClient::FineTunesApi* | [**list_fine_tune_events**](docs/FineTunesApi.md#list_fine_tune_events) | **GET** /fine-tunes/{fine_tune_id}/events | Get fine-grained status updates for a fine-tune job. 
-*OpenAIClient::FineTunesApi* | [**list_fine_tunes**](docs/FineTunesApi.md#list_fine_tunes) | **GET** /fine-tunes | List your organization's fine-tuning jobs 
-*OpenAIClient::FineTunesApi* | [**retrieve_fine_tune**](docs/FineTunesApi.md#retrieve_fine_tune) | **GET** /fine-tunes/{fine_tune_id} | Gets info about the fine-tune job.  [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning) 
 *OpenAIClient::FineTuningApi* | [**cancel_fine_tuning_job**](docs/FineTuningApi.md#cancel_fine_tuning_job) | **POST** /fine_tuning/jobs/{fine_tuning_job_id}/cancel | Immediately cancel a fine-tune job. 
-*OpenAIClient::FineTuningApi* | [**create_fine_tuning_job**](docs/FineTuningApi.md#create_fine_tuning_job) | **POST** /fine_tuning/jobs | Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
+*OpenAIClient::FineTuningApi* | [**create_fine_tuning_job**](docs/FineTuningApi.md#create_fine_tuning_job) | **POST** /fine_tuning/jobs | Creates a fine-tuning job which begins the process of creating a new model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
 *OpenAIClient::FineTuningApi* | [**list_fine_tuning_events**](docs/FineTuningApi.md#list_fine_tuning_events) | **GET** /fine_tuning/jobs/{fine_tuning_job_id}/events | Get status updates for a fine-tuning job. 
+*OpenAIClient::FineTuningApi* | [**list_fine_tuning_job_checkpoints**](docs/FineTuningApi.md#list_fine_tuning_job_checkpoints) | **GET** /fine_tuning/jobs/{fine_tuning_job_id}/checkpoints | List checkpoints for a fine-tuning job. 
 *OpenAIClient::FineTuningApi* | [**list_paginated_fine_tuning_jobs**](docs/FineTuningApi.md#list_paginated_fine_tuning_jobs) | **GET** /fine_tuning/jobs | List your organization's fine-tuning jobs 
 *OpenAIClient::FineTuningApi* | [**retrieve_fine_tuning_job**](docs/FineTuningApi.md#retrieve_fine_tuning_job) | **GET** /fine_tuning/jobs/{fine_tuning_job_id} | Get info about a fine-tuning job.  [Learn more about fine-tuning](/docs/guides/fine-tuning) 
 *OpenAIClient::ImagesApi* | [**create_image**](docs/ImagesApi.md#create_image) | **POST** /images/generations | Creates an image given a prompt.
@@ -1050,30 +1149,59 @@ Class | Method | HTTP request | Description
 *OpenAIClient::ModelsApi* | [**delete_model**](docs/ModelsApi.md#delete_model) | **DELETE** /models/{model} | Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
 *OpenAIClient::ModelsApi* | [**list_models**](docs/ModelsApi.md#list_models) | **GET** /models | Lists the currently available models, and provides basic information about each one such as the owner and availability.
 *OpenAIClient::ModelsApi* | [**retrieve_model**](docs/ModelsApi.md#retrieve_model) | **GET** /models/{model} | Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
-*OpenAIClient::ModerationsApi* | [**create_moderation**](docs/ModerationsApi.md#create_moderation) | **POST** /moderations | Classifies if text violates OpenAI's Content Policy
+*OpenAIClient::ModerationsApi* | [**create_moderation**](docs/ModerationsApi.md#create_moderation) | **POST** /moderations | Classifies if text is potentially harmful.
+*OpenAIClient::VectorStoresApi* | [**cancel_vector_store_file_batch**](docs/VectorStoresApi.md#cancel_vector_store_file_batch) | **POST** /vector_stores/{vector_store_id}/file_batches/{batch_id}/cancel | Cancel a vector store file batch. This attempts to cancel the processing of files in this batch as soon as possible.
+*OpenAIClient::VectorStoresApi* | [**create_vector_store**](docs/VectorStoresApi.md#create_vector_store) | **POST** /vector_stores | Create a vector store.
+*OpenAIClient::VectorStoresApi* | [**create_vector_store_file**](docs/VectorStoresApi.md#create_vector_store_file) | **POST** /vector_stores/{vector_store_id}/files | Create a vector store file by attaching a [File](/docs/api-reference/files) to a [vector store](/docs/api-reference/vector-stores/object).
+*OpenAIClient::VectorStoresApi* | [**create_vector_store_file_batch**](docs/VectorStoresApi.md#create_vector_store_file_batch) | **POST** /vector_stores/{vector_store_id}/file_batches | Create a vector store file batch.
+*OpenAIClient::VectorStoresApi* | [**delete_vector_store**](docs/VectorStoresApi.md#delete_vector_store) | **DELETE** /vector_stores/{vector_store_id} | Delete a vector store.
+*OpenAIClient::VectorStoresApi* | [**delete_vector_store_file**](docs/VectorStoresApi.md#delete_vector_store_file) | **DELETE** /vector_stores/{vector_store_id}/files/{file_id} | Delete a vector store file. This will remove the file from the vector store but the file itself will not be deleted. To delete the file, use the [delete file](/docs/api-reference/files/delete) endpoint.
+*OpenAIClient::VectorStoresApi* | [**get_vector_store**](docs/VectorStoresApi.md#get_vector_store) | **GET** /vector_stores/{vector_store_id} | Retrieves a vector store.
+*OpenAIClient::VectorStoresApi* | [**get_vector_store_file**](docs/VectorStoresApi.md#get_vector_store_file) | **GET** /vector_stores/{vector_store_id}/files/{file_id} | Retrieves a vector store file.
+*OpenAIClient::VectorStoresApi* | [**get_vector_store_file_batch**](docs/VectorStoresApi.md#get_vector_store_file_batch) | **GET** /vector_stores/{vector_store_id}/file_batches/{batch_id} | Retrieves a vector store file batch.
+*OpenAIClient::VectorStoresApi* | [**list_files_in_vector_store_batch**](docs/VectorStoresApi.md#list_files_in_vector_store_batch) | **GET** /vector_stores/{vector_store_id}/file_batches/{batch_id}/files | Returns a list of vector store files in a batch.
+*OpenAIClient::VectorStoresApi* | [**list_vector_store_files**](docs/VectorStoresApi.md#list_vector_store_files) | **GET** /vector_stores/{vector_store_id}/files | Returns a list of vector store files.
+*OpenAIClient::VectorStoresApi* | [**list_vector_stores**](docs/VectorStoresApi.md#list_vector_stores) | **GET** /vector_stores | Returns a list of vector stores.
+*OpenAIClient::VectorStoresApi* | [**modify_vector_store**](docs/VectorStoresApi.md#modify_vector_store) | **POST** /vector_stores/{vector_store_id} | Modifies a vector store.
 
 ## Documentation for Models
 
  - [OpenAIClient::AnyOfCreateAssistantRequestModel](docs/AnyOfCreateAssistantRequestModel.md)
  - [OpenAIClient::AnyOfCreateChatCompletionRequestModel](docs/AnyOfCreateChatCompletionRequestModel.md)
  - [OpenAIClient::AnyOfCreateCompletionRequestModel](docs/AnyOfCreateCompletionRequestModel.md)
- - [OpenAIClient::AnyOfCreateEditRequestModel](docs/AnyOfCreateEditRequestModel.md)
  - [OpenAIClient::AnyOfCreateEmbeddingRequestModel](docs/AnyOfCreateEmbeddingRequestModel.md)
- - [OpenAIClient::AnyOfCreateFineTuneRequestModel](docs/AnyOfCreateFineTuneRequestModel.md)
  - [OpenAIClient::AnyOfCreateFineTuningJobRequestModel](docs/AnyOfCreateFineTuningJobRequestModel.md)
  - [OpenAIClient::AnyOfCreateImageEditRequestModel](docs/AnyOfCreateImageEditRequestModel.md)
  - [OpenAIClient::AnyOfCreateImageRequestModel](docs/AnyOfCreateImageRequestModel.md)
  - [OpenAIClient::AnyOfCreateImageVariationRequestModel](docs/AnyOfCreateImageVariationRequestModel.md)
  - [OpenAIClient::AnyOfCreateModerationRequestModel](docs/AnyOfCreateModerationRequestModel.md)
+ - [OpenAIClient::AnyOfCreateRunRequestModel](docs/AnyOfCreateRunRequestModel.md)
  - [OpenAIClient::AnyOfCreateSpeechRequestModel](docs/AnyOfCreateSpeechRequestModel.md)
+ - [OpenAIClient::AnyOfCreateThreadAndRunRequestModel](docs/AnyOfCreateThreadAndRunRequestModel.md)
  - [OpenAIClient::AnyOfCreateTranscriptionRequestModel](docs/AnyOfCreateTranscriptionRequestModel.md)
  - [OpenAIClient::AnyOfCreateTranslationRequestModel](docs/AnyOfCreateTranslationRequestModel.md)
  - [OpenAIClient::AnyOfModifyAssistantRequestModel](docs/AnyOfModifyAssistantRequestModel.md)
- - [OpenAIClient::AssistantFileObject](docs/AssistantFileObject.md)
  - [OpenAIClient::AssistantObject](docs/AssistantObject.md)
+ - [OpenAIClient::AssistantObjectToolResources](docs/AssistantObjectToolResources.md)
+ - [OpenAIClient::AssistantObjectToolResourcesCodeInterpreter](docs/AssistantObjectToolResourcesCodeInterpreter.md)
+ - [OpenAIClient::AssistantObjectToolResourcesFileSearch](docs/AssistantObjectToolResourcesFileSearch.md)
+ - [OpenAIClient::AssistantStreamEvent](docs/AssistantStreamEvent.md)
  - [OpenAIClient::AssistantToolsCode](docs/AssistantToolsCode.md)
+ - [OpenAIClient::AssistantToolsFileSearch](docs/AssistantToolsFileSearch.md)
  - [OpenAIClient::AssistantToolsFunction](docs/AssistantToolsFunction.md)
- - [OpenAIClient::AssistantToolsRetrieval](docs/AssistantToolsRetrieval.md)
+ - [OpenAIClient::AssistantsApiResponseFormat](docs/AssistantsApiResponseFormat.md)
+ - [OpenAIClient::AssistantsApiResponseFormatOption](docs/AssistantsApiResponseFormatOption.md)
+ - [OpenAIClient::AssistantsApiToolChoiceOption](docs/AssistantsApiToolChoiceOption.md)
+ - [OpenAIClient::AssistantsNamedToolChoice](docs/AssistantsNamedToolChoice.md)
+ - [OpenAIClient::Batch](docs/Batch.md)
+ - [OpenAIClient::BatchErrors](docs/BatchErrors.md)
+ - [OpenAIClient::BatchErrorsData](docs/BatchErrorsData.md)
+ - [OpenAIClient::BatchRequestCounts](docs/BatchRequestCounts.md)
+ - [OpenAIClient::BatchRequestInput](docs/BatchRequestInput.md)
+ - [OpenAIClient::BatchRequestOutput](docs/BatchRequestOutput.md)
+ - [OpenAIClient::BatchRequestOutputError](docs/BatchRequestOutputError.md)
+ - [OpenAIClient::BatchRequestOutputResponse](docs/BatchRequestOutputResponse.md)
+ - [OpenAIClient::BatchesBody](docs/BatchesBody.md)
  - [OpenAIClient::ChatCompletionFunctionCallOption](docs/ChatCompletionFunctionCallOption.md)
  - [OpenAIClient::ChatCompletionFunctions](docs/ChatCompletionFunctions.md)
  - [OpenAIClient::ChatCompletionMessageToolCall](docs/ChatCompletionMessageToolCall.md)
@@ -1103,8 +1231,11 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::ChatCompletionTool](docs/ChatCompletionTool.md)
  - [OpenAIClient::ChatCompletionToolChoiceOption](docs/ChatCompletionToolChoiceOption.md)
  - [OpenAIClient::CompletionUsage](docs/CompletionUsage.md)
- - [OpenAIClient::CreateAssistantFileRequest](docs/CreateAssistantFileRequest.md)
  - [OpenAIClient::CreateAssistantRequest](docs/CreateAssistantRequest.md)
+ - [OpenAIClient::CreateAssistantRequestToolResources](docs/CreateAssistantRequestToolResources.md)
+ - [OpenAIClient::CreateAssistantRequestToolResourcesCodeInterpreter](docs/CreateAssistantRequestToolResourcesCodeInterpreter.md)
+ - [OpenAIClient::CreateAssistantRequestToolResourcesFileSearch](docs/CreateAssistantRequestToolResourcesFileSearch.md)
+ - [OpenAIClient::CreateAssistantRequestToolResourcesFileSearchVectorStores](docs/CreateAssistantRequestToolResourcesFileSearchVectorStores.md)
  - [OpenAIClient::CreateChatCompletionFunctionResponse](docs/CreateChatCompletionFunctionResponse.md)
  - [OpenAIClient::CreateChatCompletionFunctionResponseChoices](docs/CreateChatCompletionFunctionResponseChoices.md)
  - [OpenAIClient::CreateChatCompletionImageResponse](docs/CreateChatCompletionImageResponse.md)
@@ -1119,17 +1250,14 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::CreateCompletionResponse](docs/CreateCompletionResponse.md)
  - [OpenAIClient::CreateCompletionResponseChoices](docs/CreateCompletionResponseChoices.md)
  - [OpenAIClient::CreateCompletionResponseLogprobs](docs/CreateCompletionResponseLogprobs.md)
- - [OpenAIClient::CreateEditRequest](docs/CreateEditRequest.md)
- - [OpenAIClient::CreateEditResponse](docs/CreateEditResponse.md)
- - [OpenAIClient::CreateEditResponseChoices](docs/CreateEditResponseChoices.md)
  - [OpenAIClient::CreateEmbeddingRequest](docs/CreateEmbeddingRequest.md)
  - [OpenAIClient::CreateEmbeddingResponse](docs/CreateEmbeddingResponse.md)
  - [OpenAIClient::CreateEmbeddingResponseUsage](docs/CreateEmbeddingResponseUsage.md)
  - [OpenAIClient::CreateFileRequest](docs/CreateFileRequest.md)
- - [OpenAIClient::CreateFineTuneRequest](docs/CreateFineTuneRequest.md)
- - [OpenAIClient::CreateFineTuneRequestHyperparameters](docs/CreateFineTuneRequestHyperparameters.md)
  - [OpenAIClient::CreateFineTuningJobRequest](docs/CreateFineTuningJobRequest.md)
  - [OpenAIClient::CreateFineTuningJobRequestHyperparameters](docs/CreateFineTuningJobRequestHyperparameters.md)
+ - [OpenAIClient::CreateFineTuningJobRequestIntegrations](docs/CreateFineTuningJobRequestIntegrations.md)
+ - [OpenAIClient::CreateFineTuningJobRequestWandb](docs/CreateFineTuningJobRequestWandb.md)
  - [OpenAIClient::CreateImageEditRequest](docs/CreateImageEditRequest.md)
  - [OpenAIClient::CreateImageRequest](docs/CreateImageRequest.md)
  - [OpenAIClient::CreateImageVariationRequest](docs/CreateImageVariationRequest.md)
@@ -1142,24 +1270,35 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::CreateRunRequest](docs/CreateRunRequest.md)
  - [OpenAIClient::CreateSpeechRequest](docs/CreateSpeechRequest.md)
  - [OpenAIClient::CreateThreadAndRunRequest](docs/CreateThreadAndRunRequest.md)
+ - [OpenAIClient::CreateThreadAndRunRequestToolResources](docs/CreateThreadAndRunRequestToolResources.md)
  - [OpenAIClient::CreateThreadRequest](docs/CreateThreadRequest.md)
+ - [OpenAIClient::CreateThreadRequestToolResources](docs/CreateThreadRequestToolResources.md)
+ - [OpenAIClient::CreateThreadRequestToolResourcesFileSearch](docs/CreateThreadRequestToolResourcesFileSearch.md)
  - [OpenAIClient::CreateTranscriptionRequest](docs/CreateTranscriptionRequest.md)
- - [OpenAIClient::CreateTranscriptionResponse](docs/CreateTranscriptionResponse.md)
+ - [OpenAIClient::CreateTranscriptionResponseJson](docs/CreateTranscriptionResponseJson.md)
+ - [OpenAIClient::CreateTranscriptionResponseVerboseJson](docs/CreateTranscriptionResponseVerboseJson.md)
  - [OpenAIClient::CreateTranslationRequest](docs/CreateTranslationRequest.md)
- - [OpenAIClient::CreateTranslationResponse](docs/CreateTranslationResponse.md)
- - [OpenAIClient::DeleteAssistantFileResponse](docs/DeleteAssistantFileResponse.md)
+ - [OpenAIClient::CreateTranslationResponseJson](docs/CreateTranslationResponseJson.md)
+ - [OpenAIClient::CreateTranslationResponseVerboseJson](docs/CreateTranslationResponseVerboseJson.md)
+ - [OpenAIClient::CreateVectorStoreFileBatchRequest](docs/CreateVectorStoreFileBatchRequest.md)
+ - [OpenAIClient::CreateVectorStoreFileRequest](docs/CreateVectorStoreFileRequest.md)
+ - [OpenAIClient::CreateVectorStoreRequest](docs/CreateVectorStoreRequest.md)
  - [OpenAIClient::DeleteAssistantResponse](docs/DeleteAssistantResponse.md)
  - [OpenAIClient::DeleteFileResponse](docs/DeleteFileResponse.md)
  - [OpenAIClient::DeleteMessageResponse](docs/DeleteMessageResponse.md)
  - [OpenAIClient::DeleteModelResponse](docs/DeleteModelResponse.md)
  - [OpenAIClient::DeleteThreadResponse](docs/DeleteThreadResponse.md)
+ - [OpenAIClient::DeleteVectorStoreFileResponse](docs/DeleteVectorStoreFileResponse.md)
+ - [OpenAIClient::DeleteVectorStoreResponse](docs/DeleteVectorStoreResponse.md)
+ - [OpenAIClient::DoneEvent](docs/DoneEvent.md)
  - [OpenAIClient::Embedding](docs/Embedding.md)
  - [OpenAIClient::Error](docs/Error.md)
+ - [OpenAIClient::ErrorEvent](docs/ErrorEvent.md)
  - [OpenAIClient::ErrorResponse](docs/ErrorResponse.md)
- - [OpenAIClient::FineTune](docs/FineTune.md)
- - [OpenAIClient::FineTuneEvent](docs/FineTuneEvent.md)
- - [OpenAIClient::FineTuneHyperparams](docs/FineTuneHyperparams.md)
+ - [OpenAIClient::FineTuningIntegration](docs/FineTuningIntegration.md)
  - [OpenAIClient::FineTuningJob](docs/FineTuningJob.md)
+ - [OpenAIClient::FineTuningJobCheckpoint](docs/FineTuningJobCheckpoint.md)
+ - [OpenAIClient::FineTuningJobCheckpointMetrics](docs/FineTuningJobCheckpointMetrics.md)
  - [OpenAIClient::FineTuningJobError](docs/FineTuningJobError.md)
  - [OpenAIClient::FineTuningJobEvent](docs/FineTuningJobEvent.md)
  - [OpenAIClient::FineTuningJobHyperparameters](docs/FineTuningJobHyperparameters.md)
@@ -1167,19 +1306,21 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::FunctionParameters](docs/FunctionParameters.md)
  - [OpenAIClient::Image](docs/Image.md)
  - [OpenAIClient::ImagesResponse](docs/ImagesResponse.md)
- - [OpenAIClient::ListAssistantFilesResponse](docs/ListAssistantFilesResponse.md)
+ - [OpenAIClient::InlineResponse200](docs/InlineResponse200.md)
+ - [OpenAIClient::InlineResponse2001](docs/InlineResponse2001.md)
  - [OpenAIClient::ListAssistantsResponse](docs/ListAssistantsResponse.md)
+ - [OpenAIClient::ListBatchesResponse](docs/ListBatchesResponse.md)
  - [OpenAIClient::ListFilesResponse](docs/ListFilesResponse.md)
- - [OpenAIClient::ListFineTuneEventsResponse](docs/ListFineTuneEventsResponse.md)
- - [OpenAIClient::ListFineTunesResponse](docs/ListFineTunesResponse.md)
+ - [OpenAIClient::ListFineTuningJobCheckpointsResponse](docs/ListFineTuningJobCheckpointsResponse.md)
  - [OpenAIClient::ListFineTuningJobEventsResponse](docs/ListFineTuningJobEventsResponse.md)
- - [OpenAIClient::ListMessageFilesResponse](docs/ListMessageFilesResponse.md)
  - [OpenAIClient::ListMessagesResponse](docs/ListMessagesResponse.md)
  - [OpenAIClient::ListModelsResponse](docs/ListModelsResponse.md)
  - [OpenAIClient::ListPaginatedFineTuningJobsResponse](docs/ListPaginatedFineTuningJobsResponse.md)
  - [OpenAIClient::ListRunStepsResponse](docs/ListRunStepsResponse.md)
  - [OpenAIClient::ListRunsResponse](docs/ListRunsResponse.md)
  - [OpenAIClient::ListThreadsResponse](docs/ListThreadsResponse.md)
+ - [OpenAIClient::ListVectorStoreFilesResponse](docs/ListVectorStoreFilesResponse.md)
+ - [OpenAIClient::ListVectorStoresResponse](docs/ListVectorStoresResponse.md)
  - [OpenAIClient::MessageContentImageFileObject](docs/MessageContentImageFileObject.md)
  - [OpenAIClient::MessageContentImageFileObjectImageFile](docs/MessageContentImageFileObjectImageFile.md)
  - [OpenAIClient::MessageContentTextAnnotationsFileCitationObject](docs/MessageContentTextAnnotationsFileCitationObject.md)
@@ -1188,10 +1329,25 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::MessageContentTextAnnotationsFilePathObjectFilePath](docs/MessageContentTextAnnotationsFilePathObjectFilePath.md)
  - [OpenAIClient::MessageContentTextObject](docs/MessageContentTextObject.md)
  - [OpenAIClient::MessageContentTextObjectText](docs/MessageContentTextObjectText.md)
- - [OpenAIClient::MessageFileObject](docs/MessageFileObject.md)
+ - [OpenAIClient::MessageDeltaContentImageFileObject](docs/MessageDeltaContentImageFileObject.md)
+ - [OpenAIClient::MessageDeltaContentImageFileObjectImageFile](docs/MessageDeltaContentImageFileObjectImageFile.md)
+ - [OpenAIClient::MessageDeltaContentTextAnnotationsFileCitationObject](docs/MessageDeltaContentTextAnnotationsFileCitationObject.md)
+ - [OpenAIClient::MessageDeltaContentTextAnnotationsFileCitationObjectFileCitation](docs/MessageDeltaContentTextAnnotationsFileCitationObjectFileCitation.md)
+ - [OpenAIClient::MessageDeltaContentTextAnnotationsFilePathObject](docs/MessageDeltaContentTextAnnotationsFilePathObject.md)
+ - [OpenAIClient::MessageDeltaContentTextAnnotationsFilePathObjectFilePath](docs/MessageDeltaContentTextAnnotationsFilePathObjectFilePath.md)
+ - [OpenAIClient::MessageDeltaContentTextObject](docs/MessageDeltaContentTextObject.md)
+ - [OpenAIClient::MessageDeltaContentTextObjectText](docs/MessageDeltaContentTextObjectText.md)
+ - [OpenAIClient::MessageDeltaObject](docs/MessageDeltaObject.md)
+ - [OpenAIClient::MessageDeltaObjectDelta](docs/MessageDeltaObjectDelta.md)
  - [OpenAIClient::MessageObject](docs/MessageObject.md)
+ - [OpenAIClient::MessageObjectAttachments](docs/MessageObjectAttachments.md)
+ - [OpenAIClient::MessageObjectIncompleteDetails](docs/MessageObjectIncompleteDetails.md)
+ - [OpenAIClient::MessageStreamEvent](docs/MessageStreamEvent.md)
  - [OpenAIClient::Model](docs/Model.md)
  - [OpenAIClient::ModifyAssistantRequest](docs/ModifyAssistantRequest.md)
+ - [OpenAIClient::ModifyAssistantRequestToolResources](docs/ModifyAssistantRequestToolResources.md)
+ - [OpenAIClient::ModifyAssistantRequestToolResourcesCodeInterpreter](docs/ModifyAssistantRequestToolResourcesCodeInterpreter.md)
+ - [OpenAIClient::ModifyAssistantRequestToolResourcesFileSearch](docs/ModifyAssistantRequestToolResourcesFileSearch.md)
  - [OpenAIClient::ModifyMessageRequest](docs/ModifyMessageRequest.md)
  - [OpenAIClient::ModifyRunRequest](docs/ModifyRunRequest.md)
  - [OpenAIClient::ModifyThreadRequest](docs/ModifyThreadRequest.md)
@@ -1203,26 +1359,49 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::OneOfCreateCompletionRequestPrompt](docs/OneOfCreateCompletionRequestPrompt.md)
  - [OpenAIClient::OneOfCreateCompletionRequestStop](docs/OneOfCreateCompletionRequestStop.md)
  - [OpenAIClient::OneOfCreateEmbeddingRequestInput](docs/OneOfCreateEmbeddingRequestInput.md)
- - [OpenAIClient::OneOfCreateFineTuneRequestHyperparametersNEpochs](docs/OneOfCreateFineTuneRequestHyperparametersNEpochs.md)
  - [OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersBatchSize](docs/OneOfCreateFineTuningJobRequestHyperparametersBatchSize.md)
  - [OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersLearningRateMultiplier](docs/OneOfCreateFineTuningJobRequestHyperparametersLearningRateMultiplier.md)
  - [OpenAIClient::OneOfCreateFineTuningJobRequestHyperparametersNEpochs](docs/OneOfCreateFineTuningJobRequestHyperparametersNEpochs.md)
+ - [OpenAIClient::OneOfCreateFineTuningJobRequestIntegrationsType](docs/OneOfCreateFineTuningJobRequestIntegrationsType.md)
  - [OpenAIClient::OneOfCreateModerationRequestInput](docs/OneOfCreateModerationRequestInput.md)
  - [OpenAIClient::OneOfCreateRunRequestToolsItems](docs/OneOfCreateRunRequestToolsItems.md)
  - [OpenAIClient::OneOfCreateThreadAndRunRequestToolsItems](docs/OneOfCreateThreadAndRunRequestToolsItems.md)
  - [OpenAIClient::OneOfFineTuningJobHyperparametersNEpochs](docs/OneOfFineTuningJobHyperparametersNEpochs.md)
+ - [OpenAIClient::OneOfFineTuningJobIntegrationsItems](docs/OneOfFineTuningJobIntegrationsItems.md)
  - [OpenAIClient::OneOfMessageContentTextObjectTextAnnotationsItems](docs/OneOfMessageContentTextObjectTextAnnotationsItems.md)
+ - [OpenAIClient::OneOfMessageDeltaContentTextObjectTextAnnotationsItems](docs/OneOfMessageDeltaContentTextObjectTextAnnotationsItems.md)
+ - [OpenAIClient::OneOfMessageDeltaObjectDeltaContentItems](docs/OneOfMessageDeltaObjectDeltaContentItems.md)
+ - [OpenAIClient::OneOfMessageObjectAttachmentsToolsItems](docs/OneOfMessageObjectAttachmentsToolsItems.md)
  - [OpenAIClient::OneOfMessageObjectContentItems](docs/OneOfMessageObjectContentItems.md)
  - [OpenAIClient::OneOfModifyAssistantRequestToolsItems](docs/OneOfModifyAssistantRequestToolsItems.md)
  - [OpenAIClient::OneOfRunObjectToolsItems](docs/OneOfRunObjectToolsItems.md)
+ - [OpenAIClient::OneOfRunStepDeltaObjectDeltaStepDetails](docs/OneOfRunStepDeltaObjectDeltaStepDetails.md)
+ - [OpenAIClient::OneOfRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems](docs/OneOfRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems.md)
+ - [OpenAIClient::OneOfRunStepDeltaStepDetailsToolCallsObjectToolCallsItems](docs/OneOfRunStepDeltaStepDetailsToolCallsObjectToolCallsItems.md)
  - [OpenAIClient::OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems](docs/OneOfRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItems.md)
  - [OpenAIClient::OneOfRunStepDetailsToolCallsObjectToolCallsItems](docs/OneOfRunStepDetailsToolCallsObjectToolCallsItems.md)
  - [OpenAIClient::OneOfRunStepObjectStepDetails](docs/OneOfRunStepObjectStepDetails.md)
  - [OpenAIClient::OpenAIFile](docs/OpenAIFile.md)
+ - [OpenAIClient::RunCompletionUsage](docs/RunCompletionUsage.md)
  - [OpenAIClient::RunObject](docs/RunObject.md)
+ - [OpenAIClient::RunObjectIncompleteDetails](docs/RunObjectIncompleteDetails.md)
  - [OpenAIClient::RunObjectLastError](docs/RunObjectLastError.md)
  - [OpenAIClient::RunObjectRequiredAction](docs/RunObjectRequiredAction.md)
  - [OpenAIClient::RunObjectRequiredActionSubmitToolOutputs](docs/RunObjectRequiredActionSubmitToolOutputs.md)
+ - [OpenAIClient::RunStepCompletionUsage](docs/RunStepCompletionUsage.md)
+ - [OpenAIClient::RunStepDeltaObject](docs/RunStepDeltaObject.md)
+ - [OpenAIClient::RunStepDeltaObjectDelta](docs/RunStepDeltaObjectDelta.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsMessageCreationObject](docs/RunStepDeltaStepDetailsMessageCreationObject.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsMessageCreationObjectMessageCreation](docs/RunStepDeltaStepDetailsMessageCreationObjectMessageCreation.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsCodeObject](docs/RunStepDeltaStepDetailsToolCallsCodeObject.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreter](docs/RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreter.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsCodeOutputImageObject](docs/RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage](docs/RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject](docs/RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsFileSearchObject](docs/RunStepDeltaStepDetailsToolCallsFileSearchObject.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsFunctionObject](docs/RunStepDeltaStepDetailsToolCallsFunctionObject.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsFunctionObjectFunction](docs/RunStepDeltaStepDetailsToolCallsFunctionObjectFunction.md)
+ - [OpenAIClient::RunStepDeltaStepDetailsToolCallsObject](docs/RunStepDeltaStepDetailsToolCallsObject.md)
  - [OpenAIClient::RunStepDetailsMessageCreationObject](docs/RunStepDetailsMessageCreationObject.md)
  - [OpenAIClient::RunStepDetailsMessageCreationObjectMessageCreation](docs/RunStepDetailsMessageCreationObjectMessageCreation.md)
  - [OpenAIClient::RunStepDetailsToolCallsCodeObject](docs/RunStepDetailsToolCallsCodeObject.md)
@@ -1230,17 +1409,33 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::RunStepDetailsToolCallsCodeOutputImageObject](docs/RunStepDetailsToolCallsCodeOutputImageObject.md)
  - [OpenAIClient::RunStepDetailsToolCallsCodeOutputImageObjectImage](docs/RunStepDetailsToolCallsCodeOutputImageObjectImage.md)
  - [OpenAIClient::RunStepDetailsToolCallsCodeOutputLogsObject](docs/RunStepDetailsToolCallsCodeOutputLogsObject.md)
+ - [OpenAIClient::RunStepDetailsToolCallsFileSearchObject](docs/RunStepDetailsToolCallsFileSearchObject.md)
  - [OpenAIClient::RunStepDetailsToolCallsFunctionObject](docs/RunStepDetailsToolCallsFunctionObject.md)
  - [OpenAIClient::RunStepDetailsToolCallsFunctionObjectFunction](docs/RunStepDetailsToolCallsFunctionObjectFunction.md)
  - [OpenAIClient::RunStepDetailsToolCallsObject](docs/RunStepDetailsToolCallsObject.md)
- - [OpenAIClient::RunStepDetailsToolCallsRetrievalObject](docs/RunStepDetailsToolCallsRetrievalObject.md)
  - [OpenAIClient::RunStepObject](docs/RunStepObject.md)
  - [OpenAIClient::RunStepObjectLastError](docs/RunStepObjectLastError.md)
+ - [OpenAIClient::RunStepStreamEvent](docs/RunStepStreamEvent.md)
+ - [OpenAIClient::RunStreamEvent](docs/RunStreamEvent.md)
  - [OpenAIClient::RunToolCallObject](docs/RunToolCallObject.md)
  - [OpenAIClient::RunToolCallObjectFunction](docs/RunToolCallObjectFunction.md)
  - [OpenAIClient::SubmitToolOutputsRunRequest](docs/SubmitToolOutputsRunRequest.md)
  - [OpenAIClient::SubmitToolOutputsRunRequestToolOutputs](docs/SubmitToolOutputsRunRequestToolOutputs.md)
  - [OpenAIClient::ThreadObject](docs/ThreadObject.md)
+ - [OpenAIClient::ThreadObjectToolResources](docs/ThreadObjectToolResources.md)
+ - [OpenAIClient::ThreadObjectToolResourcesFileSearch](docs/ThreadObjectToolResourcesFileSearch.md)
+ - [OpenAIClient::ThreadStreamEvent](docs/ThreadStreamEvent.md)
+ - [OpenAIClient::TranscriptionSegment](docs/TranscriptionSegment.md)
+ - [OpenAIClient::TranscriptionWord](docs/TranscriptionWord.md)
+ - [OpenAIClient::TruncationObject](docs/TruncationObject.md)
+ - [OpenAIClient::UpdateVectorStoreRequest](docs/UpdateVectorStoreRequest.md)
+ - [OpenAIClient::VectorStoreExpirationAfter](docs/VectorStoreExpirationAfter.md)
+ - [OpenAIClient::VectorStoreFileBatchObject](docs/VectorStoreFileBatchObject.md)
+ - [OpenAIClient::VectorStoreFileBatchObjectFileCounts](docs/VectorStoreFileBatchObjectFileCounts.md)
+ - [OpenAIClient::VectorStoreFileObject](docs/VectorStoreFileObject.md)
+ - [OpenAIClient::VectorStoreFileObjectLastError](docs/VectorStoreFileObjectLastError.md)
+ - [OpenAIClient::VectorStoreObject](docs/VectorStoreObject.md)
+ - [OpenAIClient::VectorStoreObjectFileCounts](docs/VectorStoreObjectFileCounts.md)
 
 ## Documentation for Authorization
 

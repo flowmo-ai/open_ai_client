@@ -6,24 +6,18 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_run**](AssistantsApi.md#cancel_run) | **POST** /threads/{thread_id}/runs/{run_id}/cancel | Cancels a run that is &#x60;in_progress&#x60;.
 [**create_assistant**](AssistantsApi.md#create_assistant) | **POST** /assistants | Create an assistant with a model and instructions.
-[**create_assistant_file**](AssistantsApi.md#create_assistant_file) | **POST** /assistants/{assistant_id}/files | Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
 [**create_message**](AssistantsApi.md#create_message) | **POST** /threads/{thread_id}/messages | Create a message.
 [**create_run**](AssistantsApi.md#create_run) | **POST** /threads/{thread_id}/runs | Create a run.
 [**create_thread**](AssistantsApi.md#create_thread) | **POST** /threads | Create a thread.
 [**create_thread_and_run**](AssistantsApi.md#create_thread_and_run) | **POST** /threads/runs | Create a thread and run it in one request.
 [**delete_assistant**](AssistantsApi.md#delete_assistant) | **DELETE** /assistants/{assistant_id} | Delete an assistant.
-[**delete_assistant_file**](AssistantsApi.md#delete_assistant_file) | **DELETE** /assistants/{assistant_id}/files/{file_id} | Delete an assistant file.
 [**delete_thread**](AssistantsApi.md#delete_thread) | **DELETE** /threads/{thread_id} | Delete a thread.
 [**get_assistant**](AssistantsApi.md#get_assistant) | **GET** /assistants/{assistant_id} | Retrieves an assistant.
-[**get_assistant_file**](AssistantsApi.md#get_assistant_file) | **GET** /assistants/{assistant_id}/files/{file_id} | Retrieves an AssistantFile.
 [**get_message**](AssistantsApi.md#get_message) | **GET** /threads/{thread_id}/messages/{message_id} | Retrieve a message.
-[**get_message_file**](AssistantsApi.md#get_message_file) | **GET** /threads/{thread_id}/messages/{message_id}/files/{file_id} | Retrieves a message file.
 [**get_run**](AssistantsApi.md#get_run) | **GET** /threads/{thread_id}/runs/{run_id} | Retrieves a run.
 [**get_run_step**](AssistantsApi.md#get_run_step) | **GET** /threads/{thread_id}/runs/{run_id}/steps/{step_id} | Retrieves a run step.
 [**get_thread**](AssistantsApi.md#get_thread) | **GET** /threads/{thread_id} | Retrieves a thread.
-[**list_assistant_files**](AssistantsApi.md#list_assistant_files) | **GET** /assistants/{assistant_id}/files | Returns a list of assistant files.
 [**list_assistants**](AssistantsApi.md#list_assistants) | **GET** /assistants | Returns a list of assistants.
-[**list_message_files**](AssistantsApi.md#list_message_files) | **GET** /threads/{thread_id}/messages/{message_id}/files | Returns a list of message files.
 [**list_messages**](AssistantsApi.md#list_messages) | **GET** /threads/{thread_id}/messages | Returns a list of messages for a given thread.
 [**list_run_steps**](AssistantsApi.md#list_run_steps) | **GET** /threads/{thread_id}/runs/{run_id}/steps | Returns a list of run steps belonging to a run.
 [**list_runs**](AssistantsApi.md#list_runs) | **GET** /threads/{thread_id}/runs | Returns a list of runs belonging to a thread.
@@ -117,55 +111,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AssistantObject**](AssistantObject.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-
-# **create_assistant_file**
-> AssistantFileObject create_assistant_file(bodyassistant_id)
-
-Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
-
-### Example
-```ruby
-# load the gem
-require 'open_ai_client'
-# setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateAssistantFileRequest.new # CreateAssistantFileRequest | 
-assistant_id = 'assistant_id_example' # String | The ID of the assistant for which to create a File. 
-
-
-begin
-  #Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
-  result = api_instance.create_assistant_file(bodyassistant_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->create_assistant_file: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**CreateAssistantFileRequest**](CreateAssistantFileRequest.md)|  | 
- **assistant_id** | **String**| The ID of the assistant for which to create a File.  | 
-
-### Return type
-
-[**AssistantFileObject**](AssistantFileObject.md)
 
 ### Authorization
 
@@ -277,7 +222,7 @@ Name | Type | Description  | Notes
 
 
 # **create_thread**
-> ThreadObject create_thread(body)
+> ThreadObject create_thread(opts)
 
 Create a thread.
 
@@ -290,12 +235,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-
+opts = { 
+  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+}
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(body)
+  result = api_instance.create_thread(opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
@@ -306,7 +252,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | 
+ **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -417,55 +363,6 @@ Name | Type | Description  | Notes
 
 
 
-# **delete_assistant_file**
-> DeleteAssistantFileResponse delete_assistant_file(assistant_id, file_id)
-
-Delete an assistant file.
-
-### Example
-```ruby
-# load the gem
-require 'open_ai_client'
-# setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
-assistant_id = 'assistant_id_example' # String | The ID of the assistant that the file belongs to.
-file_id = 'file_id_example' # String | The ID of the file to delete.
-
-
-begin
-  #Delete an assistant file.
-  result = api_instance.delete_assistant_file(assistant_id, file_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->delete_assistant_file: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **assistant_id** | **String**| The ID of the assistant that the file belongs to. | 
- **file_id** | **String**| The ID of the file to delete. | 
-
-### Return type
-
-[**DeleteAssistantFileResponse**](DeleteAssistantFileResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **delete_thread**
 > DeleteThreadResponse delete_thread(thread_id)
 
@@ -560,55 +457,6 @@ Name | Type | Description  | Notes
 
 
 
-# **get_assistant_file**
-> AssistantFileObject get_assistant_file(assistant_id, file_id)
-
-Retrieves an AssistantFile.
-
-### Example
-```ruby
-# load the gem
-require 'open_ai_client'
-# setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
-assistant_id = 'assistant_id_example' # String | The ID of the assistant who the file belongs to.
-file_id = 'file_id_example' # String | The ID of the file we're getting.
-
-
-begin
-  #Retrieves an AssistantFile.
-  result = api_instance.get_assistant_file(assistant_id, file_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->get_assistant_file: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **assistant_id** | **String**| The ID of the assistant who the file belongs to. | 
- **file_id** | **String**| The ID of the file we&#x27;re getting. | 
-
-### Return type
-
-[**AssistantFileObject**](AssistantFileObject.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_message**
 > MessageObject get_message(thread_id, message_id)
 
@@ -646,57 +494,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MessageObject**](MessageObject.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
-# **get_message_file**
-> MessageFileObject get_message_file(thread_id, message_id, file_id)
-
-Retrieves a message file.
-
-### Example
-```ruby
-# load the gem
-require 'open_ai_client'
-# setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
-thread_id = 'thread_id_example' # String | The ID of the thread to which the message and File belong.
-message_id = 'message_id_example' # String | The ID of the message the file belongs to.
-file_id = 'file_id_example' # String | The ID of the file being retrieved.
-
-
-begin
-  #Retrieves a message file.
-  result = api_instance.get_message_file(thread_id, message_id, file_id)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->get_message_file: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **thread_id** | **String**| The ID of the thread to which the message and File belong. | 
- **message_id** | **String**| The ID of the message the file belongs to. | 
- **file_id** | **String**| The ID of the file being retrieved. | 
-
-### Return type
-
-[**MessageFileObject**](MessageFileObject.md)
 
 ### Authorization
 
@@ -856,62 +653,6 @@ Name | Type | Description  | Notes
 
 
 
-# **list_assistant_files**
-> ListAssistantFilesResponse list_assistant_files(assistant_id, opts)
-
-Returns a list of assistant files.
-
-### Example
-```ruby
-# load the gem
-require 'open_ai_client'
-# setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
-assistant_id = 'assistant_id_example' # String | The ID of the assistant the file belongs to.
-opts = { 
-  limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
-  order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
-  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
-}
-
-begin
-  #Returns a list of assistant files.
-  result = api_instance.list_assistant_files(assistant_id, opts)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->list_assistant_files: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **assistant_id** | **String**| The ID of the assistant the file belongs to. | 
- **limit** | **Integer**| A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.  | [optional] [default to 20]
- **order** | **String**| Sort order by the &#x60;created_at&#x60; timestamp of the objects. &#x60;asc&#x60; for ascending order and &#x60;desc&#x60; for descending order.  | [optional] [default to desc]
- **after** | **String**| A cursor for use in pagination. &#x60;after&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after&#x3D;obj_foo in order to fetch the next page of the list.  | [optional] 
- **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
-
-### Return type
-
-[**ListAssistantFilesResponse**](ListAssistantFilesResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **list_assistants**
 > ListAssistantsResponse list_assistants(opts)
 
@@ -966,64 +707,6 @@ Name | Type | Description  | Notes
 
 
 
-# **list_message_files**
-> ListMessageFilesResponse list_message_files(thread_id, message_id, opts)
-
-Returns a list of message files.
-
-### Example
-```ruby
-# load the gem
-require 'open_ai_client'
-# setup authorization
-OpenAIClient.configure do |config|
-end
-
-api_instance = OpenAIClient::AssistantsApi.new
-thread_id = 'thread_id_example' # String | The ID of the thread that the message and files belong to.
-message_id = 'message_id_example' # String | The ID of the message that the files belongs to.
-opts = { 
-  limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
-  order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
-  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
-}
-
-begin
-  #Returns a list of message files.
-  result = api_instance.list_message_files(thread_id, message_id, opts)
-  p result
-rescue OpenAIClient::ApiError => e
-  puts "Exception when calling AssistantsApi->list_message_files: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **thread_id** | **String**| The ID of the thread that the message and files belong to. | 
- **message_id** | **String**| The ID of the message that the files belongs to. | 
- **limit** | **Integer**| A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.  | [optional] [default to 20]
- **order** | **String**| Sort order by the &#x60;created_at&#x60; timestamp of the objects. &#x60;asc&#x60; for ascending order and &#x60;desc&#x60; for descending order.  | [optional] [default to desc]
- **after** | **String**| A cursor for use in pagination. &#x60;after&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after&#x3D;obj_foo in order to fetch the next page of the list.  | [optional] 
- **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
-
-### Return type
-
-[**ListMessageFilesResponse**](ListMessageFilesResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **list_messages**
 > ListMessagesResponse list_messages(thread_id, opts)
 
@@ -1043,7 +726,8 @@ opts = {
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
   after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  before: 'before_example', # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  run_id: 'run_id_example' # String | Filter messages by the run ID that generated them. 
 }
 
 begin
@@ -1064,6 +748,7 @@ Name | Type | Description  | Notes
  **order** | **String**| Sort order by the &#x60;created_at&#x60; timestamp of the objects. &#x60;asc&#x60; for ascending order and &#x60;desc&#x60; for descending order.  | [optional] [default to desc]
  **after** | **String**| A cursor for use in pagination. &#x60;after&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after&#x3D;obj_foo in order to fetch the next page of the list.  | [optional] 
  **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
+ **run_id** | **String**| Filter messages by the run ID that generated them.  | [optional] 
 
 ### Return type
 

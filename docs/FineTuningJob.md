@@ -17,4 +17,6 @@ Name | Type | Description | Notes
 **trained_tokens** | **Integer** | The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running. | 
 **training_file** | **String** | The file ID used for training. You can retrieve the training data with the [Files API](/docs/api-reference/files/retrieve-contents). | 
 **validation_file** | **String** | The file ID used for validation. You can retrieve the validation results with the [Files API](/docs/api-reference/files/retrieve-contents). | 
+**integrations** | [**Array&lt;OneOfFineTuningJobIntegrationsItems&gt;**](.md) | A list of integrations to enable for this fine-tuning job. | [optional] 
+**seed** | **Integer** | The seed used for the fine-tuning job. | 
 

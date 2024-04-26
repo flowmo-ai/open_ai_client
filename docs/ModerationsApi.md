@@ -4,12 +4,12 @@ All URIs are relative to *https://api.openai.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_moderation**](ModerationsApi.md#create_moderation) | **POST** /moderations | Classifies if text violates OpenAI&#x27;s Content Policy
+[**create_moderation**](ModerationsApi.md#create_moderation) | **POST** /moderations | Classifies if text is potentially harmful.
 
 # **create_moderation**
 > CreateModerationResponse create_moderation(body)
 
-Classifies if text violates OpenAI's Content Policy
+Classifies if text is potentially harmful.
 
 ### Example
 ```ruby
@@ -24,7 +24,7 @@ body = OpenAIClient::CreateModerationRequest.new # CreateModerationRequest |
 
 
 begin
-  #Classifies if text violates OpenAI's Content Policy
+  #Classifies if text is potentially harmful.
   result = api_instance.create_moderation(body)
   p result
 rescue OpenAIClient::ApiError => e
