@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**create_thread**](AssistantsApi.md#create_thread) | **POST** /threads | Create a thread.
 [**create_thread_and_run**](AssistantsApi.md#create_thread_and_run) | **POST** /threads/runs | Create a thread and run it in one request.
 [**delete_assistant**](AssistantsApi.md#delete_assistant) | **DELETE** /assistants/{assistant_id} | Delete an assistant.
+[**delete_message**](AssistantsApi.md#delete_message) | **DELETE** /threads/{thread_id}/messages/{message_id} | Deletes a message.
 [**delete_thread**](AssistantsApi.md#delete_thread) | **DELETE** /threads/{thread_id} | Delete a thread.
 [**get_assistant**](AssistantsApi.md#get_assistant) | **GET** /assistants/{assistant_id} | Retrieves an assistant.
 [**get_message**](AssistantsApi.md#get_message) | **GET** /threads/{thread_id}/messages/{message_id} | Retrieve a message.
@@ -173,7 +174,7 @@ Name | Type | Description  | Notes
 
 
 # **create_run**
-> RunObject create_run(bodythread_id)
+> RunObject create_run(bodythread_id, opts)
 
 Create a run.
 
@@ -188,11 +189,13 @@ end
 api_instance = OpenAIClient::AssistantsApi.new
 body = OpenAIClient::CreateRunRequest.new # CreateRunRequest | 
 thread_id = 'thread_id_example' # String | The ID of the thread to run.
-
+opts = { 
+  include: ['include_example'] # Array<String> | A list of additional fields to include in the response. Currently the only supported value is `step_details.tool_calls[*].file_search.results[*].content` to fetch the file search result content.  See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information. 
+}
 
 begin
   #Create a run.
-  result = api_instance.create_run(bodythread_id)
+  result = api_instance.create_run(bodythread_id, opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_run: #{e}"
@@ -205,6 +208,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**CreateRunRequest**](CreateRunRequest.md)|  | 
  **thread_id** | **String**| The ID of the thread to run. | 
+ **include** | [**Array&lt;String&gt;**](String.md)| A list of additional fields to include in the response. Currently the only supported value is &#x60;step_details.tool_calls[*].file_search.results[*].content&#x60; to fetch the file search result content.  See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.  | [optional] 
 
 ### Return type
 
@@ -222,7 +226,7 @@ Name | Type | Description  | Notes
 
 
 # **create_thread**
-> ThreadObject create_thread(body)
+> ThreadObject create_thread(opts)
 
 Create a thread.
 
@@ -235,12 +239,13 @@ OpenAIClient.configure do |config|
 end
 
 api_instance = OpenAIClient::AssistantsApi.new
-body = OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
-
+opts = { 
+  body: OpenAIClient::CreateThreadRequest.new # CreateThreadRequest | 
+}
 
 begin
   #Create a thread.
-  result = api_instance.create_thread(body)
+  result = api_instance.create_thread(opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->create_thread: #{e}"
@@ -251,7 +256,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | 
+ **body** | [**CreateThreadRequest**](CreateThreadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -350,6 +355,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteAssistantResponse**](DeleteAssistantResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **delete_message**
+> DeleteMessageResponse delete_message(thread_id, message_id)
+
+Deletes a message.
+
+### Example
+```ruby
+# load the gem
+require 'open_ai_client'
+# setup authorization
+OpenAIClient.configure do |config|
+end
+
+api_instance = OpenAIClient::AssistantsApi.new
+thread_id = 'thread_id_example' # String | The ID of the thread to which this message belongs.
+message_id = 'message_id_example' # String | The ID of the message to delete.
+
+
+begin
+  #Deletes a message.
+  result = api_instance.delete_message(thread_id, message_id)
+  p result
+rescue OpenAIClient::ApiError => e
+  puts "Exception when calling AssistantsApi->delete_message: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **thread_id** | **String**| The ID of the thread to which this message belongs. | 
+ **message_id** | **String**| The ID of the message to delete. | 
+
+### Return type
+
+[**DeleteMessageResponse**](DeleteMessageResponse.md)
 
 ### Authorization
 
@@ -555,7 +609,7 @@ Name | Type | Description  | Notes
 
 
 # **get_run_step**
-> RunStepObject get_run_step(thread_id, run_id, step_id)
+> RunStepObject get_run_step(thread_id, run_id, step_id, opts)
 
 Retrieves a run step.
 
@@ -571,11 +625,13 @@ api_instance = OpenAIClient::AssistantsApi.new
 thread_id = 'thread_id_example' # String | The ID of the thread to which the run and run step belongs.
 run_id = 'run_id_example' # String | The ID of the run to which the run step belongs.
 step_id = 'step_id_example' # String | The ID of the run step to retrieve.
-
+opts = { 
+  include: ['include_example'] # Array<String> | A list of additional fields to include in the response. Currently the only supported value is `step_details.tool_calls[*].file_search.results[*].content` to fetch the file search result content.  See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information. 
+}
 
 begin
   #Retrieves a run step.
-  result = api_instance.get_run_step(thread_id, run_id, step_id)
+  result = api_instance.get_run_step(thread_id, run_id, step_id, opts)
   p result
 rescue OpenAIClient::ApiError => e
   puts "Exception when calling AssistantsApi->get_run_step: #{e}"
@@ -589,6 +645,7 @@ Name | Type | Description  | Notes
  **thread_id** | **String**| The ID of the thread to which the run and run step belongs. | 
  **run_id** | **String**| The ID of the run to which the run step belongs. | 
  **step_id** | **String**| The ID of the run step to retrieve. | 
+ **include** | [**Array&lt;String&gt;**](String.md)| A list of additional fields to include in the response. Currently the only supported value is &#x60;step_details.tool_calls[*].file_search.results[*].content&#x60; to fetch the file search result content.  See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.  | [optional] 
 
 ### Return type
 
@@ -670,7 +727,7 @@ opts = {
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
   after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
 }
 
 begin
@@ -689,7 +746,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.  | [optional] [default to 20]
  **order** | **String**| Sort order by the &#x60;created_at&#x60; timestamp of the objects. &#x60;asc&#x60; for ascending order and &#x60;desc&#x60; for descending order.  | [optional] [default to desc]
  **after** | **String**| A cursor for use in pagination. &#x60;after&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after&#x3D;obj_foo in order to fetch the next page of the list.  | [optional] 
- **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
+ **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
 
 ### Return type
 
@@ -725,7 +782,7 @@ opts = {
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
   after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example', # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  before: 'before_example', # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
   run_id: 'run_id_example' # String | Filter messages by the run ID that generated them. 
 }
 
@@ -746,7 +803,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.  | [optional] [default to 20]
  **order** | **String**| Sort order by the &#x60;created_at&#x60; timestamp of the objects. &#x60;asc&#x60; for ascending order and &#x60;desc&#x60; for descending order.  | [optional] [default to desc]
  **after** | **String**| A cursor for use in pagination. &#x60;after&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after&#x3D;obj_foo in order to fetch the next page of the list.  | [optional] 
- **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
+ **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
  **run_id** | **String**| Filter messages by the run ID that generated them.  | [optional] 
 
 ### Return type
@@ -784,7 +841,8 @@ opts = {
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
   after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  before: 'before_example', # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  include: ['include_example'] # Array<String> | A list of additional fields to include in the response. Currently the only supported value is `step_details.tool_calls[*].file_search.results[*].content` to fetch the file search result content.  See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information. 
 }
 
 begin
@@ -805,7 +863,8 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.  | [optional] [default to 20]
  **order** | **String**| Sort order by the &#x60;created_at&#x60; timestamp of the objects. &#x60;asc&#x60; for ascending order and &#x60;desc&#x60; for descending order.  | [optional] [default to desc]
  **after** | **String**| A cursor for use in pagination. &#x60;after&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after&#x3D;obj_foo in order to fetch the next page of the list.  | [optional] 
- **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
+ **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
+ **include** | [**Array&lt;String&gt;**](String.md)| A list of additional fields to include in the response. Currently the only supported value is &#x60;step_details.tool_calls[*].file_search.results[*].content&#x60; to fetch the file search result content.  See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.  | [optional] 
 
 ### Return type
 
@@ -841,7 +900,7 @@ opts = {
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
   order: 'desc', # String | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order. 
   after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
-  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
+  before: 'before_example' # String | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. 
 }
 
 begin
@@ -861,7 +920,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.  | [optional] [default to 20]
  **order** | **String**| Sort order by the &#x60;created_at&#x60; timestamp of the objects. &#x60;asc&#x60; for ascending order and &#x60;desc&#x60; for descending order.  | [optional] [default to desc]
  **after** | **String**| A cursor for use in pagination. &#x60;after&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after&#x3D;obj_foo in order to fetch the next page of the list.  | [optional] 
- **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
+ **before** | **String**| A cursor for use in pagination. &#x60;before&#x60; is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before&#x3D;obj_foo in order to fetch the previous page of the list.  | [optional] 
 
 ### Return type
 

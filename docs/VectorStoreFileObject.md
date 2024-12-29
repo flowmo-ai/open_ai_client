@@ -10,4 +10,5 @@ Name | Type | Description | Notes
 **vector_store_id** | **String** | The ID of the [vector store](/docs/api-reference/vector-stores/object) that the [File](/docs/api-reference/files) is attached to. | 
 **status** | **String** | The status of the vector store file, which can be either &#x60;in_progress&#x60;, &#x60;completed&#x60;, &#x60;cancelled&#x60;, or &#x60;failed&#x60;. The status &#x60;completed&#x60; indicates that the vector store file is ready for use. | 
 **last_error** | [**VectorStoreFileObjectLastError**](VectorStoreFileObjectLastError.md) |  | 
+**chunking_strategy** | **OneOfVectorStoreFileObjectChunkingStrategy** | The strategy used to chunk the file. | [optional] 
 

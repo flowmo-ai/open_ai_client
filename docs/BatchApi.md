@@ -4,7 +4,7 @@ All URIs are relative to *https://api.openai.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_batch**](BatchApi.md#cancel_batch) | **POST** /batches/{batch_id}/cancel | Cancels an in-progress batch.
+[**cancel_batch**](BatchApi.md#cancel_batch) | **POST** /batches/{batch_id}/cancel | Cancels an in-progress batch. The batch will be in status &#x60;cancelling&#x60; for up to 10 minutes, before changing to &#x60;cancelled&#x60;, where it will have partial results (if any) available in the output file.
 [**create_batch**](BatchApi.md#create_batch) | **POST** /batches | Creates and executes a batch from an uploaded file of requests
 [**list_batches**](BatchApi.md#list_batches) | **GET** /batches | List your organization&#x27;s batches.
 [**retrieve_batch**](BatchApi.md#retrieve_batch) | **GET** /batches/{batch_id} | Retrieves a batch.
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **cancel_batch**
 > Batch cancel_batch(batch_id)
 
-Cancels an in-progress batch.
+Cancels an in-progress batch. The batch will be in status `cancelling` for up to 10 minutes, before changing to `cancelled`, where it will have partial results (if any) available in the output file.
 
 ### Example
 ```ruby
@@ -27,7 +27,7 @@ batch_id = 'batch_id_example' # String | The ID of the batch to cancel.
 
 
 begin
-  #Cancels an in-progress batch.
+  #Cancels an in-progress batch. The batch will be in status `cancelling` for up to 10 minutes, before changing to `cancelled`, where it will have partial results (if any) available in the output file.
   result = api_instance.cancel_batch(batch_id)
   p result
 rescue OpenAIClient::ApiError => e

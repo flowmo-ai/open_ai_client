@@ -73,7 +73,7 @@ file = 'file_example' # String |
 model = OpenAIClient::null.new #  | 
 language = 'language_example' # String | 
 prompt = 'prompt_example' # String | 
-response_format = 'response_format_example' # String | 
+response_format = OpenAIClient::AudioResponseFormat.new # AudioResponseFormat | 
 temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
 timestamp_granularities = ['timestamp_granularities_example'] # Array<String> | 
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
  **model** | [****](.md)|  | 
  **language** | **String**|  | 
  **prompt** | **String**|  | 
- **response_format** | **String**|  | 
+ **response_format** | [**AudioResponseFormat**](.md)|  | 
  **temperature** | **BigDecimal**|  | 
  **timestamp_granularities** | [**Array&lt;String&gt;**](String.md)|  | 
 
@@ -131,7 +131,7 @@ api_instance = OpenAIClient::AudioApi.new
 file = 'file_example' # String | 
 model = OpenAIClient::null.new #  | 
 prompt = 'prompt_example' # String | 
-response_format = 'response_format_example' # String | 
+response_format = OpenAIClient::AudioResponseFormat.new # AudioResponseFormat | 
 temperature = OpenAIClient::BigDecimal.new # BigDecimal | 
 
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
  **file** | **String**|  | 
  **model** | [****](.md)|  | 
  **prompt** | **String**|  | 
- **response_format** | **String**|  | 
+ **response_format** | [**AudioResponseFormat**](.md)|  | 
  **temperature** | **BigDecimal**|  | 
 
 ### Return type
