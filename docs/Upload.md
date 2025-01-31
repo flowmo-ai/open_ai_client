@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **status** | **String** | The status of the Upload. | 
 **expires_at** | **Integer** | The Unix timestamp (in seconds) for when the Upload was created. | 
 **object** | **String** | The object type, which is always \&quot;upload\&quot;. | [optional] 
-**file** | [**OpenAIFile**](OpenAIFile.md) |  | [optional] 
+**file** | [**AllOfUploadFile**](AllOfUploadFile.md) |  | [optional] 
 

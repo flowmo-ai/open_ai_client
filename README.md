@@ -1678,7 +1678,8 @@ end
 api_instance = OpenAIClient::UsersApi.new
 opts = { 
   limit: 20, # Integer | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. 
-  after: 'after_example' # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
+  after: 'after_example', # String | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. 
+  emails: ['emails_example'] # Array<String> | Filter by the email address of users.
 }
 
 begin
@@ -2062,6 +2063,20 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::AddUploadPartRequest](docs/AddUploadPartRequest.md)
  - [OpenAIClient::AdminApiKey](docs/AdminApiKey.md)
  - [OpenAIClient::AdminApiKeyOwner](docs/AdminApiKeyOwner.md)
+ - [OpenAIClient::AllOfAssistantObjectResponseFormat](docs/AllOfAssistantObjectResponseFormat.md)
+ - [OpenAIClient::AllOfCreateAssistantRequestResponseFormat](docs/AllOfCreateAssistantRequestResponseFormat.md)
+ - [OpenAIClient::AllOfCreateRunRequestResponseFormat](docs/AllOfCreateRunRequestResponseFormat.md)
+ - [OpenAIClient::AllOfCreateRunRequestToolChoice](docs/AllOfCreateRunRequestToolChoice.md)
+ - [OpenAIClient::AllOfCreateRunRequestTruncationStrategy](docs/AllOfCreateRunRequestTruncationStrategy.md)
+ - [OpenAIClient::AllOfCreateThreadAndRunRequestResponseFormat](docs/AllOfCreateThreadAndRunRequestResponseFormat.md)
+ - [OpenAIClient::AllOfCreateThreadAndRunRequestToolChoice](docs/AllOfCreateThreadAndRunRequestToolChoice.md)
+ - [OpenAIClient::AllOfCreateThreadAndRunRequestTruncationStrategy](docs/AllOfCreateThreadAndRunRequestTruncationStrategy.md)
+ - [OpenAIClient::AllOfModifyAssistantRequestResponseFormat](docs/AllOfModifyAssistantRequestResponseFormat.md)
+ - [OpenAIClient::AllOfRunObjectResponseFormat](docs/AllOfRunObjectResponseFormat.md)
+ - [OpenAIClient::AllOfRunObjectToolChoice](docs/AllOfRunObjectToolChoice.md)
+ - [OpenAIClient::AllOfRunObjectTruncationStrategy](docs/AllOfRunObjectTruncationStrategy.md)
+ - [OpenAIClient::AllOfUpdateVectorStoreRequestExpiresAfter](docs/AllOfUpdateVectorStoreRequestExpiresAfter.md)
+ - [OpenAIClient::AllOfUploadFile](docs/AllOfUploadFile.md)
  - [OpenAIClient::AnyOfCreateAssistantRequestModel](docs/AnyOfCreateAssistantRequestModel.md)
  - [OpenAIClient::AnyOfCreateChatCompletionRequestModel](docs/AnyOfCreateChatCompletionRequestModel.md)
  - [OpenAIClient::AnyOfCreateCompletionRequestModel](docs/AnyOfCreateCompletionRequestModel.md)
@@ -2332,6 +2347,7 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::MessageObjectIncompleteDetails](docs/MessageObjectIncompleteDetails.md)
  - [OpenAIClient::MessageRequestContentTextObject](docs/MessageRequestContentTextObject.md)
  - [OpenAIClient::MessageStreamEvent](docs/MessageStreamEvent.md)
+ - [OpenAIClient::Metadata](docs/Metadata.md)
  - [OpenAIClient::Model](docs/Model.md)
  - [OpenAIClient::ModifyAssistantRequest](docs/ModifyAssistantRequest.md)
  - [OpenAIClient::ModifyAssistantRequestToolResources](docs/ModifyAssistantRequestToolResources.md)
@@ -2390,6 +2406,7 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::OneOfPredictionContentContent](docs/OneOfPredictionContentContent.md)
  - [OpenAIClient::OneOfRealtimeResponseCreateParamsConversation](docs/OneOfRealtimeResponseCreateParamsConversation.md)
  - [OpenAIClient::OneOfRealtimeResponseCreateParamsMaxResponseOutputTokens](docs/OneOfRealtimeResponseCreateParamsMaxResponseOutputTokens.md)
+ - [OpenAIClient::OneOfRealtimeResponseMaxOutputTokens](docs/OneOfRealtimeResponseMaxOutputTokens.md)
  - [OpenAIClient::OneOfRealtimeSessionCreateRequestMaxResponseOutputTokens](docs/OneOfRealtimeSessionCreateRequestMaxResponseOutputTokens.md)
  - [OpenAIClient::OneOfRealtimeSessionCreateResponseMaxResponseOutputTokens](docs/OneOfRealtimeSessionCreateResponseMaxResponseOutputTokens.md)
  - [OpenAIClient::OneOfRealtimeSessionMaxResponseOutputTokens](docs/OneOfRealtimeSessionMaxResponseOutputTokens.md)
@@ -2484,6 +2501,7 @@ Class | Method | HTTP request | Description
  - [OpenAIClient::RealtimeServerEventSessionUpdated](docs/RealtimeServerEventSessionUpdated.md)
  - [OpenAIClient::RealtimeSession](docs/RealtimeSession.md)
  - [OpenAIClient::RealtimeSessionCreateRequest](docs/RealtimeSessionCreateRequest.md)
+ - [OpenAIClient::RealtimeSessionCreateRequestInputAudioTranscription](docs/RealtimeSessionCreateRequestInputAudioTranscription.md)
  - [OpenAIClient::RealtimeSessionCreateRequestTurnDetection](docs/RealtimeSessionCreateRequestTurnDetection.md)
  - [OpenAIClient::RealtimeSessionCreateResponse](docs/RealtimeSessionCreateResponse.md)
  - [OpenAIClient::RealtimeSessionCreateResponseClientSecret](docs/RealtimeSessionCreateResponseClientSecret.md)

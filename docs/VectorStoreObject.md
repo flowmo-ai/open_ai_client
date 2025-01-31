@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **expires_after** | [**VectorStoreExpirationAfter**](VectorStoreExpirationAfter.md) |  | [optional] 
 **expires_at** | **Integer** | The Unix timestamp (in seconds) for when the vector store will expire. | [optional] 
 **last_active_at** | **Integer** | The Unix timestamp (in seconds) for when the vector store was last active. | 
-**metadata** | **Object** | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.  | 
+**metadata** | [**Metadata**](Metadata.md) |  | 
 

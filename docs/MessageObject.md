@@ -16,5 +16,5 @@ Name | Type | Description | Notes
 **assistant_id** | **String** | If applicable, the ID of the [assistant](/docs/api-reference/assistants) that authored this message. | 
 **run_id** | **String** | The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is &#x60;null&#x60; when messages are created manually using the create message or create thread endpoints. | 
 **attachments** | [**Array&lt;CreateMessageRequestAttachments&gt;**](CreateMessageRequestAttachments.md) | A list of files attached to the message, and the tools they were added to. | 
-**metadata** | **Object** | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.  | 
+**metadata** | [**Metadata**](Metadata.md) |  | 
 
